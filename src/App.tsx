@@ -23,6 +23,8 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [typewriterText, setTypewriterText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
+  const [isTyping, setIsTyping] = useState(false);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const fullText = 'Memecoin Scanner';
 
   useEffect(() => {
@@ -40,20 +42,48 @@ function App() {
       const startDelay = 1500; // Wait for other animations to start
       
       const typewriterTimer = setTimeout(() => {
+        setIsTyping(true);
+        const words = fullText.split(' ');
         let currentIndex = 0;
+        let currentWord = 0;
+        
+        // Faster initial typing with word-by-word reveal
         const typeInterval = setInterval(() => {
-          if (currentIndex <= fullText.length) {
-            setTypewriterText(fullText.slice(0, currentIndex));
+          if (currentWord < words.length) {
+            const wordsToShow = words.slice(0, currentWord + 1);
+            const currentWordText = wordsToShow[wordsToShow.length - 1];
+            const previousWords = wordsToShow.slice(0, -1).join(' ');
+            const currentProgress = currentIndex - (previousWords.length > 0 ? previousWords.length + 1 : 0);
+            
+            if (currentProgress <= currentWordText.length) {
+              const displayText = previousWords + 
+                (previousWords.length > 0 ? ' ' : '') + 
+                currentWordText.slice(0, currentProgress);
+              setTypewriterText(displayText);
+              setCurrentWordIndex(currentWord);
+            }
+            
             currentIndex++;
+            
+            // Move to next word when current word is complete
+            if (currentProgress > currentWordText.length) {
+              currentWord++;
+              // Add a pause between words
+              if (currentWord < words.length) {
+                setTimeout(() => {}, 150);
+              }
+            }
           } else {
+            setIsTyping(false);
             clearInterval(typeInterval);
-            // Start blinking cursor
+            
+            // Enhanced cursor blinking with glow effect
             const cursorInterval = setInterval(() => {
               setShowCursor(prev => !prev);
-            }, 530);
+            }, 600);
             return () => clearInterval(cursorInterval);
           }
-        }, 100);
+        }, 80); // Faster typing speed
         
         return () => clearInterval(typeInterval);
       }, startDelay);
@@ -63,8 +93,9 @@ function App() {
       // Reset when leaving home section
       setTypewriterText('');
       setShowCursor(true);
+      setIsTyping(false);
+      setCurrentWordIndex(0);
     }
-  }, [activeSection, isLoaded, fullText]);
 
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
@@ -273,9 +304,18 @@ function App() {
               }`}>
                 Advanced AI-Powered
                 <br />
-                <span className="text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text">
+                <span className="relative text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text">
                   {typewriterText}
-                  <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
+                  <span className={`inline-block ml-1 w-0.5 h-16 bg-gradient-to-b from-blue-400 to-blue-600 ${
+                    showCursor ? 'opacity-100' : 'opacity-0'
+                  } transition-all duration-200 ${
+                    isTyping ? 'animate-pulse' : ''
+                  } shadow-lg shadow-blue-500/50`}>
+                  </span>
+                  {/* Glow effect for active typing */}
+                  {isTyping && (
+                    <span className="absolute -inset-1 bg-gradient-to-r from-blue-400/20 via-blue-500/30 to-blue-600/20 blur-sm animate-pulse rounded-lg"></span>
+                  )}
                 </span>
                 <br />
                 for Solana
