@@ -315,7 +315,13 @@ function App() {
                   </span>
                   {/* Glow effect for active typing */}
                   {isTyping && (
-                    <span className="absolute -inset-1 bg-gradient-to-r from-blue-400/20 via-blue-500/30 to-blue-600/20 blur-sm animate-pulse rounded-lg"></span>
+                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/15 via-blue-500/25 to-blue-600/15 blur-xl rounded-2xl animate-pulse"></div>
+                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-400/20 via-blue-500/30 to-blue-600/20 blur-md rounded-xl animate-pulse"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-400/10 via-blue-500/15 to-blue-600/10 blur-sm rounded-lg"></div>
+                  )}
+                  {/* Subtle glow when typing is complete */}
+                  {!isTyping && typewriterText && (
+                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-400/8 via-blue-500/12 to-blue-600/8 blur-lg rounded-xl opacity-60"></div>
                   )}
                 </span>
                 <br />
