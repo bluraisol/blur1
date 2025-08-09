@@ -96,7 +96,7 @@ function App() {
       setIsTyping(false);
       setCurrentWordIndex(0);
     }
-  }, [activeSection, isLoaded]);
+  }, [activeSection, isLoaded, fullText]);
 
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
@@ -305,26 +305,9 @@ function App() {
               }`}>
                 Advanced AI-Powered
                 <br />
-                <span className="relative text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text">
+                <span className="text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text">
                   {typewriterText}
-                  <span className={`inline-block ml-1 w-0.5 h-16 bg-gradient-to-b from-blue-400 to-blue-600 ${
-                    showCursor ? 'opacity-100' : 'opacity-0'
-                  } transition-all duration-200 ${
-                    isTyping ? 'animate-pulse' : ''
-                  } shadow-lg shadow-blue-500/50`}>
-                  </span>
-                  {/* Glow effect for active typing */}
-                  {isTyping && (
-                    <>
-                      <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/15 via-blue-500/25 to-blue-600/15 blur-xl rounded-2xl animate-pulse"></div>
-                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-400/20 via-blue-500/30 to-blue-600/20 blur-md rounded-xl animate-pulse"></div>
-                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-400/10 via-blue-500/15 to-blue-600/10 blur-sm rounded-lg"></div>
-                    </>
-                  )}
-                  {/* Subtle glow when typing is complete */}
-                  {!isTyping && typewriterText && (
-                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-400/8 via-blue-500/12 to-blue-600/8 blur-lg rounded-xl opacity-60"></div>
-                  )}
+                  <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
                 </span>
                 <br />
                 for Solana
