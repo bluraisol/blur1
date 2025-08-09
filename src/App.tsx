@@ -320,12 +320,6 @@ function App() {
                     </span>
                   ))}
                 </span>
-                    <span className="absolute -inset-1 bg-gradient-to-r from-blue-400/20 via-blue-500/30 to-blue-600/20 blur-sm animate-pulse rounded-lg"></span>
-                  )}
-                </span>
-                <br />
-                for Solana
-              </h1>
               
               <p className={`text-xl text-neutral-400 max-w-3xl leading-relaxed font-light mb-12 transition-all duration-1000 delay-500 ${
                 activeSection === 'home' && isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
