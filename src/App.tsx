@@ -150,14 +150,13 @@ function App() {
       <header className="fixed top-0 w-full z-50 bg-neutral-950/90 backdrop-blur-xl border-b border-neutral-800/50">
         <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative">
           {/* Logo - Left Side */}
-          <div className="flex items-center space-x-4 min-w-[140px]">
+          <div className="flex items-center space-x-6 min-w-[200px]">
             <img 
               src="/public/logo2.png" 
               alt="Blur Logo" 
-              className="w-12 h-12 rounded-lg shadow-xl shadow-blue-500/40 object-cover ring-1 ring-blue-500/20"
+              className="w-16 h-16 rounded-lg shadow-xl shadow-blue-500/40 object-cover ring-1 ring-blue-500/20"
             />
             <span className="text-2xl font-bold tracking-tight text-neutral-100 drop-shadow-sm">Blur</span>
-            {/* <span className="text-2xl font-bold tracking-tight text-neutral-100 drop-shadow-sm">Blur</span> */}
           </div>
           
           {/* Centered Navigation Tabs */}
@@ -248,7 +247,7 @@ function App() {
           </div>
           
           {/* Right side spacer for balance */}
-          <div className="w-20"></div>
+          <div className="w-32"></div>
         </nav>
       </header>
 
@@ -496,13 +495,13 @@ function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 transition-all duration-1000 ease-out transform translate-y-0 opacity-100">
             <div className="md:col-span-2">
-              <div className="flex items-center space-x-3 mb-6">
+              <div className="flex items-center space-x-6 mb-6">
                 <img 
                   src="/public/logo2.png" 
                   alt="Blur Logo" 
-                  className="w-8 h-8 rounded-lg shadow-lg shadow-blue-500/25 object-cover"
+                  className="w-12 h-12 rounded-lg shadow-xl shadow-blue-500/40 object-cover ring-1 ring-blue-500/20"
                 />
-                <span className="text-xl font-medium tracking-tight">Blur</span>
+                <span className="text-2xl font-bold tracking-tight text-neutral-100 drop-shadow-sm">Blur</span>
               </div>
               <p className="text-neutral-400 max-w-md text-base font-light leading-relaxed">
                 Next-generation AI-powered memecoin scanner for the Solana ecosystem, 
