@@ -300,14 +300,28 @@ function App() {
                 <span>Next-Generation AI Technology</span>
               </div>
               
-              <h1 className={`text-6xl md:text-8xl font-light leading-none tracking-tighter mb-8 transition-all duration-1000 delay-300 ${
-                activeSection === 'home' && isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-              }`}>
-                Advanced AI-Powered
-                <br />
-                <span className="text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text">
-                  {typewriterText}
-                  <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
+                {/* Character-by-character glow effect */}
+                <span className="relative inline-block">
+                  {typewriterText.split('').map((char, index) => (
+                    <span 
+                      key={index}
+                      className="relative inline-block"
+                      style={{
+                        animation: isTyping && index === typewriterText.length - 1 
+                          ? 'charGlow 0.8s ease-out' 
+                          : 'none'
+                      }}
+                    >
+                      {/* Minimalistic glow behind current character */}
+                      {isTyping && index === typewriterText.length - 1 && (
+                        <span className="absolute inset-0 bg-blue-400/30 blur-sm rounded-sm animate-pulse"></span>
+                      )}
+                      <span className="relative z-10">{char === ' ' ? '\u00A0' : char}</span>
+                    </span>
+                  ))}
+                </span>
+                    <span className="absolute -inset-1 bg-gradient-to-r from-blue-400/20 via-blue-500/30 to-blue-600/20 blur-sm animate-pulse rounded-lg"></span>
+                  )}
                 </span>
                 <br />
                 for Solana
