@@ -23,8 +23,6 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [typewriterText, setTypewriterText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const [isTyping, setIsTyping] = useState(false);
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const fullText = 'Memecoin Scanner';
 
   useEffect(() => {
@@ -42,48 +40,20 @@ function App() {
       const startDelay = 1500; // Wait for other animations to start
       
       const typewriterTimer = setTimeout(() => {
-        setIsTyping(true);
-        const words = fullText.split(' ');
         let currentIndex = 0;
-        let currentWord = 0;
-        
-        // Faster initial typing with word-by-word reveal
         const typeInterval = setInterval(() => {
-          if (currentWord < words.length) {
-            const wordsToShow = words.slice(0, currentWord + 1);
-            const currentWordText = wordsToShow[wordsToShow.length - 1];
-            const previousWords = wordsToShow.slice(0, -1).join(' ');
-            const currentProgress = currentIndex - (previousWords.length > 0 ? previousWords.length + 1 : 0);
-            
-            if (currentProgress <= currentWordText.length) {
-              const displayText = previousWords + 
-                (previousWords.length > 0 ? ' ' : '') + 
-                currentWordText.slice(0, currentProgress);
-              setTypewriterText(displayText);
-              setCurrentWordIndex(currentWord);
-            }
-            
+          if (currentIndex <= fullText.length) {
+            setTypewriterText(fullText.slice(0, currentIndex));
             currentIndex++;
-            
-            // Move to next word when current word is complete
-            if (currentProgress > currentWordText.length) {
-              currentWord++;
-              // Add a pause between words
-              if (currentWord < words.length) {
-                setTimeout(() => {}, 150);
-              }
-            }
           } else {
-            setIsTyping(false);
             clearInterval(typeInterval);
-            
-            // Enhanced cursor blinking with glow effect
+            // Start blinking cursor
             const cursorInterval = setInterval(() => {
               setShowCursor(prev => !prev);
-            }, 600);
+            }, 530);
             return () => clearInterval(cursorInterval);
           }
-        }, 80); // Faster typing speed
+        }, 100);
         
         return () => clearInterval(typeInterval);
       }, startDelay);
@@ -93,8 +63,6 @@ function App() {
       // Reset when leaving home section
       setTypewriterText('');
       setShowCursor(true);
-      setIsTyping(false);
-      setCurrentWordIndex(0);
     }
   }, [activeSection, isLoaded, fullText]);
 
@@ -300,26 +268,18 @@ function App() {
                 <span>Next-Generation AI Technology</span>
               </div>
               
-                {/* Character-by-character glow effect */}
-                <span className="relative inline-block">
-                  {typewriterText.split('').map((char, index) => (
-                    <span 
-                      key={index}
-                      className="relative inline-block"
-                      style={{
-                        animation: isTyping && index === typewriterText.length - 1 
-                          ? 'charGlow 0.8s ease-out' 
-                          : 'none'
-                      }}
-                    >
-                      {/* Minimalistic glow behind current character */}
-                      {isTyping && index === typewriterText.length - 1 && (
-                        <span className="absolute inset-0 bg-blue-400/30 blur-sm rounded-sm animate-pulse"></span>
-                      )}
-                      <span className="relative z-10">{char === ' ' ? '\u00A0' : char}</span>
-                    </span>
-                  ))}
+              <h1 className={`text-6xl md:text-8xl font-light leading-none tracking-tighter mb-8 transition-all duration-1000 delay-300 ${
+                activeSection === 'home' && isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+              }`}>
+                Advanced AI-Powered
+                <br />
+                <span className="text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text">
+                  {typewriterText}
+                  <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
                 </span>
+                <br />
+                for Solana
+              </h1>
               
               <p className={`text-xl text-neutral-400 max-w-3xl leading-relaxed font-light mb-12 transition-all duration-1000 delay-500 ${
                 activeSection === 'home' && isLoaded ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
