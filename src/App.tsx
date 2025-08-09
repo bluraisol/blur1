@@ -23,7 +23,6 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [typewriterText, setTypewriterText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const [currentLetterIndex, setCurrentLetterIndex] = useState(-1);
   const fullText = 'Memecoin Scanner';
 
   useEffect(() => {
@@ -45,18 +44,16 @@ function App() {
         const typeInterval = setInterval(() => {
           if (currentIndex <= fullText.length) {
             setTypewriterText(fullText.slice(0, currentIndex));
-            setCurrentLetterIndex(currentIndex - 1);
             currentIndex++;
           } else {
             clearInterval(typeInterval);
-            setCurrentLetterIndex(-1);
             // Start blinking cursor
             const cursorInterval = setInterval(() => {
               setShowCursor(prev => !prev);
             }, 530);
             return () => clearInterval(cursorInterval);
           }
-        }, 80);
+        }, 100);
         
         return () => clearInterval(typeInterval);
       }, startDelay);
@@ -65,7 +62,6 @@ function App() {
     } else {
       // Reset when leaving home section
       setTypewriterText('');
-      setCurrentLetterIndex(-1);
       setShowCursor(true);
     }
   }, [activeSection, isLoaded, fullText]);
@@ -278,18 +274,7 @@ function App() {
                 Advanced AI-Powered
                 <br />
                 <span className="text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text">
-                  {typewriterText.split('').map((char, index) => (
-                    <span
-                      key={index}
-                      className={`relative inline-block transition-all duration-300 ${
-                        index === currentLetterIndex 
-                          ? 'drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]' 
-                          : ''
-                      }`}
-                    >
-                      {char === ' ' ? '\u00A0' : char}
-                    </span>
-                  ))}
+                  {typewriterText}
                   <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
                 </span>
                 <br />
