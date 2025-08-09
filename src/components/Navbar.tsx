@@ -137,7 +137,7 @@ export default function Navbar({ mousePosition }: NavbarProps) {
                   activeSection === 'contact' ? 'text-blue-400' : 'group-hover:text-blue-400'
                 }`} />
                 <span>Contact</span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
