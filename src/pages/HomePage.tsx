@@ -129,7 +129,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                 <br />
                 <span className="text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text">
                   {typewriterText}
-                  <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
+                  <span className={`text-4xl ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
                 </span>
                 <br />
                 for Solana
