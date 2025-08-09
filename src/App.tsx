@@ -117,11 +117,11 @@ function App() {
           {/* Logo - Left Side */}
           <div className="flex items-center space-x-3">
             <img 
-              src="/public/logo.png" 
+              src="/public/logo2.png" 
               alt="Blur Logo" 
               className="w-10 h-10 rounded-lg shadow-lg shadow-blue-500/25 object-cover"
             />
-            <span className="text-2xl font-bold tracking-tight text-neutral-100 drop-shadow-sm">Blur</span>
+            {/* <span className="text-2xl font-bold tracking-tight text-neutral-100 drop-shadow-sm">Blur</span> */}
           </div>
           
           {/* Centered Navigation Tabs */}
@@ -459,7 +459,7 @@ function App() {
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
                 <img 
-                  src="/public/logo.png" 
+                  src="/public/logo2.png" 
                   alt="Blur Logo" 
                   className="w-8 h-8 rounded-lg shadow-lg shadow-blue-500/25 object-cover"
                 />
@@ -477,7 +477,7 @@ function App() {
                 <li><a href="#" className="hover:text-neutral-300 transition-colors duration-200 text-sm">Scanner</a></li>
                 <li><a href="#" className="hover:text-neutral-300 transition-colors duration-200 text-sm">Analytics</a></li>
                 <li><a href="#" className="hover:text-neutral-300 transition-colors duration-200 text-sm">API Access</a></li>
-                <li><a href="#" className="hover:text-neutral-300 transition-colors duration-200 text-sm">Documentation</a></li>
+                <li><a href="https://whitepaper.blur.ceo" className="hover:text-neutral-300 transition-colors duration-200 text-sm">Documentation</a></li>
               </ul>
             </div>
             
