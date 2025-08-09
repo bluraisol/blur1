@@ -21,6 +21,9 @@ function App() {
   const [isScrolling, setIsScrolling] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
+  const [typewriterText, setTypewriterText] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
+  const fullText = 'Memecoin Scanner';
 
   useEffect(() => {
     // Trigger animations after component mounts
@@ -30,6 +33,38 @@ function App() {
     
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (activeSection === 'home' && isLoaded) {
+      // Start typewriter effect after initial animations
+      const startDelay = 1500; // Wait for other animations to start
+      
+      const typewriterTimer = setTimeout(() => {
+        let currentIndex = 0;
+        const typeInterval = setInterval(() => {
+          if (currentIndex <= fullText.length) {
+            setTypewriterText(fullText.slice(0, currentIndex));
+            currentIndex++;
+          } else {
+            clearInterval(typeInterval);
+            // Start blinking cursor
+            const cursorInterval = setInterval(() => {
+              setShowCursor(prev => !prev);
+            }, 530);
+            return () => clearInterval(cursorInterval);
+          }
+        }, 100);
+        
+        return () => clearInterval(typeInterval);
+      }, startDelay);
+      
+      return () => clearTimeout(typewriterTimer);
+    } else {
+      // Reset when leaving home section
+      setTypewriterText('');
+      setShowCursor(true);
+    }
+  }, [activeSection, isLoaded, fullText]);
 
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
@@ -115,12 +150,13 @@ function App() {
       <header className="fixed top-0 w-full z-50 bg-neutral-950/90 backdrop-blur-xl border-b border-neutral-800/50">
         <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative">
           {/* Logo - Left Side */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-4 min-w-[140px]">
             <img 
               src="/public/logo2.png" 
               alt="Blur Logo" 
-              className="w-10 h-10 rounded-lg shadow-lg shadow-blue-500/25 object-cover"
+              className="w-12 h-12 rounded-lg shadow-xl shadow-blue-500/40 object-cover ring-1 ring-blue-500/20"
             />
+            <span className="text-2xl font-bold tracking-tight text-neutral-100 drop-shadow-sm">Blur</span>
             {/* <span className="text-2xl font-bold tracking-tight text-neutral-100 drop-shadow-sm">Blur</span> */}
           </div>
           
@@ -237,7 +273,10 @@ function App() {
               }`}>
                 Advanced AI-Powered
                 <br />
-                <span className="text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text animate-pulse">Memecoin Scanner</span>
+                <span className="text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text">
+                  {typewriterText}
+                  <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
+                </span>
                 <br />
                 for Solana
               </h1>
