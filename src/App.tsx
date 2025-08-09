@@ -31,6 +31,7 @@ function App() {
         />
         
         <Navbar mousePosition={mousePosition} />
+        <Navbar mousePosition={mousePosition} activeSection={activeSection} />
         
         <Routes>
           <Route 

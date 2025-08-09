@@ -4,19 +4,15 @@ import { Home, BarChart3, Info, Phone, DollarSign } from 'lucide-react';
 
 interface NavbarProps {
   mousePosition: { x: number; y: number };
+  activeSection: string;
 }
 
-export default function Navbar({ mousePosition }: NavbarProps) {
+export default function Navbar({ mousePosition, activeSection }: NavbarProps) {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const getActiveSection = () => {
-    if (currentPath === '/pricing') return 'pricing';
-    // For home page, we'll need to pass this from parent
-    return 'home';
-  };
-
-  const activeSection = getActiveSection();
+  // Override activeSection for pricing page
+  const currentActiveSection = currentPath === '/pricing' ? 'pricing' : activeSection;
 
   return (
     <header className="fixed top-0 w-full z-50 bg-neutral-950/90 backdrop-blur-xl border-b border-neutral-800/50">
@@ -48,10 +44,10 @@ export default function Navbar({ mousePosition }: NavbarProps) {
             {/* Animated active indicator */}
             <div 
               className={`absolute h-14 bg-gradient-to-r from-blue-500/20 via-blue-400/30 to-blue-500/20 rounded-full border border-blue-400/30 shadow-lg shadow-blue-500/20 backdrop-blur-sm transition-all duration-500 ease-out transform ${
-                activeSection === 'home' ? 'translate-x-0 w-1/5' :
-                activeSection === 'metrics' ? 'translate-x-full w-1/5' :
-                activeSection === 'about' ? 'translate-x-[200%] w-1/5' :
-                activeSection === 'pricing' ? 'translate-x-[300%] w-1/5' :
+                currentActiveSection === 'home' ? 'translate-x-0 w-1/5' :
+                currentActiveSection === 'metrics' ? 'translate-x-full w-1/5' :
+                currentActiveSection === 'about' ? 'translate-x-[200%] w-1/5' :
+                currentActiveSection === 'pricing' ? 'translate-x-[300%] w-1/5' :
                 'translate-x-[400%] w-1/5'
               }`}
             />
@@ -59,10 +55,10 @@ export default function Navbar({ mousePosition }: NavbarProps) {
             {/* Pulsing glow effect */}
             <div 
               className={`absolute h-14 bg-blue-400/10 rounded-full transition-all duration-500 ease-out animate-pulse ${
-                activeSection === 'home' ? 'translate-x-0 w-1/5' :
-                activeSection === 'metrics' ? 'translate-x-full w-1/5' :
-                activeSection === 'about' ? 'translate-x-[200%] w-1/5' :
-                activeSection === 'pricing' ? 'translate-x-[300%] w-1/5' :
+                currentActiveSection === 'home' ? 'translate-x-0 w-1/5' :
+                currentActiveSection === 'metrics' ? 'translate-x-full w-1/5' :
+                currentActiveSection === 'about' ? 'translate-x-[200%] w-1/5' :
+                currentActiveSection === 'pricing' ? 'translate-x-[300%] w-1/5' :
                 'translate-x-[400%] w-1/5'
               }`}
             />
@@ -72,13 +68,13 @@ export default function Navbar({ mousePosition }: NavbarProps) {
               <Link 
                 to="/"
                 className={`flex-1 flex items-center justify-center space-x-3 py-4 px-6 text-base font-medium transition-all duration-300 ease-out cursor-pointer group ${
-                  activeSection === 'home' 
+                  currentActiveSection === 'home' 
                     ? 'text-white drop-shadow-sm transform scale-105' 
                     : 'text-neutral-400 hover:text-neutral-200 hover:scale-105'
                 }`}
               >
                 <Home className={`w-5 h-5 transition-all duration-300 ${
-                  activeSection === 'home' ? 'text-blue-400' : 'group-hover:text-blue-400'
+                  currentActiveSection === 'home' ? 'text-blue-400' : 'group-hover:text-blue-400'
                 }`} />
                 <span>Home</span>
               </Link>
@@ -86,13 +82,13 @@ export default function Navbar({ mousePosition }: NavbarProps) {
               <a 
                 href="/#metrics"
                 className={`flex-1 flex items-center justify-center space-x-3 py-4 px-6 text-base font-medium transition-all duration-300 ease-out cursor-pointer group ${
-                  activeSection === 'metrics' 
+                  currentActiveSection === 'metrics' 
                     ? 'text-white drop-shadow-sm transform scale-105' 
                     : 'text-neutral-400 hover:text-neutral-200 hover:scale-105'
                 }`}
               >
                 <BarChart3 className={`w-5 h-5 transition-all duration-300 ${
-                  activeSection === 'metrics' ? 'text-blue-400' : 'group-hover:text-blue-400'
+                  currentActiveSection === 'metrics' ? 'text-blue-400' : 'group-hover:text-blue-400'
                 }`} />
                 <span>Metrics</span>
               </a>
@@ -100,13 +96,13 @@ export default function Navbar({ mousePosition }: NavbarProps) {
               <a 
                 href="/#about"
                 className={`flex-1 flex items-center justify-center space-x-3 py-4 px-6 text-base font-medium transition-all duration-300 ease-out cursor-pointer group ${
-                  activeSection === 'about' 
+                  currentActiveSection === 'about' 
                     ? 'text-white drop-shadow-sm transform scale-105' 
                     : 'text-neutral-400 hover:text-neutral-200 hover:scale-105'
                 }`}
               >
                 <Info className={`w-5 h-5 transition-all duration-300 ${
-                  activeSection === 'about' ? 'text-blue-400' : 'group-hover:text-blue-400'
+                  currentActiveSection === 'about' ? 'text-blue-400' : 'group-hover:text-blue-400'
                 }`} />
                 <span>About</span>
               </a>
@@ -114,13 +110,13 @@ export default function Navbar({ mousePosition }: NavbarProps) {
               <Link 
                 to="/pricing"
                 className={`flex-1 flex items-center justify-center space-x-3 py-4 px-6 text-base font-medium transition-all duration-300 ease-out cursor-pointer group ${
-                  activeSection === 'pricing' 
+                  currentActiveSection === 'pricing' 
                     ? 'text-white drop-shadow-sm transform scale-105' 
                     : 'text-neutral-400 hover:text-neutral-200 hover:scale-105'
                 }`}
               >
                 <DollarSign className={`w-5 h-5 transition-all duration-300 ${
-                  activeSection === 'pricing' ? 'text-blue-400' : 'group-hover:text-blue-400'
+                  currentActiveSection === 'pricing' ? 'text-blue-400' : 'group-hover:text-blue-400'
                 }`} />
                 <span>Pricing</span>
               </Link>
@@ -128,13 +124,13 @@ export default function Navbar({ mousePosition }: NavbarProps) {
               <a 
                 href="/#contact"
                 className={`flex-1 flex items-center justify-center space-x-3 py-4 px-6 text-base font-medium transition-all duration-300 ease-out cursor-pointer group ${
-                  activeSection === 'contact' 
+                  currentActiveSection === 'contact' 
                     ? 'text-white drop-shadow-sm transform scale-105' 
                     : 'text-neutral-400 hover:text-neutral-200 hover:scale-105'
                 }`}
               >
                 <Phone className={`w-5 h-5 transition-all duration-300 ${
-                  activeSection === 'contact' ? 'text-blue-400' : 'group-hover:text-blue-400'
+                  currentActiveSection === 'contact' ? 'text-blue-400' : 'group-hover:text-blue-400'
                 }`} />
                 <span>Contact</span>
               </a>
