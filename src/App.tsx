@@ -96,6 +96,7 @@ function App() {
       setIsTyping(false);
       setCurrentWordIndex(0);
     }
+  }, [activeSection, isLoaded]);
 
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
