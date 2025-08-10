@@ -401,6 +401,101 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
               ))}
             </div>
           </div>
+          
+          {/* Process Flow Section */}
+          <div className={`mt-32 transition-all duration-1000 ease-out ${
+            activeSection === 'about' ? 'transform translate-y-0 opacity-100' : 'transform translate-y-8 opacity-60'
+          }`}>
+            <div className="text-center mb-16">
+              <div className="flex items-center justify-center space-x-2 text-xs text-neutral-500 uppercase tracking-wider mb-6">
+                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse shadow-lg shadow-blue-500/50"></div>
+                <span>Process Flow</span>
+              </div>
+              
+              <h3 className="text-4xl md:text-5xl font-light tracking-tighter mb-6">
+                How <span className="text-transparent bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text">Blur Works</span>
+              </h3>
+              
+              <p className="text-lg text-neutral-400 max-w-3xl mx-auto leading-relaxed font-light">
+                How Blur's AI engine identifies and alerts you to profitable memecoin opportunities
+              </p>
+            </div>
+            
+            {/* Process Flow Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                {
+                  step: "1",
+                  title: "Detection",
+                  description: "Blur AI scans all new pairs (4-5 thousands every hour) and receives information about them directly from the Solana blockchain to speed up all processes as much as possible",
+                  icon: "🔍",
+                  color: "from-blue-500 to-blue-600"
+                },
+                {
+                  step: "2", 
+                  title: "Analysis",
+                  description: "Blur Validation AI collects all information from DEXs, Solscan, and Twitter, analyzes it using Blur Success Ratio AI, Blur Traffic AI, and Blur Smart Trader AI, checks the security of the coin, and sends the data to Blur Distributor AI",
+                  icon: "🧠",
+                  color: "from-purple-500 to-purple-600"
+                },
+                {
+                  step: "3",
+                  title: "Alert", 
+                  description: "Instant notifications (0.3 seconds) sent to Blur Bot in Telegram with detailed information about the coin",
+                  icon: "⚡",
+                  color: "from-green-500 to-green-600"
+                },
+                {
+                  step: "4",
+                  title: "Results",
+                  description: "Every Blur movement is recorded behind the scenes, statistics and token success rates are sent to the dashboard and immediately forwarded to the Blur Team for further AI training. Blur evolves with every call",
+                  icon: "📊",
+                  color: "from-orange-500 to-orange-600"
+                }
+              ].map((process, index) => (
+                <div
+                  key={index}
+                  className={`group relative bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 hover:border-blue-500/30 p-8 rounded-2xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10 ${
+                    activeSection === 'about' ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+                  }`}
+                  style={{
+                    transitionDelay: activeSection === 'about' ? `${1200 + index * 200}ms` : '0ms'
+                  }}
+                >
+                  {/* Step Number Badge */}
+                  <div className={`absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r ${process.color} rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    {process.step}
+                  </div>
+                  
+                  {/* Icon */}
+                  <div className="text-4xl mb-6 text-center group-hover:scale-110 transition-transform duration-300">
+                    {process.icon}
+                  </div>
+                  
+                  {/* Title */}
+                  <h4 className="text-xl font-semibold text-neutral-100 mb-4 text-center group-hover:text-white transition-colors duration-200 uppercase tracking-wider">
+                    {process.title}
+                  </h4>
+                  
+                  {/* Description */}
+                  <p className="text-neutral-400 text-sm leading-relaxed text-center group-hover:text-neutral-300 transition-colors duration-200">
+                    {process.description}
+                  </p>
+                  
+                  {/* Connecting Arrow (except for last card) */}
+                  {index < 3 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                      <div className="w-8 h-px bg-gradient-to-r from-blue-400/50 to-transparent"></div>
+                      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-blue-400/50 rounded-full"></div>
+                    </div>
+                  )}
+                  
+                  {/* Hover Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </div>
