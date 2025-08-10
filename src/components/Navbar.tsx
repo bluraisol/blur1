@@ -43,6 +43,9 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
     
     if (item.type === 'route') {
       navigate(item.path);
+      if (item.id === 'home') {
+        setActiveItem('home');
+      }
     } else {
       // Якорная ссылка
       if (location.pathname !== '/') {
@@ -119,7 +122,7 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                       isActive 
                         ? 'text-white' 
                         : 'text-neutral-400 hover:text-neutral-200'
-                    }`}
+                    } focus:outline-none`}
                     style={{ minWidth: `${100 / navigationItems.length}%` }}
                   >
                     <IconComponent className={`w-4 h-4 transition-all duration-300 ${
@@ -165,7 +168,7 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                     isActive 
                       ? 'text-white bg-blue-500/10 border border-blue-500/20' 
                       : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30'
-                  }`}
+                  } focus:outline-none`}
                 >
                   <IconComponent className={`w-5 h-5 transition-all duration-200 ${
                     isActive ? 'text-blue-400' : 'group-hover:text-blue-400'
