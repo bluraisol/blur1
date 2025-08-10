@@ -197,7 +197,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
     {
       step: "3",
       title: "Alert", 
-      description: "Instant notifications (0.3 seconds) sent to Blur Bot in Telegram with detailed information about the coin"
+      description: "Instant notifications (0.3 seconds) sent to Blur Bot in Telegram with detailed information about the coin",
       borderGradient: "from-blue-500 to-blue-600"
     },
     {
