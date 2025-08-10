@@ -185,7 +185,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
     {
       step: "1",
       title: "Detection",
-      description: "Blur AI scans all new pairs (4-5 thousands every hour) and receives information about them directly from the Solana blockchain to speed up all processes as much as possible"
+      description: "Blur AI scans all new pairs (4-5 thousands every hour) and receives information about them directly from the Solana blockchain to speed up all processes as much as possible",
       borderGradient: "from-blue-500 to-blue-600"
     },
     {
