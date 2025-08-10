@@ -22,6 +22,10 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentActive, setCurrentActive] = useState('home');
 
+  const setActiveItem = (itemId: string) => {
+    setCurrentActive(itemId);
+  };
+
   // Определяем активную вкладку
   useEffect(() => {
     const path = location.pathname;
@@ -123,7 +127,7 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item)}
-                    className="relative z-10 flex items-center justify-center space-x-2 py-3 px-3 text-sm font-medium transition-all duration-300 cursor-pointer group bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                    className={`relative z-10 flex items-center justify-center space-x-2 py-3 px-3 text-sm font-medium transition-all duration-300 cursor-pointer group bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none active:outline-none ${
                       isActive 
                         ? 'text-white' 
                         : 'text-neutral-400 hover:text-neutral-200'
@@ -169,7 +173,7 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item)}
-                  className="w-full flex items-center space-x-3 py-3 px-4 text-sm font-medium transition-all duration-200 cursor-pointer group bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none active:outline-none rounded-lg"
+                  className={`w-full flex items-center space-x-3 py-3 px-4 text-sm font-medium transition-all duration-200 cursor-pointer group bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none active:outline-none rounded-lg ${
                     isActive 
                       ? 'text-white bg-blue-500/10 border border-blue-500/20' 
                       : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30'
