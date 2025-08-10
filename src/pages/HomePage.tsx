@@ -376,7 +376,9 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
               ].map((ai, index) => (
                 <div key={index} className={`group bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 hover:border-blue-500/30 p-6 rounded-xl backdrop-blur-sm transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10 ${
                   activeSection === 'about' ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-                }`}>
+                }`} style={{
+                  transitionDelay: activeSection === 'about' ? `${index * 150}ms` : '0ms'
+                }}>
                   <div className="flex items-center justify-between mb-2">
                     <div className="text-2xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors duration-300">{ai.percentage}</div>
                   </div>
