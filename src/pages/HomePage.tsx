@@ -185,34 +185,22 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
     {
       step: "1",
       title: "Detection",
-      emoji: "🔍",
       description: "Blur AI scans all new pairs (4-5 thousands every hour) and receives information about them directly from the Solana blockchain to speed up all processes as much as possible",
-      gradient: "from-blue-500/20 to-blue-600/10",
-      borderGradient: "from-blue-400/30 to-blue-500/20"
     },
     {
       step: "2", 
       title: "Analysis",
-      emoji: "🧠",
       description: "Blur Validation AI collects all information from DEXs, Solscan, and Twitter, analyzes it using Blur Success Ratio AI, Blur Traffic AI, and Blur Smart Trader AI, checks the security of the coin, and sends the data to Blur Distributor AI",
-      gradient: "from-purple-500/20 to-purple-600/10",
-      borderGradient: "from-purple-400/30 to-purple-500/20"
     },
     {
       step: "3",
       title: "Alert", 
-      emoji: "⚡",
       description: "Instant notifications (0.3 seconds) sent to Blur Bot in Telegram with detailed information about the coin",
-      gradient: "from-green-500/20 to-green-600/10",
-      borderGradient: "from-green-400/30 to-green-500/20"
     },
     {
       step: "4",
       title: "Results",
-      emoji: "📊", 
       description: "Every Blur movement is recorded behind the scenes, statistics and token success rates are sent to the dashboard and immediately forwarded to the Blur Team for further AI training. Blur evolves with every call",
-      gradient: "from-orange-500/20 to-orange-600/10",
-      borderGradient: "from-orange-400/30 to-orange-500/20"
     }
   ], []);
 
@@ -415,9 +403,9 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                   <div className="font-medium text-neutral-100 text-sm mb-3 uppercase tracking-wider group-hover:text-white transition-colors duration-200">{ai.name}</div>
                   
                   {/* Progress Bar */}
-                  <div className="mb-3">
+                  <div className="absolute -top-4 -left-4 w-10 h-10 bg-gradient-to-r from-neutral-700/50 to-neutral-600/30 rounded-full flex items-center justify-center z-10 shadow-lg border border-neutral-700/50">
                     <div className="w-full bg-neutral-800/50 rounded-full h-2">
-                      <div className="h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full group-hover:from-blue-400 group-hover:to-blue-300 transition-colors duration-200" style={{ width: ai.percentage }} />
+                      <span className="text-sm font-bold text-neutral-300">{step.step}</span>
                     </div>
                   </div>
                   
@@ -458,16 +446,9 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                     {/* Connecting Arrow (Desktop only) */}
                     {index < 3 && (
                       <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                        <div className="w-8 h-px bg-gradient-to-r from-neutral-600 to-transparent"></div>
-                        <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 border-r border-t border-neutral-600 rotate-45"></div>
-                      </div>
+                  <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 group-hover:border-neutral-700/50 p-6 rounded-xl backdrop-blur-sm transition-all duration-200 h-full">
                     )}
                     
-                    {/* Card */}
-                    <div className={`bg-gradient-to-br ${step.gradient} border border-neutral-800/50 group-hover:border-opacity-50 p-6 rounded-xl backdrop-blur-sm transition-all duration-200 h-full relative overflow-hidden`}>
-                      {/* Hover Glow Effect */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-xl`}></div>
-                      
                       <div className="relative z-10">
                         {/* Emoji Icon */}
                         <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-200">
