@@ -105,6 +105,14 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
     }
   }, [setActiveSection]);
 
+  const handleLaunchScanner = useCallback(() => {
+    window.open('https://t.me/BlurCryptoBot', '_blank');
+  }, []);
+
+  const handleLearnMore = useCallback(() => {
+    handleNavClick('metrics');
+  }, [handleNavClick]);
+
   // Memoized data arrays
   const metricsData = useMemo(() => [
     {
@@ -250,10 +258,16 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
             <div className={`flex items-center space-x-6 transition-opacity duration-700 ${
               activeSection === 'home' && isLoaded ? 'opacity-100' : 'opacity-0'
             }`}>
-              <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-200 rounded-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105">
+              <button 
+                onClick={handleLaunchScanner}
+                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-200 rounded-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105"
+              >
                 Launch Scanner
               </button>
-              <button className="border border-neutral-700 hover:border-blue-500/50 text-neutral-300 hover:text-white px-8 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-200 rounded-lg hover:bg-blue-500/5 hover:scale-105">
+              <button 
+                onClick={handleLearnMore}
+                className="border border-neutral-700 hover:border-blue-500/50 text-neutral-300 hover:text-white px-8 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-200 rounded-lg hover:bg-blue-500/5 hover:scale-105"
+              >
                 Learn More
               </button>
             </div>
