@@ -254,41 +254,71 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
               </h2>
               
               <p className="text-lg text-neutral-400 mb-10 leading-relaxed font-light">
-                Our team has developed nine specialized AI systems that work in harmony to analyze 
-                and scan memecoin data across the Solana ecosystem. Each AI is trained on unique 
-                datasets and optimized for specific detection patterns.
+                Nine specialized AI models, each optimized for different aspects of memecoin analysis. 
+                All Blur AI systems operate in parallel, allowing the entire evaluation process to be 
+                completed in under one second.
               </p>
               
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-neutral-800/50 to-neutral-700/30 border border-neutral-700/50 flex items-center justify-center rounded-lg">
-                    <Zap className="w-5 h-5 text-neutral-400" />
+              <div className="space-y-4">
+                {[
+                  {
+                    percentage: "100%",
+                    name: "BLUR TWITTER (X) SCANNING AI",
+                    description: "Processes up to 100,000 posts per second to detect coin contract addresses shared by top influencers. Also scans high-performing tweets, analyzing engagement metrics and author verification credibility"
+                  },
+                  {
+                    percentage: "91.8%",
+                    name: "BLUR DEX SCANNING AI", 
+                    description: "Analyzes up to 30,000 coins per second, identifies coin metrics: liquidity, market capitalization, trading volume, percentage of holdings by the top 10 holders"
+                  },
+                  {
+                    percentage: "65.1%",
+                    name: "BLUR SUCCESS RATIO AI",
+                    description: "Calculates the success ratio of individual coins by evaluating traffic trends and overall popularity"
+                  },
+                  {
+                    percentage: "95.7%",
+                    name: "BLUR SOLSCAN AI",
+                    description: "Process up to 30,000 coins per second, performs in-depth analysis of all smart contracts associated with tokens minted on the Wrapped Solana blockchain"
+                  },
+                  {
+                    percentage: "87.2%",
+                    name: "BLUR VALIDATION AI",
+                    description: "Serves as the final verification layer before a coin is sent to the Blur Bot on Telegram. It compiles data from all Blur AIs and outputs coins that meet all criteria"
+                  },
+                  {
+                    percentage: "98.4%",
+                    name: "BLUR TOKEN DISTRIBUTION AI",
+                    description: "Identifies Insiders, KOL/VC, Smart Holders, Whales, Phishing wallets in coins"
+                  },
+                  {
+                    percentage: "100%",
+                    name: "BLUR SMART HOLDER AI",
+                    description: "Identifies Smart Holders in coins"
+                  },
+                  {
+                    percentage: "64.4%",
+                    name: "BLUR PHISHING AI",
+                    description: "Identifies wallets that have been associated with fraudulent coins or rugpulls"
+                  },
+                  {
+                    percentage: "70.4%",
+                    name: "BLUR RUG CHECK AI",
+                    description: "Rates Rugpull probability"
+                  }
+                ].map((ai, index) => (
+                  <div key={index} className="bg-gradient-to-br from-neutral-900/30 to-neutral-800/20 border border-neutral-800/30 p-4 rounded-lg backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300">
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0">
+                        <div className="text-2xl font-bold text-blue-400 mb-1">{ai.percentage}</div>
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-neutral-100 text-sm mb-2 uppercase tracking-wider">{ai.name}</div>
+                        <div className="text-neutral-400 text-sm leading-relaxed">{ai.description}</div>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-medium text-neutral-100 text-base">Lightning Fast</div>
-                    <div className="text-neutral-500 text-sm">Real-time scanning and analysis</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-neutral-800/50 to-neutral-700/30 border border-neutral-700/50 flex items-center justify-center rounded-lg">
-                    <Brain className="w-5 h-5 text-neutral-400" />
-                  </div>
-                  <div>
-                    <div className="font-medium text-neutral-100 text-base">AI-Powered</div>
-                    <div className="text-neutral-500 text-sm">Nine custom machine learning models</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-neutral-800/50 to-neutral-700/30 border border-neutral-700/50 flex items-center justify-center rounded-lg">
-                    <BarChart3 className="w-5 h-5 text-neutral-400" />
-                  </div>
-                  <div>
-                    <div className="font-medium text-neutral-100 text-base">Data-Driven</div>
-                    <div className="text-neutral-500 text-sm">Hundreds of thousands of memecoin data points</div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
             
