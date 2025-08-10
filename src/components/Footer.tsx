@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center space-x-6 mb-6">
               <img 
-                src="/logo.png" 
+                src="/logo2.png" 
                 alt="Blur Logo" 
                 className="w-12 h-12 rounded-lg shadow-xl shadow-blue-500/40 object-cover ring-1 ring-blue-500/20"
               />
