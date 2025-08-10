@@ -5,7 +5,7 @@ export default function TokenomicsPage() {
   const tokenAllocation = [
     { category: 'Public', percentage: '40%', tokens: '400M', color: 'from-blue-500 to-blue-600' },
     { category: 'DEX Liquidity', percentage: '10%', tokens: '100M', color: 'from-purple-500 to-purple-600' },
-    { category: 'Ecosystem Incentives', percentage: '10.5%', tokens: '105M', color: 'from-green-500 to-green-600' },
+    { category: 'Airdrop', percentage: '10.5%', tokens: '105M', color: 'from-green-500 to-green-600' },
     { category: 'Marketing', percentage: '9.5%', tokens: '95M', color: 'from-orange-500 to-orange-600' },
     { category: 'Research & Development', percentage: '7.5%', tokens: '75M', color: 'from-cyan-500 to-cyan-600' },
     { category: 'Team', percentage: '6%', tokens: '60M', color: 'from-red-500 to-red-600' },
@@ -17,7 +17,7 @@ export default function TokenomicsPage() {
   const vestingSchedule = [
     { who: 'Public', tokens: '400M (40%)', cliff: '-', vesting: '-', status: 'immediate' },
     { who: 'DEX Liquidity', tokens: '100M (10%)', cliff: 'Locked (24m)', vesting: 'Locked (24m)', status: 'locked' },
-    { who: 'Ecosystem Incentives', tokens: '105M (10.5%)', cliff: '-', vesting: '12m', status: 'vesting' },
+    { who: 'Airdrop', tokens: '105M (10.5%)', cliff: '-', vesting: '-', status: 'immediate' },
     { who: 'Marketing', tokens: '95M (9.5%)', cliff: '-', vesting: '12m', status: 'vesting' },
     { who: 'Research & Development', tokens: '75M (7.5%)', cliff: '1m', vesting: '12m', status: 'vesting' },
     { who: 'Team', tokens: '60M (6%)', cliff: '6m', vesting: '36m', status: 'vesting' },
@@ -32,8 +32,6 @@ export default function TokenomicsPage() {
         {/* Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center space-x-2 text-xs text-neutral-500 uppercase tracking-wider mb-6">
-            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse shadow-lg shadow-blue-500/50"></div>
-            <span>Token Economics</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-light leading-none tracking-tighter mb-8">
@@ -41,7 +39,7 @@ export default function TokenomicsPage() {
           </h1>
           
           <p className="text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed font-light">
-            Comprehensive breakdown of Blur token distribution, allocation strategy, 
+            Comprehensive breakdown of $BLUR distribution, allocation strategy, 
             and vesting schedules designed for long-term ecosystem growth.
           </p>
         </div>
@@ -172,48 +170,6 @@ export default function TokenomicsPage() {
                 </tbody>
               </table>
             </div>
-          </div>
-        </div>
-
-        {/* Summary Cards */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-200 hover:scale-105 group">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                <PieChart className="w-5 h-5 text-blue-400" />
-              </div>
-              <h3 className="text-lg font-medium text-neutral-100 group-hover:text-white transition-colors duration-200">
-                Total Supply
-              </h3>
-            </div>
-            <div className="text-3xl font-light text-blue-400 mb-2">1,000M</div>
-            <div className="text-sm text-neutral-400">Fixed supply with no inflation</div>
-          </div>
-
-          <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm hover:border-green-500/30 transition-all duration-200 hover:scale-105 group">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              </div>
-              <h3 className="text-lg font-medium text-neutral-100 group-hover:text-white transition-colors duration-200">
-                Circulating at Launch
-              </h3>
-            </div>
-            <div className="text-3xl font-light text-green-400 mb-2">460M</div>
-            <div className="text-sm text-neutral-400">46% of total supply</div>
-          </div>
-
-          <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-200 hover:scale-105 group">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                <Lock className="w-5 h-5 text-purple-400" />
-              </div>
-              <h3 className="text-lg font-medium text-neutral-100 group-hover:text-white transition-colors duration-200">
-                Locked/Vesting
-              </h3>
-            </div>
-            <div className="text-3xl font-light text-purple-400 mb-2">540M</div>
-            <div className="text-sm text-neutral-400">54% locked or vesting</div>
           </div>
         </div>
       </div>

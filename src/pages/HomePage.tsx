@@ -118,25 +118,25 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
     {
       icon: Scan,
       label: "Coins Detected",
-      value: "847,562",
+      value: "11 928",
       change: "+12.5% today"
     },
     {
       icon: TrendingUp,
       label: "Total Return", 
-      value: "2,847%",
+      value: "34 591x",
       change: "+8.3% today"
     },
     {
       icon: BarChart3,
       label: "Average Return",
-      value: "156%", 
+      value: "2.9x", 
       change: "+15.7% today"
     },
     {
       icon: Target,
       label: "Average Hit Rate",
-      value: "87%",
+      value: "61.2%",
       change: "+3.2% today"
     }
   ], []);
@@ -230,18 +230,16 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
               <div className={`inline-flex items-center space-x-2 text-xs text-neutral-500 uppercase tracking-wider mb-6 transition-opacity duration-500 ${
                 activeSection === 'home' && isLoaded ? 'opacity-100' : 'opacity-0'
               }`}>
-                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse shadow-lg shadow-blue-500/50"></div>
-                <span>Next-Generation AI Technology</span>
               </div>
               
               <h1 className={`text-6xl md:text-8xl font-light leading-none tracking-tighter mb-8 transition-opacity duration-700 ${
                 activeSection === 'home' && isLoaded ? 'opacity-100' : 'opacity-0'
               }`}>
-                Advanced AI-Powered
+                <span className="text-transparent bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text">Revolutionary</span> AI-powered
                 <br />
                 <span className="text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text">
                   {typewriterText}
-                  <span className={`text-4xl ${showCursor ? 'opacity-100' : 'opacity-0'}`}>|</span>
+                  <span className={`text-7xl ${showCursor ? 'opacity-100' : 'opacity-0'}`}>|</span>
                 </span>
                 <br />
                 for Solana
@@ -262,7 +260,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                 onClick={handleLaunchScanner}
                 className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-200 rounded-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105"
               >
-                Launch Scanner
+                Get Blur
               </button>
               <button 
                 onClick={handleLearnMore}
@@ -284,7 +282,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
             activeSection === 'metrics' ? 'opacity-100' : 'opacity-60'
           }`}>
             <div className="flex items-center space-x-2 text-xs text-neutral-500 uppercase tracking-wider mb-6">
-              <Activity className="w-3 h-3 text-blue-500 animate-pulse" />
+              <Activity className="w-3 h-3 text-blue-500" />
               <span>Live Performance Data</span>
             </div>
             <h2 className="text-4xl md:text-6xl font-light tracking-tighter mb-6">
@@ -304,10 +302,6 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                 <div key={index} className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 p-6 hover:border-blue-500/30 transition-all duration-200 rounded-xl backdrop-blur-sm hover:shadow-lg hover:shadow-blue-500/10 hover:scale-105 group">
                   <div className="flex items-center justify-between mb-4">
                     <IconComponent className="w-6 h-6 text-neutral-400 group-hover:text-blue-400 transition-colors duration-200" />
-                    <div className="flex items-center space-x-1">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse shadow-lg shadow-blue-500/50"></div>
-                      <span className="text-xs text-neutral-500 uppercase tracking-wider">Live</span>
-                    </div>
                   </div>
                   <div className="text-xs text-neutral-500 uppercase tracking-wider mb-2">{metric.label}</div>
                   <div className="text-3xl font-light text-neutral-100 mb-1 group-hover:text-white transition-colors duration-200">{metric.value}</div>
@@ -357,7 +351,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
               <div className="relative z-10 flex items-center justify-center h-96">
                 <div className="w-32 h-32 bg-gradient-to-br from-blue-500/30 to-blue-600/20 border-2 border-blue-400/50 rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/30 backdrop-blur-sm">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center">
-                    <Zap className="w-8 h-8 text-white" />
+                    <Activity className="w-8 h-8 text-white" />
                   </div>
                 </div>
                 

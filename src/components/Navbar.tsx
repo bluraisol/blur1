@@ -13,7 +13,7 @@ const navigationItems = [
   { id: 'about', label: 'About', icon: Info, path: '/#about', type: 'anchor' },
   { id: 'pricing', label: 'Pricing', icon: DollarSign, path: '/pricing', type: 'route' },
   { id: 'tokenomics', label: 'Tokenomics', icon: FileText, type: 'route', path: '/tokenomics' },
-  { id: 'contact', label: 'Contact', icon: Phone, path: '/#contact', type: 'anchor' }
+  { id: 'contact', label: 'Connect', icon: Phone, path: '/connect', type: 'anchor' },
 ];
 
 export default function Navbar({ mousePosition, activeSection = 'home' }: NavbarProps) {
@@ -85,28 +85,23 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
     <header className="fixed top-0 w-full z-50 bg-neutral-950/90 backdrop-blur-xl border-b border-neutral-800/50">
       {/* Анимированный фон */}
       <div 
-        className="absolute inset-0 opacity-30 pointer-events-none"
+        className="absolute inset-0 opacity-40 pointer-events-none"
         style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.15), transparent 40%)`
+          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.15), transparent 100%)`
         }}
       />
       
       <nav className="max-w-7xl mx-auto px-6 py-4 relative">
         <div className="flex items-center justify-between">
           {/* Логотип */}
-          <Link 
-            to="/" 
-            className="flex items-center space-x-6 min-w-[200px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-neutral-950 rounded-lg"
-          >
             <img 
               src="/logo2.png" 
               alt="Blur Logo" 
-              className="w-16 h-16 rounded-lg shadow-xl shadow-blue-500/40 object-cover ring-1 ring-blue-500/20"
+              className="w-16 h-16 rounded-xl shadow-xl shadow-blue-500/40 object-cover ring-1 ring-blue-500/20"
             />
-            <span className="text-2xl font-bold tracking-tight text-neutral-100">
+            {/* <span className="text-2xl font-bold tracking-tight text-neutral-100">
               Blur
-            </span>
-          </Link>
+            </span> */}
           
           {/* Десктопная навигация */}
           <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
@@ -129,14 +124,15 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item)}
-                    className={`relative z-10 flex items-center justify-center space-x-2 py-3 px-3 text-sm font-medium transition-all duration-300 cursor-pointer group bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none active:outline-none ${
+                    className={`relative z-9 flex items-center justify-center space-x-3 py-4 px-8 text-sm font-medium transition-all duration-300 cursor-pointer group bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none active:outline-none ${
                       isActive 
                         ? 'text-white' 
                         : 'text-neutral-400 hover:text-neutral-200'
                     }`}
-                    style={{ minWidth: `${100 / navigationItems.length}%` }}
+                    // style={{ minWidth: `${100 / navigationItems.length}%` }}
+                    style={{ minWidth: 160 }}
                   >
-                    <IconComponent className={`w-4 h-4 transition-all duration-300 ${
+                    <IconComponent className={`w-5 h-5 transition-all duration-300 ${
                       isActive ? 'text-blue-400' : 'group-hover:text-blue-400'
                     }`} />
                     <span className="whitespace-nowrap">{item.label}</span>

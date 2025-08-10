@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, Zap, TrendingUp, Brain } from 'lucide-react';
+import { Check, Zap, TrendingUp, Brain, TrendingDown } from 'lucide-react';
 
 export default function PricingPage() {
   const plans = [
@@ -9,13 +9,11 @@ export default function PricingPage() {
       description: 'A perfect entry point to see how Blur tracks signals, social sentiment, and early momentum — all in one place',
       features: [
         'Real-time memecoin scanning',
-        'AI-powered signal detection',
-        'Social sentiment analysis',
-        'Early momentum tracking',
-        'Basic analytics dashboard',
-        'Email alerts'
+        'Telegram alerts',
+        'Default support',
+        'Community access'
       ],
-      icon: Zap,
+      icon: TrendingDown,
       popular: false
     },
     {
@@ -23,13 +21,11 @@ export default function PricingPage() {
       price: '3.5 SOL',
       description: '90 days of powerful tools and real-time insights — designed to keep you ahead in fast-moving markets',
       features: [
-        'Everything in 1 Month plan',
-        'Advanced pattern recognition',
-        'Multi-timeframe analysis',
-        'Custom alert configurations',
+        'All 1-month features',
         'Priority support',
-        'API access (limited)',
-        'Historical data access'
+        'Referral rewards',
+        'Airdrop eligibility',
+        'Advanced metrics and analytics',
       ],
       icon: TrendingUp,
       popular: true
@@ -39,16 +35,15 @@ export default function PricingPage() {
       price: '5 SOL',
       description: 'Half a year of uninterrupted access to our evolving AI engine, precision metrics, and smart token evaluation layers',
       features: [
-        'Everything in 3 Months plan',
-        'Full AI engine access',
-        'Precision metrics suite',
-        'Smart token evaluation',
-        'Unlimited API access',
-        'Advanced backtesting',
-        'Custom model training',
-        'White-label options'
+        'All 3-month features',
+        'Blur Zone access',
+        'Support from developers',
+        'Increased referral rewards',
+        'Early access to new features',
+        'Priority airdrop eligibility',
+        'Exclusive community events'
       ],
-      icon: Brain,
+      icon: TrendingUp,
       popular: false
     }
   ];
@@ -63,8 +58,6 @@ export default function PricingPage() {
         {/* Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center space-x-2 text-xs text-neutral-500 uppercase tracking-wider mb-6">
-            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse shadow-lg shadow-blue-500/50"></div>
-            <span>Subscription Plans</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-light leading-none tracking-tighter mb-8">
@@ -140,33 +133,6 @@ export default function PricingPage() {
               </div>
             );
           })}
-        </div>
-
-        {/* Additional Info */}
-        <div className="mt-20 text-center">
-          <div className="bg-gradient-to-br from-neutral-900/30 to-neutral-800/20 border border-neutral-800/30 rounded-2xl p-8 max-w-4xl mx-auto backdrop-blur-sm">
-            <h3 className="text-2xl font-light mb-4 text-neutral-100">
-              All Plans Include
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-neutral-400">
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span>24/7 AI monitoring</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span>Real-time notifications</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span>Secure data encryption</span>
-              </div>
-            </div>
-            <p className="mt-6 text-neutral-500 text-sm">
-              All subscriptions are processed securely through our Telegram bot. 
-              Cancel anytime with no hidden fees.
-            </p>
-          </div>
         </div>
       </div>
     </div>
