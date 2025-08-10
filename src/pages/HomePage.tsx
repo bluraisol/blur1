@@ -7,8 +7,7 @@ import {
   Brain, 
   Zap, 
   BarChart3,
-  Trophy,
-  ArrowRight
+  Trophy
 } from 'lucide-react';
 
 interface HomePageProps {
@@ -144,11 +143,11 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
   ], []);
 
   const topTokensData = useMemo(() => [
-    { rank: 1, token: '$GORK', image: 'coin1.png', calledAt: '34K', ath: '100.8M', returnX: '2964x' },
-    { rank: 2, token: '$TOKABU', image: 'coin2.png', calledAt: '40.8K', ath: '47.2M', returnX: '1158x' },
-    { rank: 3, token: '$MASK', image: 'coin3.png', calledAt: '40.7K', ath: '29.3M', returnX: '720x' },
-    { rank: 4, token: '$ZESTY', image: 'coin4.png', calledAt: '34.5K', ath: '21.4M', returnX: '619x' },
-    { rank: 5, token: '$URMOM', image: 'coin5.png', calledAt: '43.5K', ath: '24.32M', returnX: '453x' }
+    { rank: 1, token: '$GORK', calledAt: '34K', ath: '100.8M', returnX: '2964x' },
+    { rank: 2, token: '$TOKABU', calledAt: '40.8K', ath: '47.2M', returnX: '1158x' },
+    { rank: 3, token: '$MASK', calledAt: '40.7K', ath: '29.3M', returnX: '720x' },
+    { rank: 4, token: '$ZESTY', calledAt: '34.5K', ath: '21.4M', returnX: '619x' },
+    { rank: 5, token: '$URMOM', calledAt: '43.5K', ath: '24.32M', returnX: '453x' }
   ], []);
 
   const aiSystemsData = useMemo(() => [
@@ -358,29 +357,14 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                           </div>
                         </td>
                         <td className="py-4 px-6">
-                          <div className="flex items-center space-x-3">
-                            <img 
-                              src={`/${token.image}`} 
-                              alt={token.token}
-                              className="w-8 h-8 rounded-full object-cover ring-2 ring-blue-500/20 group-hover:ring-blue-400/40 transition-all duration-200"
-                            />
-                            <a 
-                              href="https://coins.blur.ceo" 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="font-bold text-lg text-blue-400 hover:text-blue-300 transition-colors duration-200 cursor-pointer hover:underline"
-                            >
-                              {token.token}
-                            </a>
-                          </div>
+                          <span className="font-bold text-lg text-blue-400 group-hover:text-blue-300 transition-colors duration-200">
+                            {token.token}
+                          </span>
                         </td>
                         <td className="py-4 px-6 text-center">
                           <span className="text-neutral-300 group-hover:text-neutral-100 transition-colors duration-200">
                             {token.calledAt}
                           </span>
-                        </td>
-                        <td className="py-4 px-6 text-center">
-                          <ArrowRight className="w-5 h-5 text-neutral-500 group-hover:text-blue-400 transition-colors duration-200 mx-auto" />
                         </td>
                         <td className="py-4 px-6 text-center">
                           <span className="text-green-400 font-medium group-hover:text-green-300 transition-colors duration-200">
