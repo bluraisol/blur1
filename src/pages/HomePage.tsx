@@ -185,29 +185,25 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
     {
       step: "1",
       title: "Detection",
-      description: "Blur AI scans all new pairs (4-5 thousands every hour) and receives information about them directly from the Solana blockchain to speed up all processes as much as possible",
-      emoji: "🔍",
+      description: "Blur AI scans all new pairs (4-5 thousands every hour) and receives information about them directly from the Solana blockchain to speed up all processes as much as possible"
       borderGradient: "from-blue-500 to-blue-600"
     },
     {
       step: "2", 
       title: "Analysis",
-      description: "Blur Validation AI collects all information from DEXs, Solscan, and Twitter, analyzes it using Blur Success Ratio AI, Blur Traffic AI, and Blur Smart Trader AI, checks the security of the coin, and sends the data to Blur Distributor AI",
-      emoji: "🧠",
+      description: "Blur Validation AI collects all information from DEXs, Solscan, and Twitter, analyzes it using Blur Success Ratio AI, Blur Traffic AI, and Blur Smart Trader AI, checks the security of the coin, and sends the data to Blur Distributor AI"
       borderGradient: "from-blue-500 to-blue-600"
     },
     {
       step: "3",
       title: "Alert", 
-      description: "Instant notifications (0.3 seconds) sent to Blur Bot in Telegram with detailed information about the coin",
-      emoji: "⚡",
+      description: "Instant notifications (0.3 seconds) sent to Blur Bot in Telegram with detailed information about the coin"
       borderGradient: "from-blue-500 to-blue-600"
     },
     {
       step: "4",
       title: "Results",
-      description: "Every Blur movement is recorded behind the scenes, statistics and token success rates are sent to the dashboard and immediately forwarded to the Blur Team for further AI training. Blur evolves with every call",
-      emoji: "📊",
+      description: "Every Blur movement is recorded behind the scenes, statistics and token success rates are sent to the dashboard and immediately forwarded to the Blur Team for further AI training. Blur evolves with every call"
       borderGradient: "from-blue-500 to-blue-600"
     }
   ], []);
