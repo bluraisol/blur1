@@ -6,7 +6,8 @@ import {
   Target, 
   Brain, 
   Zap, 
-  BarChart3 
+  BarChart3,
+  Trophy
 } from 'lucide-react';
 
 interface HomePageProps {
@@ -139,6 +140,14 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
       value: "61.2%",
       change: "+3.2% today"
     }
+  ], []);
+
+  const topTokensData = useMemo(() => [
+    { rank: 1, token: '$GORK', calledAt: '34K', ath: '100.8M', returnX: '2964x' },
+    { rank: 2, token: '$TOKABU', calledAt: '40.8K', ath: '47.2M', returnX: '1158x' },
+    { rank: 3, token: '$MASK', calledAt: '40.7K', ath: '29.3M', returnX: '720x' },
+    { rank: 4, token: '$ZESTY', calledAt: '34.5K', ath: '21.4M', returnX: '619x' },
+    { rank: 5, token: '$URMOM', calledAt: '43.5K', ath: '24.32M', returnX: '453x' }
   ], []);
 
   const aiSystemsData = useMemo(() => [
@@ -309,6 +318,70 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                 </div>
               );
             })}
+          </div>
+          
+          {/* Top 5 Tokens Table */}
+          <div className={`mt-16 transition-opacity duration-500 ${
+            activeSection === 'metrics' ? 'transform translate-y-0 opacity-100' : 'transform translate-y-8 opacity-60'
+          }`}>
+            <div className="flex items-center space-x-3 mb-8">
+              <Trophy className="w-6 h-6 text-blue-400" />
+              <h3 className="text-3xl font-light tracking-tight">Top 5 Tokens Called by Blur</h3>
+            </div>
+            
+            <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl overflow-hidden backdrop-blur-sm">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-neutral-800/50">
+                      <th className="text-left py-4 px-6 text-sm font-medium text-neutral-300 uppercase tracking-wider">Rank</th>
+                      <th className="text-left py-4 px-6 text-sm font-medium text-neutral-300 uppercase tracking-wider">Token</th>
+                      <th className="text-center py-4 px-6 text-sm font-medium text-neutral-300 uppercase tracking-wider">Called At</th>
+                      <th className="text-center py-4 px-6 text-sm font-medium text-neutral-300 uppercase tracking-wider">ATH</th>
+                      <th className="text-center py-4 px-6 text-sm font-medium text-neutral-300 uppercase tracking-wider">Return</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {topTokensData.map((token, index) => (
+                      <tr key={index} className="border-b border-neutral-800/30 hover:bg-neutral-800/20 transition-colors duration-200 group">
+                        <td className="py-4 px-6">
+                          <div className="flex items-center space-x-3">
+                            <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
+                              token.rank === 1 ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-white' :
+                              token.rank === 2 ? 'bg-gradient-to-r from-gray-400 to-gray-500 text-white' :
+                              token.rank === 3 ? 'bg-gradient-to-r from-orange-600 to-orange-700 text-white' :
+                              'bg-gradient-to-r from-blue-500 to-blue-600 text-white'
+                            }`}>
+                              {token.rank}
+                            </div>
+                          </div>
+                        </td>
+                        <td className="py-4 px-6">
+                          <span className="font-bold text-lg text-blue-400 group-hover:text-blue-300 transition-colors duration-200">
+                            {token.token}
+                          </span>
+                        </td>
+                        <td className="py-4 px-6 text-center">
+                          <span className="text-neutral-300 group-hover:text-neutral-100 transition-colors duration-200">
+                            {token.calledAt}
+                          </span>
+                        </td>
+                        <td className="py-4 px-6 text-center">
+                          <span className="text-green-400 font-medium group-hover:text-green-300 transition-colors duration-200">
+                            {token.ath}
+                          </span>
+                        </td>
+                        <td className="py-4 px-6 text-center">
+                          <span className="text-2xl font-bold text-transparent bg-gradient-to-r from-green-400 to-green-500 bg-clip-text group-hover:from-green-300 group-hover:to-green-400 transition-all duration-200">
+                            {token.returnX}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </section>
