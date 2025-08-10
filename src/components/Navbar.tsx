@@ -47,11 +47,12 @@ export default function Navbar({ mousePosition, activeSection }: NavbarProps) {
             <div 
               className={`absolute h-14 bg-gradient-to-r from-blue-500/20 via-blue-400/30 to-blue-500/20 rounded-full border border-blue-400/30 shadow-lg shadow-blue-500/20 backdrop-blur-sm transition-all duration-500 ease-out transform ${
                 currentActiveSection === 'home' ? 'translate-x-0 w-1/6' :
-                currentActiveSection === 'metrics' ? 'translate-x-full w-1/6' :
+                currentActiveSection === 'metrics' ? 'translate-x-[100%] w-1/6' :
                 currentActiveSection === 'about' ? 'translate-x-[200%] w-1/6' :
                 currentActiveSection === 'pricing' ? 'translate-x-[300%] w-1/6' :
                 currentActiveSection === 'tokenomics' ? 'translate-x-[400%] w-1/6' :
-                'translate-x-[500%] w-1/6'
+                currentActiveSection === 'contact' ? 'translate-x-[500%] w-1/6' :
+                'translate-x-0 w-1/6'
               }`}
             />
             
@@ -59,11 +60,12 @@ export default function Navbar({ mousePosition, activeSection }: NavbarProps) {
             <div 
               className={`absolute h-14 bg-blue-400/10 rounded-full transition-all duration-500 ease-out animate-pulse ${
                 currentActiveSection === 'home' ? 'translate-x-0 w-1/6' :
-                currentActiveSection === 'metrics' ? 'translate-x-full w-1/6' :
+                currentActiveSection === 'metrics' ? 'translate-x-[100%] w-1/6' :
                 currentActiveSection === 'about' ? 'translate-x-[200%] w-1/6' :
                 currentActiveSection === 'pricing' ? 'translate-x-[300%] w-1/6' :
                 currentActiveSection === 'tokenomics' ? 'translate-x-[400%] w-1/6' :
-                'translate-x-[500%] w-1/6'
+                currentActiveSection === 'contact' ? 'translate-x-[500%] w-1/6' :
+                'translate-x-0 w-1/6'
               }`}
             />
             
@@ -71,10 +73,10 @@ export default function Navbar({ mousePosition, activeSection }: NavbarProps) {
             <div className="relative z-10 flex w-full">
               <Link 
                 to="/"
-                className={`flex-1 flex items-center justify-center space-x-2 py-4 px-4 text-sm font-medium transition-all duration-300 ease-out cursor-pointer group ${
+                className={`flex-1 flex items-center justify-center space-x-2 py-4 px-3 text-sm font-medium transition-all duration-300 ease-out cursor-pointer group ${
                   currentActiveSection === 'home' 
-                    ? 'text-white drop-shadow-sm transform scale-105' 
-                    : 'text-neutral-400 hover:text-neutral-200 hover:scale-105'
+                    ? 'text-white drop-shadow-sm' 
+                    : 'text-neutral-400 hover:text-neutral-200'
                 }`}
               >
                 <Home className={`w-4 h-4 transition-all duration-300 ${
@@ -85,10 +87,10 @@ export default function Navbar({ mousePosition, activeSection }: NavbarProps) {
               
               <a 
                 href="/#metrics"
-                className={`flex-1 flex items-center justify-center space-x-2 py-4 px-4 text-sm font-medium transition-all duration-300 ease-out cursor-pointer group ${
+                className={`flex-1 flex items-center justify-center space-x-2 py-4 px-3 text-sm font-medium transition-all duration-300 ease-out cursor-pointer group ${
                   currentActiveSection === 'metrics' 
-                    ? 'text-white drop-shadow-sm transform scale-105' 
-                    : 'text-neutral-400 hover:text-neutral-200 hover:scale-105'
+                    ? 'text-white drop-shadow-sm' 
+                    : 'text-neutral-400 hover:text-neutral-200'
                 }`}
               >
                 <BarChart3 className={`w-4 h-4 transition-all duration-300 ${
@@ -99,10 +101,10 @@ export default function Navbar({ mousePosition, activeSection }: NavbarProps) {
               
               <a 
                 href="/#about"
-                className={`flex-1 flex items-center justify-center space-x-2 py-4 px-4 text-sm font-medium transition-all duration-300 ease-out cursor-pointer group ${
+                className={`flex-1 flex items-center justify-center space-x-2 py-4 px-3 text-sm font-medium transition-all duration-300 ease-out cursor-pointer group ${
                   currentActiveSection === 'about' 
-                    ? 'text-white drop-shadow-sm transform scale-105' 
-                    : 'text-neutral-400 hover:text-neutral-200 hover:scale-105'
+                    ? 'text-white drop-shadow-sm' 
+                    : 'text-neutral-400 hover:text-neutral-200'
                 }`}
               >
                 <Info className={`w-4 h-4 transition-all duration-300 ${
@@ -113,10 +115,10 @@ export default function Navbar({ mousePosition, activeSection }: NavbarProps) {
               
               <Link 
                 to="/pricing"
-                className={`flex-1 flex items-center justify-center space-x-2 py-4 px-4 text-sm font-medium transition-all duration-300 ease-out cursor-pointer group ${
+                className={`flex-1 flex items-center justify-center space-x-2 py-4 px-3 text-sm font-medium transition-all duration-300 ease-out cursor-pointer group ${
                   currentActiveSection === 'pricing' 
-                    ? 'text-white drop-shadow-sm transform scale-105' 
-                    : 'text-neutral-400 hover:text-neutral-200 hover:scale-105'
+                    ? 'text-white drop-shadow-sm' 
+                    : 'text-neutral-400 hover:text-neutral-200'
                 }`}
               >
                 <DollarSign className={`w-4 h-4 transition-all duration-300 ${
@@ -127,10 +129,10 @@ export default function Navbar({ mousePosition, activeSection }: NavbarProps) {
               
               <Link 
                 to="/tokenomics"
-                className={`flex-1 flex items-center justify-center space-x-2 py-4 px-4 text-sm font-medium transition-all duration-300 ease-out cursor-pointer group ${
+                className={`flex-1 flex items-center justify-center space-x-2 py-4 px-3 text-sm font-medium transition-all duration-300 ease-out cursor-pointer group ${
                   currentActiveSection === 'tokenomics' 
-                    ? 'text-white drop-shadow-sm transform scale-105' 
-                    : 'text-neutral-400 hover:text-neutral-200 hover:scale-105'
+                    ? 'text-white drop-shadow-sm' 
+                    : 'text-neutral-400 hover:text-neutral-200'
                 }`}
               >
                 <FileText className={`w-4 h-4 transition-all duration-300 ${
@@ -141,10 +143,10 @@ export default function Navbar({ mousePosition, activeSection }: NavbarProps) {
               
               <a 
                 href="/#contact"
-                className={`flex-1 flex items-center justify-center space-x-2 py-4 px-4 text-sm font-medium transition-all duration-300 ease-out cursor-pointer group ${
+                className={`flex-1 flex items-center justify-center space-x-2 py-4 px-3 text-sm font-medium transition-all duration-300 ease-out cursor-pointer group ${
                   currentActiveSection === 'contact' 
-                    ? 'text-white drop-shadow-sm transform scale-105' 
-                    : 'text-neutral-400 hover:text-neutral-200 hover:scale-105'
+                    ? 'text-white drop-shadow-sm' 
+                    : 'text-neutral-400 hover:text-neutral-200'
                 }`}
               >
                 <Phone className={`w-4 h-4 transition-all duration-300 ${
