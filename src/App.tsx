@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import PasswordProtection from './components/PasswordProtection';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -8,18 +7,9 @@ import PricingPage from './pages/PricingPage';
 import TokenomicsPage from './pages/TokenomicsPage';
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolling, setIsScrolling] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    // Проверяем аутентификацию при загрузке
-    const authenticated = localStorage.getItem('blur_authenticated') === 'true';
-    setIsAuthenticated(authenticated);
-    setIsCheckingAuth(false);
-  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -29,24 +19,6 @@ function App() {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  const handleAuthenticated = () => {
-    setIsAuthenticated(true);
-  };
-
-  // Показываем загрузку пока проверяем аутентификацию
-  if (isCheckingAuth) {
-    return (
-      <div className="min-h-screen bg-neutral-950 flex items-center justify-center">
-        <div className="text-neutral-400">Загрузка...</div>
-      </div>
-    );
-  }
-
-  // Показываем форму пароля если не аутентифицирован
-  if (!isAuthenticated) {
-    return <PasswordProtection onAuthenticated={handleAuthenticated} />;
-  }
 
   return (
     <Router>
