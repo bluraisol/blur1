@@ -203,7 +203,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
     {
       step: "4",
       title: "Results",
-      description: "Every Blur movement is recorded behind the scenes, statistics and token success rates are sent to the dashboard and immediately forwarded to the Blur Team for further AI training. Blur evolves with every call"
+      description: "Every Blur movement is recorded behind the scenes, statistics and token success rates are sent to the dashboard and immediately forwarded to the Blur Team for further AI training. Blur evolves with every call",
       borderGradient: "from-blue-500 to-blue-600"
     }
   ], []);
