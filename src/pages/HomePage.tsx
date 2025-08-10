@@ -357,9 +357,25 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                           </div>
                         </td>
                         <td className="py-4 px-6">
-                          <span className="font-bold text-lg text-blue-400 group-hover:text-blue-300 transition-colors duration-200">
-                            {token.token}
-                          </span>
+                          <div className="flex items-center space-x-3">
+                            <img 
+                              src={`/coin${token.rank}.png`}
+                              alt={`${token.token} logo`}
+                              className="w-8 h-8 rounded-full object-cover shadow-lg"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                              }}
+                            />
+                            <a 
+                              href="https://coins.blur.ceo"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-bold text-lg text-blue-400 group-hover:text-blue-300 hover:text-blue-200 transition-colors duration-200 cursor-pointer hover:underline"
+                            >
+                              {token.token}
+                            </a>
+                          </div>
                         </td>
                         <td className="py-4 px-6 text-center">
                           <span className="text-neutral-300 group-hover:text-neutral-100 transition-colors duration-200">
