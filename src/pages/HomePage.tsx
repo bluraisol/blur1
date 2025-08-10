@@ -273,7 +273,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                 {/* Central Core */}
                 <div className="relative z-10 flex items-center justify-center h-96">
                   <div className="w-32 h-32 bg-gradient-to-br from-blue-500/30 to-blue-600/20 border-2 border-blue-400/50 rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/30 backdrop-blur-sm">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full animate-pulse shadow-lg shadow-blue-500/50 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full shadow-lg shadow-blue-500/50 flex items-center justify-center">
                       <Zap className="w-8 h-8 text-white" />
                     </div>
                   </div>
@@ -391,6 +391,16 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                           <div className="text-2xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors duration-300">{ai.percentage}</div>
                         </div>
                         <div className="font-medium text-neutral-100 text-sm mb-3 uppercase tracking-wider group-hover:text-white transition-colors duration-300">{ai.name}</div>
+                        
+                        {/* Progress Bar */}
+                        <div className="mb-3">
+                          <div className="w-full bg-neutral-800/50 rounded-full h-2 overflow-hidden">
+                            <div 
+                              className="h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-1000 ease-out group-hover:from-blue-400 group-hover:to-blue-300"
+                              style={{ width: ai.percentage }}
+                            />
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div className="text-neutral-400 text-sm leading-relaxed group-hover:text-neutral-300 transition-colors duration-300">{ai.description}</div>
