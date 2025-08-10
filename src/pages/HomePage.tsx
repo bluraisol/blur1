@@ -413,7 +413,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
             
             {/* Process Flow Section */}
             <div className="mt-32">
-              <div className={`mb-16 transition-opacity duration-500 ${
+              <div className={`mb-16 transition-all duration-500 ${
                 activeSection === 'about' ? 'opacity-100' : 'opacity-60'
               }`}>
                 <div className="flex items-center space-x-2 text-xs text-neutral-500 uppercase tracking-wider mb-6">
@@ -428,11 +428,11 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+              <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative transition-all duration-500 ${
+                activeSection === 'about' ? 'transform translate-y-0 opacity-100' : 'transform translate-y-8 opacity-60'
+              }`}>
                 {processFlowData.map((step, index) => (
-                  <div key={index} className={`relative group transition-all duration-200 hover:scale-105 ${
-                    activeSection === 'about' ? 'opacity-100' : 'opacity-0'
-                  }`}>
+                  <div key={index} className="relative group transition-all duration-200 hover:scale-105">
                     {/* Step Number Badge */}
                     <div className={`absolute -top-4 -left-4 w-10 h-10 bg-gradient-to-r ${step.borderGradient} rounded-full flex items-center justify-center z-10 shadow-lg`}>
                       <div className="w-8 h-8 bg-neutral-900 rounded-full flex items-center justify-center">
