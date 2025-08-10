@@ -434,8 +434,9 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                 {processFlowData.map((step, index) => (
                   <div key={index} className={`relative group transition-all duration-700 ease-out hover:scale-105 ${
                     activeSection === 'about' ? 'transform translate-y-0 opacity-100' : 'transform translate-y-8 opacity-0'
+                  }`} style={{
                     transitionDelay: activeSection === 'about' ? `${index * 150}ms` : '0ms'
-                  }`}>
+                  }}>
                     {/* Step Number Badge */}
                     <div className={`absolute -top-4 -left-4 w-10 h-10 bg-gradient-to-r ${step.borderGradient} rounded-full flex items-center justify-center z-10 shadow-lg`}>
                       <div className="w-8 h-8 bg-neutral-900 rounded-full flex items-center justify-center">
