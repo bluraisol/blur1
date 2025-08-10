@@ -8,11 +8,11 @@ interface NavbarProps {
 }
 
 const navigationItems = [
-  { id: 'home', label: 'Home', icon: Home, path: '/', type: 'route' },
+  { id: 'home', label: 'Home', icon: Home, type: 'anchor', path: '/#home' },
   { id: 'metrics', label: 'Metrics', icon: BarChart3, path: '/#metrics', type: 'anchor' },
   { id: 'about', label: 'About', icon: Info, path: '/#about', type: 'anchor' },
   { id: 'pricing', label: 'Pricing', icon: DollarSign, path: '/pricing', type: 'route' },
-  { id: 'tokenomics', label: 'Tokenomics', icon: FileText, path: '/tokenomics', type: 'route' },
+  { id: 'tokenomics', label: 'Tokenomics', icon: FileText, type: 'route', path: '/tokenomics' },
   { id: 'contact', label: 'Contact', icon: Phone, path: '/#contact', type: 'anchor' }
 ];
 
@@ -46,18 +46,23 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
       if (item.id === 'home') {
         setActiveItem('home');
       }
+      if (item.id === 'home') {
+        setActiveItem('home');
+      }
     } else {
       // Якорная ссылка
       if (location.pathname !== '/') {
         // Если не на главной странице, сначала переходим на главную
         navigate('/');
         setTimeout(() => {
+          setActiveItem(item.id);
           const element = document.querySelector(item.path.replace('/#', '#'));
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
           }
         }, 100);
       } else {
+        setActiveItem(item.id);
         // Уже на главной странице, просто скроллим
         const element = document.querySelector(item.path.replace('/#', '#'));
         if (element) {
@@ -118,7 +123,7 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item)}
-                    className={`relative z-10 flex items-center justify-center space-x-2 py-3 px-4 text-sm font-medium transition-all duration-300 cursor-pointer group outline-none focus:outline-none focus:ring-0 border-0 ${
+                    className="relative z-10 flex items-center justify-center space-x-2 py-3 px-3 text-sm font-medium transition-all duration-300 cursor-pointer group bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none active:outline-none"
                       isActive 
                         ? 'text-white' 
                         : 'text-neutral-400 hover:text-neutral-200'
@@ -164,7 +169,7 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item)}
-                  className={`w-full flex items-center space-x-3 py-3 px-4 text-sm font-medium transition-all duration-200 cursor-pointer group outline-none focus:outline-none focus:ring-0 border-0 ${
+                  className="w-full flex items-center space-x-3 py-3 px-4 text-sm font-medium transition-all duration-200 cursor-pointer group bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none active:outline-none rounded-lg"
                     isActive 
                       ? 'text-white bg-blue-500/10 border border-blue-500/20' 
                       : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30'
