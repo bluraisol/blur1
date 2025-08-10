@@ -323,52 +323,66 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
             </div>
             
             <div className="relative">
-              <div className="relative bg-gradient-to-br from-neutral-900/30 to-neutral-800/20 border border-neutral-800/30 p-12 rounded-2xl backdrop-blur-sm">
-                <div className="grid grid-cols-3 gap-6">
-                  {[...Array(9)].map((_, i) => (
-                    <div 
-                      key={i}
-                      className="w-12 h-12 bg-gradient-to-br from-neutral-800/40 to-neutral-700/20 border border-neutral-700/30 flex items-center justify-center hover:border-blue-500/30 transition-all duration-500 rounded-lg hover:scale-110 transform hover:shadow-lg hover:shadow-blue-500/10"
-                    >
-                      <div className="w-2 h-2 bg-neutral-600 rounded-full hover:bg-blue-400 transition-colors duration-300"></div>
+              <div className="grid grid-cols-1 gap-4">
+                {[
+                  {
+                    percentage: "100%",
+                    name: "BLUR TWITTER (X) SCANNING AI",
+                    description: "Processes up to 100,000 posts per second to detect coin contract addresses shared by top influencers. Also scans high-performing tweets, analyzing engagement metrics and author verification credibility"
+                  },
+                  {
+                    percentage: "91.8%",
+                    name: "BLUR DEX SCANNING AI", 
+                    description: "Analyzes up to 30,000 coins per second, identifies coin metrics: liquidity, market capitalization, trading volume, percentage of holdings by the top 10 holders"
+                  },
+                  {
+                    percentage: "65.1%",
+                    name: "BLUR SUCCESS RATIO AI",
+                    description: "Calculates the success ratio of individual coins by evaluating traffic trends and overall popularity"
+                  },
+                  {
+                    percentage: "95.7%",
+                    name: "BLUR SOLSCAN AI",
+                    description: "Process up to 30,000 coins per second, performs in-depth analysis of all smart contracts associated with tokens minted on the Wrapped Solana blockchain"
+                  },
+                  {
+                    percentage: "87.2%",
+                    name: "BLUR VALIDATION AI",
+                    description: "Serves as the final verification layer before a coin is sent to the Blur Bot on Telegram. It compiles data from all Blur AIs and outputs coins that meet all criteria"
+                  },
+                  {
+                    percentage: "98.4%",
+                    name: "BLUR TOKEN DISTRIBUTION AI",
+                    description: "Identifies Insiders, KOL/VC, Smart Holders, Whales, Phishing wallets in coins"
+                  },
+                  {
+                    percentage: "100%",
+                    name: "BLUR SMART HOLDER AI",
+                    description: "Identifies Smart Holders in coins"
+                  },
+                  {
+                    percentage: "64.4%",
+                    name: "BLUR PHISHING AI",
+                    description: "Identifies wallets that have been associated with fraudulent coins or rugpulls"
+                  },
+                  {
+                    percentage: "70.4%",
+                    name: "BLUR RUG CHECK AI",
+                    description: "Rates Rugpull probability"
+                  }
+                ].map((ai, index) => (
+                  <div key={index} className="bg-gradient-to-br from-neutral-900/30 to-neutral-800/20 border border-neutral-800/30 p-4 rounded-lg backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300">
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0">
+                        <div className="text-2xl font-bold text-blue-400 mb-1">{ai.percentage}</div>
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-neutral-100 text-sm mb-2 uppercase tracking-wider">{ai.name}</div>
+                        <div className="text-neutral-400 text-sm leading-relaxed">{ai.description}</div>
+                      </div>
                     </div>
-                  ))}
-                </div>
-                
-                {/* Central AI hub */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/30 flex items-center justify-center rounded-xl shadow-lg shadow-blue-500/20">
-                  <div className="w-4 h-4 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full animate-pulse shadow-lg shadow-blue-500/50"></div>
-                </div>
-                
-                {/* Connection lines */}
-                <div className="absolute inset-0 pointer-events-none">
-                  <svg className="w-full h-full opacity-20">
-                    <defs>
-                      <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
-                        <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.1" />
-                      </linearGradient>
-                    </defs>
-                    {[...Array(9)].map((_, i) => {
-                      const angle = (i * 40) - 160;
-                      const x1 = 50;
-                      const y1 = 50;
-                      const x2 = 50 + 30 * Math.cos(angle * Math.PI / 180);
-                      const y2 = 50 + 30 * Math.sin(angle * Math.PI / 180);
-                      return (
-                        <line
-                          key={i}
-                          x1={`${x1}%`}
-                          y1={`${y1}%`}
-                          x2={`${x2}%`}
-                          y2={`${y2}%`}
-                          stroke="url(#lineGradient)"
-                          strokeWidth="1"
-                        />
-                      );
-                    })}
-                  </svg>
-                </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
