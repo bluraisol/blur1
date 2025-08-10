@@ -47,6 +47,8 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
     
     if (item.type === 'route') {
       navigate(item.path);
+      // Прокрутка к началу страницы при переходе на новую страницу
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       if (item.id === 'home') {
         setActiveItem('home');
       }
