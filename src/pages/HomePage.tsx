@@ -243,7 +243,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
           <div className={`grid grid-cols-1 lg:grid-cols-2 gap-20 items-center transition-all duration-1000 ease-out ${
             activeSection === 'about' ? 'transform translate-y-0 opacity-100' : 'transform translate-y-8 opacity-60'
           }`}>
-            <div>
+            <div className="lg:col-span-2">
               <div className="flex items-center space-x-2 text-xs text-neutral-500 uppercase tracking-wider mb-6">
                 <Brain className="w-3 h-3 text-blue-500 animate-pulse" />
                 <span>Advanced AI Technology</span>
@@ -260,7 +260,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
               </p>
               
               {/* Central AI Hub Visualization */}
-              <div className="relative max-w-4xl mx-auto">
+              <div className="relative max-w-6xl mx-auto">
                 {/* Background Grid Pattern */}
                 <div className="absolute inset-0 opacity-10">
                   <div className="grid grid-cols-8 grid-rows-8 h-full w-full">
