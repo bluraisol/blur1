@@ -428,7 +428,9 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+              <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative transition-opacity duration-500 ${
+                activeSection === 'about' ? 'transform translate-y-0 opacity-100' : 'transform translate-y-8 opacity-60'
+              }`}>
                 {processFlowData.map((step, index) => (
                   <div key={index} className={`relative group transition-all duration-200 hover:scale-105 ${
                     activeSection === 'about' ? 'opacity-100' : 'opacity-0'
@@ -450,11 +452,6 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                     
                     <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 group-hover:border-neutral-700/50 p-6 rounded-xl backdrop-blur-sm transition-all duration-200 h-full">
                       <div className="relative z-10">
-                        {/* Emoji Icon */}
-                        <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-200">
-                          {step.emoji}
-                        </div>
-                        
                         {/* Title */}
                         <h4 className="text-xl font-semibold text-neutral-100 mb-3 group-hover:text-white transition-colors duration-200">
                           {step.title}
