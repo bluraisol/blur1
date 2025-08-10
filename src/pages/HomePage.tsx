@@ -333,84 +333,74 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                     percentage: "100%",
                     name: "BLUR TWITTER (X) SCANNING AI",
                     description: "Processes up to 100,000 posts per second to detect coin contract addresses shared by top influencers. Also scans high-performing tweets, analyzing engagement metrics and author verification credibility",
-                    icon: "🐦"
                   },
                   {
                     percentage: "91.8%",
                     name: "BLUR DEX SCANNING AI", 
                     description: "Analyzes up to 30,000 coins per second, identifies coin metrics: liquidity, market capitalization, trading volume, percentage of holdings by the top 10 holders",
-                    icon: "📊"
                   },
                   {
                     percentage: "65.1%",
                     name: "BLUR SUCCESS RATIO AI",
                     description: "Calculates the success ratio of individual coins by evaluating traffic trends and overall popularity",
-                    icon: "📈"
                   },
                   {
                     percentage: "95.7%",
                     name: "BLUR SOLSCAN AI",
                     description: "Process up to 30,000 coins per second, performs in-depth analysis of all smart contracts associated with tokens minted on the Wrapped Solana blockchain",
-                    icon: "🔍"
                   },
                   {
                     percentage: "87.2%",
                     name: "BLUR VALIDATION AI",
                     description: "Serves as the final verification layer before a coin is sent to the Blur Bot on Telegram. It compiles data from all Blur AIs and outputs coins that meet all criteria",
-                    icon: "✅"
                   },
                   {
                     percentage: "98.4%",
                     name: "BLUR TOKEN DISTRIBUTION AI",
                     description: "Identifies Insiders, KOL/VC, Smart Holders, Whales, Phishing wallets in coins",
-                    icon: "🎯"
                   },
                   {
                     percentage: "100%",
                     name: "BLUR SMART HOLDER AI",
                     description: "Identifies Smart Holders in coins",
-                    icon: "🧠"
                   },
                   {
                     percentage: "64.4%",
                     name: "BLUR PHISHING AI",
                     description: "Identifies wallets that have been associated with fraudulent coins or rugpulls",
-                    icon: "🛡️"
                   },
                   {
                     percentage: "70.4%",
                     name: "BLUR RUG CHECK AI",
                     description: "Rates Rugpull probability",
-                    icon: "⚠️"
                   }
                 ].map((ai, index) => (
-                  <div key={index} className="group bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 hover:border-blue-500/30 p-6 rounded-xl backdrop-blur-sm transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10">
                 <div key={index} className={`group bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 hover:border-blue-500/30 p-6 rounded-xl backdrop-blur-sm transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10 ${
                   activeSection === 'about' ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
                 }`} style={{
                   transitionDelay: activeSection === 'about' ? `${800 + index * 150}ms` : '0ms'
                 }}>
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="text-2xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors duration-300">{ai.percentage}</div>
-                        </div>
-                        <div className="font-medium text-neutral-100 text-sm mb-3 uppercase tracking-wider group-hover:text-white transition-colors duration-300">{ai.name}</div>
-                        
-                        {/* Progress Bar */}
-                        <div className="mb-3">
-                          <div className="w-full bg-neutral-800/50 rounded-full h-2 overflow-hidden">
-                            <div 
-                              className="h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-1000 ease-out group-hover:from-blue-400 group-hover:to-blue-300"
-                            className={`h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-1000 ease-out group-hover:from-blue-400 group-hover:to-blue-300 ${
-                              activeSection === 'about' ? '' : 'w-0'
-                            }`}
-                            />
-                          </div>
-                        </div>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="text-2xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors duration-300">{ai.percentage}</div>
+                  </div>
+                  <div className="font-medium text-neutral-100 text-sm mb-3 uppercase tracking-wider group-hover:text-white transition-colors duration-300">{ai.name}</div>
+                  
+                  {/* Progress Bar */}
+                  <div className="mb-3">
+                    <div className="w-full bg-neutral-800/50 rounded-full h-2 overflow-hidden">
+                      <div 
+                        className={`h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-1000 ease-out group-hover:from-blue-400 group-hover:to-blue-300 ${
+                          activeSection === 'about' ? '' : 'w-0'
+                        }`}
+                        style={{
+                          width: activeSection === 'about' ? ai.percentage : '0%'
+                        }}
+                      />
                       </div>
                     </div>
-                    <div className="text-neutral-400 text-sm leading-relaxed group-hover:text-neutral-300 transition-colors duration-300">{ai.description}</div>
                   </div>
+                  
+                  <div className="text-neutral-400 text-sm leading-relaxed group-hover:text-neutral-300 transition-colors duration-300">{ai.description}</div>
                 ))}
               </div>
             </div>
