@@ -191,7 +191,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
     {
       step: "2", 
       title: "Analysis",
-      description: "Blur Validation AI collects all information from DEXs, Solscan, and Twitter, analyzes it using Blur Success Ratio AI, Blur Traffic AI, and Blur Smart Trader AI, checks the security of the coin, and sends the data to Blur Distributor AI"
+      description: "Blur Validation AI collects all information from DEXs, Solscan, and Twitter, analyzes it using Blur Success Ratio AI, Blur Traffic AI, and Blur Smart Trader AI, checks the security of the coin, and sends the data to Blur Distributor AI",
       borderGradient: "from-blue-500 to-blue-600"
     },
     {
