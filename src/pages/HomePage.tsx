@@ -259,70 +259,6 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                 completed in under one second.
               </p>
               
-              <div className="space-y-4">
-                {[
-                  {
-                    percentage: "100%",
-                    name: "BLUR TWITTER (X) SCANNING AI",
-                    description: "Processes up to 100,000 posts per second to detect coin contract addresses shared by top influencers. Also scans high-performing tweets, analyzing engagement metrics and author verification credibility"
-                  },
-                  {
-                    percentage: "91.8%",
-                    name: "BLUR DEX SCANNING AI", 
-                    description: "Analyzes up to 30,000 coins per second, identifies coin metrics: liquidity, market capitalization, trading volume, percentage of holdings by the top 10 holders"
-                  },
-                  {
-                    percentage: "65.1%",
-                    name: "BLUR SUCCESS RATIO AI",
-                    description: "Calculates the success ratio of individual coins by evaluating traffic trends and overall popularity"
-                  },
-                  {
-                    percentage: "95.7%",
-                    name: "BLUR SOLSCAN AI",
-                    description: "Process up to 30,000 coins per second, performs in-depth analysis of all smart contracts associated with tokens minted on the Wrapped Solana blockchain"
-                  },
-                  {
-                    percentage: "87.2%",
-                    name: "BLUR VALIDATION AI",
-                    description: "Serves as the final verification layer before a coin is sent to the Blur Bot on Telegram. It compiles data from all Blur AIs and outputs coins that meet all criteria"
-                  },
-                  {
-                    percentage: "98.4%",
-                    name: "BLUR TOKEN DISTRIBUTION AI",
-                    description: "Identifies Insiders, KOL/VC, Smart Holders, Whales, Phishing wallets in coins"
-                  },
-                  {
-                    percentage: "100%",
-                    name: "BLUR SMART HOLDER AI",
-                    description: "Identifies Smart Holders in coins"
-                  },
-                  {
-                    percentage: "64.4%",
-                    name: "BLUR PHISHING AI",
-                    description: "Identifies wallets that have been associated with fraudulent coins or rugpulls"
-                  },
-                  {
-                    percentage: "70.4%",
-                    name: "BLUR RUG CHECK AI",
-                    description: "Rates Rugpull probability"
-                  }
-                ].map((ai, index) => (
-                  <div key={index} className="bg-gradient-to-br from-neutral-900/30 to-neutral-800/20 border border-neutral-800/30 p-4 rounded-lg backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300">
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0">
-                        <div className="text-2xl font-bold text-blue-400 mb-1">{ai.percentage}</div>
-                      </div>
-                      <div className="flex-1">
-                        <div className="font-medium text-neutral-100 text-sm mb-2 uppercase tracking-wider">{ai.name}</div>
-                        <div className="text-neutral-400 text-sm leading-relaxed">{ai.description}</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="relative">
               {/* Central AI Hub Visualization */}
               <div className="relative max-w-4xl mx-auto">
                 {/* Background Grid Pattern */}
@@ -450,7 +386,6 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                 ].map((ai, index) => (
                   <div key={index} className="group bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 hover:border-blue-500/30 p-6 rounded-xl backdrop-blur-sm transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10">
                     <div className="flex items-start space-x-4 mb-4">
-                      <div className="text-2xl">{ai.icon}</div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-2">
                           <div className="text-2xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors duration-300">{ai.percentage}</div>
