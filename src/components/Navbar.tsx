@@ -170,7 +170,7 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                       key={item.id}
                       onClick={(e) => handleNavClick(item, e)}
                       onKeyDown={(e) => handleKeyDown(e, item)}
-                      className={`flex items-center justify-center space-x-2 py-4 px-4 text-sm font-medium transition-all duration-300 ease-out cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-transparent rounded-lg ${
+                      className={`flex items-center justify-center space-x-2 py-4 px-3 text-sm font-medium transition-all duration-300 ease-out cursor-pointer group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-transparent rounded-lg ${
                         isActive 
                           ? 'text-white drop-shadow-sm' 
                           : 'text-neutral-400 hover:text-neutral-200'
