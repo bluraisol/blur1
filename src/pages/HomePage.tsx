@@ -398,7 +398,6 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                       />
                       </div>
                     </div>
-                  </div>
                   
                   <div className="text-neutral-400 text-sm leading-relaxed group-hover:text-neutral-300 transition-colors duration-300">{ai.description}</div>
                 ))}
