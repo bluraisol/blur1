@@ -359,7 +359,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                         <td className="py-4 px-6">
                           <div className="flex items-center space-x-3">
                             <img 
-                              src={`/coin${token.rank}.png`}
+                              src={`/public/coin${token.rank}.png`}
                               alt={`${token.token} logo`}
                               className="w-8 h-8 rounded-full object-cover shadow-lg"
                               onError={(e) => {
