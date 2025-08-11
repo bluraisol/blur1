@@ -143,11 +143,11 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
   ], []);
 
   const topTokensData = useMemo(() => [
-    { rank: 1, token: '$GORK', calledAt: '34K', ath: '100.8M', returnX: '2964x' },
-    { rank: 2, token: '$TOKABU', calledAt: '40.8K', ath: '47.2M', returnX: '1158x' },
-    { rank: 3, token: '$MASK', calledAt: '40.7K', ath: '29.3M', returnX: '720x' },
-    { rank: 4, token: '$ZESTY', calledAt: '34.5K', ath: '21.4M', returnX: '619x' },
-    { rank: 5, token: '$URMOM', calledAt: '43.5K', ath: '24.32M', returnX: '453x' }
+    { rank: 1, token: '$GORK', calledAt: '34K', ath: '100.8M', returnX: '2964x', link: 'https://coins.blur.ceo/gork' },
+    { rank: 2, token: '$TOKABU', calledAt: '40.8K', ath: '47.2M', returnX: '1158x', link: 'https://coins.blur.ceo/tokabu' },
+    { rank: 3, token: '$MASK', calledAt: '40.7K', ath: '29.3M', returnX: '720x', link: 'https://coins.blur.ceo/mask' },
+    { rank: 4, token: '$ZESTY', calledAt: '34.5K', ath: '21.4M', returnX: '619x', link: 'https://coins.blur.ceo/zesty' },
+    { rank: 5, token: '$URMOM', calledAt: '43.5K', ath: '24.32M', returnX: '453x', link: 'https://coins.blur.ceo/urmom' }
   ], []);
 
   const aiSystemsData = useMemo(() => [
@@ -368,7 +368,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                               }}
                             />
                             <a 
-                              href="https://coins.blur.ceo"
+                              href={token.link}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="font-bold text-lg text-blue-400 group-hover:text-blue-300 hover:text-blue-200 transition-colors duration-200 cursor-pointer hover:underline"
