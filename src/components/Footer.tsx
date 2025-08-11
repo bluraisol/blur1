@@ -50,14 +50,14 @@ export default function Footer() {
           
           {/* Quick Actions */}
           <div>
-            <h4 className="text-white font-medium mb-6 text-lg">Quick Access</h4>
+            <h4 className="text-white font-medium mb-4 text-lg">Quick Access</h4>
             
-            <div className="space-y-3">
+            <div className="space-y-2">
               <a 
                 href="https://t.me/BlurCryptoBot" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-3 py-3 px-4 hover:bg-neutral-900/30 rounded-lg transition-all duration-200 group"
+                className="flex items-center space-x-3 py-2 hover:bg-neutral-900/30 rounded-lg transition-all duration-200 group"
               >
                 <Zap className="w-5 h-5 text-neutral-400 group-hover:text-blue-400 transition-colors duration-200" />
                 <span className="text-neutral-300 group-hover:text-white transition-colors duration-200">Launch Scanner</span>
@@ -68,7 +68,7 @@ export default function Footer() {
                 href="https://whitepaper.blur.ceo" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-3 py-3 px-4 hover:bg-neutral-900/30 rounded-lg transition-all duration-200 group"
+                className="flex items-center space-x-3 py-2 hover:bg-neutral-900/30 rounded-lg transition-all duration-200 group"
               >
                 <FileText className="w-5 h-5 text-neutral-400 group-hover:text-blue-400 transition-colors duration-200" />
                 <span className="text-neutral-300 group-hover:text-white transition-colors duration-200">Whitepaper</span>
@@ -79,14 +79,14 @@ export default function Footer() {
           
           {/* Connect Section */}
           <div>
-            <h4 className="text-white font-medium mb-6 text-lg">Connect</h4>
+            <h4 className="text-white font-medium mb-4 text-lg">Connect</h4>
             
-            <div className="space-y-3">
+            <div className="space-y-2">
               <a 
                 href="https://x.com/bluronsol" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-3 p-3 hover:bg-neutral-900/30 rounded-lg transition-all duration-200 group"
+                className="flex items-center space-x-3 py-2 hover:bg-neutral-900/30 rounded-lg transition-all duration-200 group"
               >
                 <Twitter className="w-5 h-5 text-neutral-400 group-hover:text-blue-400 transition-colors duration-200" />
                 <span className="text-neutral-300 group-hover:text-white transition-colors duration-200">Twitter</span>
@@ -97,7 +97,7 @@ export default function Footer() {
                 href="https://t.me/bluronsol" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-3 p-3 hover:bg-neutral-900/30 rounded-lg transition-all duration-200 group"
+                className="flex items-center space-x-3 py-2 hover:bg-neutral-900/30 rounded-lg transition-all duration-200 group"
               >
                 <Send className="w-5 h-5 text-neutral-400 group-hover:text-blue-400 transition-colors duration-200" />
                 <span className="text-neutral-300 group-hover:text-white transition-colors duration-200">Telegram</span>
@@ -106,7 +106,7 @@ export default function Footer() {
               
               <a 
                 href="mailto:hello@blur.ceo" 
-                className="flex items-center space-x-3 p-3 hover:bg-neutral-900/30 rounded-lg transition-all duration-200 group"
+                className="flex items-center space-x-3 py-2 hover:bg-neutral-900/30 rounded-lg transition-all duration-200 group"
               >
                 <MessageCircle className="w-5 h-5 text-neutral-400 group-hover:text-blue-400 transition-colors duration-200" />
                 <span className="text-neutral-300 group-hover:text-white transition-colors duration-200">Email</span>
