@@ -120,25 +120,25 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
       icon: Scan,
       label: "Coins Detected",
       value: "11 928",
-      change: "+12.5% today"
+      change: "+34 today"
     },
     {
       icon: TrendingUp,
       label: "Total Return", 
       value: "34 591x",
-      change: "+8.3% today"
+      change: "+51x today"
     },
     {
       icon: BarChart3,
       label: "Average Return",
       value: "2.9x", 
-      change: "+15.7% today"
+      change: ""
     },
     {
       icon: Target,
       label: "Average Hit Rate",
       value: "61.2%",
-      change: "+3.2% today"
+      change: "+0.4% today"
     }
   ], []);
 
