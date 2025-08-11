@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import PricingPage from './pages/PricingPage';
 import TokenomicsPage from './pages/TokenomicsPage';
+import ConnectPage from './pages/ConnectPage';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -51,6 +52,7 @@ function App() {
           />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/tokenomics" element={<TokenomicsPage />} />
+          <Route path="/connect" element={<ConnectPage />} />
         </Routes>
         
         <Footer />
