@@ -81,7 +81,7 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 relative">
         <div className="flex items-center justify-between">
           {/* Логотип */}
-          <div className="flex items-center space-x-3 flex-shrink-0">
+          <div className="flex items-center space-x-3 flex-shrink-0 lg:flex-1">
             <img 
               src="/logo2.png" 
               alt="Blur Logo" 
@@ -90,14 +90,14 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
           </div>
           
           {/* Десктопная навигация */}
-          <div className="hidden lg:flex items-center">
-            <div className="relative flex items-center bg-gradient-to-r from-neutral-900/50 via-neutral-800/30 to-neutral-900/50 rounded-2xl border border-neutral-700/50 backdrop-blur-sm p-1">
+          <div className="hidden lg:flex items-center justify-center flex-1">
+            <div className="relative flex items-center bg-gradient-to-r from-neutral-900/50 via-neutral-800/30 to-neutral-900/50 rounded-2xl border border-neutral-700/50 backdrop-blur-sm p-1 max-w-4xl">
               {/* Активный индикатор */}
               <div 
-                className="absolute h-12 bg-gradient-to-r from-blue-500/20 via-blue-400/30 to-blue-500/20 rounded-xl border border-blue-400/30 shadow-lg shadow-blue-500/20 backdrop-blur-sm transition-all duration-500 ease-out"
+                className="absolute h-12 bg-gradient-to-r from-blue-500/20 via-blue-400/30 to-blue-500/20 rounded-xl border border-blue-400/30 shadow-lg shadow-blue-500/20 backdrop-blur-sm transition-all duration-500 ease-out z-0"
                 style={{
-                  width: `calc(${100 / navigationItems.length}% - 4px)`,
-                  left: `calc(${(activeIndex * 100) / navigationItems.length}% + 2px)`,
+                  width: `calc(100% / ${navigationItems.length} - 4px)`,
+                  left: `calc(${activeIndex} * (100% / ${navigationItems.length}) + 2px)`,
                 }}
               />
               
@@ -115,20 +115,20 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                         ? 'text-white' 
                         : 'text-neutral-400 hover:text-neutral-200'
                     }`}
-                    style={{ 
-                      width: `${100 / navigationItems.length}%`,
-                      minWidth: '120px'
-                    }}
+                    style={{ flex: '1 1 0%', minWidth: '140px' }}
                   >
                     <IconComponent className={`w-4 h-4 flex-shrink-0 transition-all duration-300 ${
                       isActive ? 'text-blue-400' : 'group-hover:text-blue-400'
                     }`} />
-                    <span className="whitespace-nowrap text-xs sm:text-sm truncate">{item.label}</span>
+                    <span className="whitespace-nowrap text-sm font-medium">{item.label}</span>
                   </button>
                 );
               })}
             </div>
           </div>
+          
+          {/* Пустой блок для баланса */}
+          <div className="hidden lg:block flex-1"></div>
           
           {/* Мобильное меню кнопка */}
           <button
