@@ -32,6 +32,8 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
       setCurrentActive('pricing');
     } else if (path === '/tokenomics') {
       setCurrentActive('tokenomics');
+    } else if (path === '/connect') {
+      setCurrentActive('contact');
     } else {
       setCurrentActive('home');
     }
