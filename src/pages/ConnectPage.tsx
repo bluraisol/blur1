@@ -7,6 +7,13 @@ export default function ConnectPage() {
 
   const socialLinks = [
     {
+      name: 'Blur Connect',
+      handle: '@blurconnect',
+      url: 'https://x.com/bluronsol',
+      icon: Send,
+      description: 'CCO, Community & Support Lead'
+    },
+    {
       name: 'Twitter',
       handle: '@bluronsol',
       url: 'https://x.com/bluronsol',
