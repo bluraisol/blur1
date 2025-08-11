@@ -3,7 +3,15 @@ import { Twitter, MessageCircle, FileText, ExternalLink, Zap, Send } from 'lucid
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative bg-neutral-950 border-t border-neutral-800/30">
+    <footer id="contact" className="relative bg-neutral-950 border-t border-neutral-800/30 overflow-hidden">
+      {/* Mouse cursor effect - same as in App.tsx */}
+      <div 
+        className="absolute inset-0 opacity-30 pointer-events-none"
+        style={{
+          background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.15), transparent 40%)`
+        }}
+      />
+      
       <div className="max-w-7xl mx-auto px-6 py-20">
         
         {/* Main Content */}
@@ -44,41 +52,27 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-medium mb-6 text-lg">Quick Access</h4>
             
-            <div className="space-y-4">
+            <div className="space-y-3">
               <a 
                 href="https://t.me/BlurCryptoBot" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-4 bg-neutral-900/50 hover:bg-neutral-800/50 border border-neutral-800/50 hover:border-neutral-700/50 rounded-lg transition-all duration-200 group"
+                className="flex items-center space-x-3 py-3 px-4 hover:bg-neutral-900/30 rounded-lg transition-all duration-200 group"
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-blue-400" />
-                  </div>
-                  <div>
-                    <div className="text-white font-medium">Launch Scanner</div>
-                    <div className="text-neutral-400 text-sm">Start scanning now</div>
-                  </div>
-                </div>
-                <ExternalLink className="w-4 h-4 text-neutral-500 group-hover:text-neutral-300 transition-colors duration-200" />
+                <Zap className="w-5 h-5 text-neutral-400 group-hover:text-blue-400 transition-colors duration-200" />
+                <span className="text-neutral-300 group-hover:text-white transition-colors duration-200">Launch Scanner</span>
+                <ExternalLink className="w-3 h-3 text-neutral-500 opacity-0 group-hover:opacity-100 transition-all duration-200" />
               </a>
               
               <a 
                 href="https://whitepaper.blur.ceo" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-4 bg-neutral-900/50 hover:bg-neutral-800/50 border border-neutral-800/50 hover:border-neutral-700/50 rounded-lg transition-all duration-200 group"
+                className="flex items-center space-x-3 py-3 px-4 hover:bg-neutral-900/30 rounded-lg transition-all duration-200 group"
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-neutral-700/50 rounded-lg flex items-center justify-center">
-                    <FileText className="w-5 h-5 text-neutral-300" />
-                  </div>
-                  <div>
-                    <div className="text-white font-medium">Whitepaper</div>
-                    <div className="text-neutral-400 text-sm">Technical documentation</div>
-                  </div>
-                </div>
-                <ExternalLink className="w-4 h-4 text-neutral-500 group-hover:text-neutral-300 transition-colors duration-200" />
+                <FileText className="w-5 h-5 text-neutral-400 group-hover:text-blue-400 transition-colors duration-200" />
+                <span className="text-neutral-300 group-hover:text-white transition-colors duration-200">Whitepaper</span>
+                <ExternalLink className="w-3 h-3 text-neutral-500 opacity-0 group-hover:opacity-100 transition-all duration-200" />
               </a>
             </div>
           </div>
