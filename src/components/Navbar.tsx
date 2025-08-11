@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Home, BarChart3, Info, Phone, DollarSign, FileText, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
@@ -13,7 +13,7 @@ const navigationItems = [
   { id: 'about', label: 'About', icon: Info, path: '/#about', type: 'anchor' },
   { id: 'pricing', label: 'Pricing', icon: DollarSign, path: '/pricing', type: 'route' },
   { id: 'tokenomics', label: 'Tokenomics', icon: FileText, type: 'route', path: '/tokenomics' },
-  { id: 'contact', label: 'Connect', icon: Phone, path: '/connect', type: 'anchor' },
+  { id: 'contact', label: 'Connect', icon: Phone, path: '/#contact', type: 'anchor' },
 ];
 
 export default function Navbar({ mousePosition, activeSection = 'home' }: NavbarProps) {
@@ -22,11 +22,7 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentActive, setCurrentActive] = useState('home');
 
-  const setActiveItem = (itemId: string) => {
-    setCurrentActive(itemId);
-  };
-
-  // Определяем активную вкладку
+  // Определяем активную вкладку на основе текущего пути и секции
   useEffect(() => {
     const path = location.pathname;
     
@@ -47,28 +43,19 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
     
     if (item.type === 'route') {
       navigate(item.path);
-      // Прокрутка к началу страницы при переходе на новую страницу
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      if (item.id === 'home') {
-        setActiveItem('home');
-      }
-      if (item.id === 'home') {
-        setActiveItem('home');
-      }
     } else {
       // Якорная ссылка
       if (location.pathname !== '/') {
         // Если не на главной странице, сначала переходим на главную
         navigate('/');
         setTimeout(() => {
-          setActiveItem(item.id);
           const element = document.querySelector(item.path.replace('/#', '#'));
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
           }
         }, 100);
       } else {
-        setActiveItem(item.id);
         // Уже на главной странице, просто скроллим
         const element = document.querySelector(item.path.replace('/#', '#'));
         if (element) {
@@ -78,7 +65,7 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
     }
   };
 
-  // Получаем индекс активного элемента
+  // Получаем индекс активного элемента для анимации
   const activeIndex = navigationItems.findIndex(item => item.id === currentActive);
 
   return (
@@ -91,27 +78,26 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
         }}
       />
       
-      <nav className="max-w-7xl mx-auto px-6 py-4 relative">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 relative">
         <div className="flex items-center justify-between">
           {/* Логотип */}
+          <div className="flex items-center space-x-3 flex-shrink-0">
             <img 
               src="/logo2.png" 
               alt="Blur Logo" 
-              className="w-16 h-16 rounded-xl shadow-xl shadow-blue-500/40 object-cover ring-1 ring-blue-500/20"
+              className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl shadow-xl shadow-blue-500/40 object-cover ring-1 ring-blue-500/20"
             />
-            {/* <span className="text-2xl font-bold tracking-tight text-neutral-100">
-              Blur
-            </span> */}
+          </div>
           
           {/* Десктопная навигация */}
-          <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
-            <div className="relative flex items-center bg-gradient-to-r from-neutral-900/50 via-neutral-800/30 to-neutral-900/50 rounded-full border border-neutral-700/50 backdrop-blur-sm p-1">
+          <div className="hidden lg:flex items-center">
+            <div className="relative flex items-center bg-gradient-to-r from-neutral-900/50 via-neutral-800/30 to-neutral-900/50 rounded-2xl border border-neutral-700/50 backdrop-blur-sm p-1">
               {/* Активный индикатор */}
               <div 
-                className="absolute h-12 bg-gradient-to-r from-blue-500/20 via-blue-400/30 to-blue-500/20 rounded-full border border-blue-400/30 shadow-lg shadow-blue-500/20 backdrop-blur-sm transition-all duration-500 ease-out"
+                className="absolute h-12 bg-gradient-to-r from-blue-500/20 via-blue-400/30 to-blue-500/20 rounded-xl border border-blue-400/30 shadow-lg shadow-blue-500/20 backdrop-blur-sm transition-all duration-500 ease-out"
                 style={{
-                  width: `${100 / navigationItems.length}%`,
-                  left: `${(activeIndex * 100) / navigationItems.length}%`,
+                  width: `calc(${100 / navigationItems.length}% - 4px)`,
+                  left: `calc(${(activeIndex * 100) / navigationItems.length}% + 2px)`,
                 }}
               />
               
@@ -124,18 +110,20 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item)}
-                    className={`relative z-9 flex items-center justify-center space-x-3 py-4 px-8 text-sm font-medium transition-all duration-300 cursor-pointer group bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none active:outline-none ${
+                    className={`relative z-10 flex items-center justify-center space-x-2 py-3 px-4 text-sm font-medium transition-all duration-300 cursor-pointer group bg-transparent border-none outline-none focus:outline-none rounded-lg min-w-0 ${
                       isActive 
                         ? 'text-white' 
                         : 'text-neutral-400 hover:text-neutral-200'
                     }`}
-                    // style={{ minWidth: `${100 / navigationItems.length}%` }}
-                    style={{ minWidth: 160 }}
+                    style={{ 
+                      width: `${100 / navigationItems.length}%`,
+                      minWidth: '120px'
+                    }}
                   >
-                    <IconComponent className={`w-5 h-5 transition-all duration-300 ${
+                    <IconComponent className={`w-4 h-4 flex-shrink-0 transition-all duration-300 ${
                       isActive ? 'text-blue-400' : 'group-hover:text-blue-400'
                     }`} />
-                    <span className="whitespace-nowrap">{item.label}</span>
+                    <span className="whitespace-nowrap text-xs sm:text-sm truncate">{item.label}</span>
                   </button>
                 );
               })}
@@ -145,13 +133,10 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
           {/* Мобильное меню кнопка */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-neutral-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-neutral-950 rounded-lg"
+            className="lg:hidden p-2 text-neutral-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-neutral-950 rounded-lg flex-shrink-0"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
-          
-          {/* Правый спейсер */}
-          <div className="hidden lg:block w-32"></div>
         </div>
         
         {/* Мобильное меню */}
@@ -162,7 +147,7 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
               : 'opacity-0 invisible transform -translate-y-4'
           }`}
         >
-          <div className="px-6 py-4 space-y-2">
+          <div className="px-4 sm:px-6 py-4 space-y-2">
             {navigationItems.map((item) => {
               const IconComponent = item.icon;
               const isActive = item.id === currentActive;
@@ -171,16 +156,16 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item)}
-                  className={`w-full flex items-center space-x-3 py-3 px-4 text-sm font-medium transition-all duration-200 cursor-pointer group bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none active:outline-none rounded-lg ${
+                  className={`w-full flex items-center space-x-3 py-3 px-4 text-sm font-medium transition-all duration-200 cursor-pointer group bg-transparent border-none outline-none focus:outline-none rounded-lg text-left ${
                     isActive 
                       ? 'text-white bg-blue-500/10 border border-blue-500/20' 
                       : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30'
                   }`}
                 >
-                  <IconComponent className={`w-5 h-5 transition-all duration-200 ${
+                  <IconComponent className={`w-5 h-5 flex-shrink-0 transition-all duration-200 ${
                     isActive ? 'text-blue-400' : 'group-hover:text-blue-400'
                   }`} />
-                  <span>{item.label}</span>
+                  <span className="truncate">{item.label}</span>
                 </button>
               );
             })}
