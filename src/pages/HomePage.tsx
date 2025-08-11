@@ -132,7 +132,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
       icon: BarChart3,
       label: "Average Return",
       value: "2.9x", 
-      change: ""
+      change: "+0.03x today"
     },
     {
       icon: Target,
