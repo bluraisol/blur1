@@ -523,10 +523,6 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
               <div className={`mb-16 transition-all duration-700 ease-out ${
                 activeSection === 'about' ? 'opacity-100' : 'opacity-60'
               }`}>
-                <div className="flex items-center space-x-2 text-xs text-neutral-500 uppercase tracking-wider mb-6">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse shadow-lg shadow-blue-500/50"></div>
-                  <span>Process Flow</span>
-                </div>
                 <h3 className="text-4xl md:text-5xl font-light tracking-tighter mb-6">
                   How <span className="text-transparent bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text">Blur Works</span>
                 </h3>

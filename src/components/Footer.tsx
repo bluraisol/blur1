@@ -27,7 +27,6 @@ export default function Footer() {
               />
               <div>
                 <h3 className="text-2xl font-light text-white tracking-tight">Blur</h3>
-                <p className="text-neutral-400 text-sm">Revolutionary AI Memecoin Scanner</p>
               </div>
             </div>
             
@@ -35,17 +34,6 @@ export default function Footer() {
               Nine custom-built AI systems analyzing hundreds of thousands of memecoins 
               to deliver unparalleled insights on the Solana network.
             </p>
-
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2 text-sm text-neutral-400">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span>AI Systems Online</span>
-              </div>
-              <div className="w-px h-4 bg-neutral-700"></div>
-              <div className="text-sm text-neutral-400">
-                Powered by Solana
-              </div>
-            </div>
           </div>
           
           {/* Quick Actions */}
@@ -120,12 +108,6 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-6">
               <p className="text-neutral-400 text-sm">© 2025 Blur. All rights reserved.</p>
-            </div>
-            
-            <div className="flex items-center space-x-6 text-sm text-neutral-400">
-              <span>Built with AI</span>
-              <div className="w-1 h-1 bg-neutral-600 rounded-full"></div>
-              <span>Solana Network</span>
             </div>
           </div>
         </div>

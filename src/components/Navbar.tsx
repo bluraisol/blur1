@@ -13,7 +13,7 @@ const navigationItems = [
   { id: 'about', label: 'About', icon: Info, path: '/#about', type: 'anchor' },
   { id: 'pricing', label: 'Pricing', icon: DollarSign, path: '/pricing', type: 'route' },
   { id: 'tokenomics', label: 'Tokenomics', icon: FileText, type: 'route', path: '/tokenomics' },
-  { id: 'contact', label: 'Connect', icon: Phone, path: '/#contact', type: 'anchor' },
+  { id: 'contact', label: 'Connect', icon: Phone, path: '/connect', type: 'route' },
 ];
 
 export default function Navbar({ mousePosition, activeSection = 'home' }: NavbarProps) {
