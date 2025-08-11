@@ -177,7 +177,7 @@ export default function ConnectPage() {
 
         {/* Bottom CTA */}
         <div className="text-center border-t border-neutral-800/30 pt-16">
-          <h3 className="text-3xl font-light text-neutral-200 mb-4">Ready to Get Started?</h3>
+          <h3 className="text-2xl font-light text-neutral-200 mb-6">Ready to Get Started?</h3>
           <p className="text-neutral-400 mb-8 max-w-md mx-auto">
             Launch the Blur scanner and start discovering profitable memecoins with AI-powered insights.
           </p>
