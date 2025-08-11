@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Home, BarChart3, Info, Phone, DollarSign, FileText, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
@@ -84,11 +84,13 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
         <div className="flex items-center justify-between">
           {/* Логотип */}
           <div className="flex items-center space-x-3 flex-shrink-0 lg:flex-1">
-            <img 
-              src="/logo2.png" 
-              alt="Blur Logo" 
-              className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl shadow-xl shadow-blue-500/40 object-cover ring-1 ring-blue-500/20"
-            />
+            <Link to="/" className="flex items-center space-x-2">
+              <img 
+                src="/logo2.png" 
+                alt="Blur Logo" 
+                className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl shadow-xl shadow-blue-500/40 object-cover ring-1 ring-blue-500/20"
+              />
+            </Link>
           </div>
           
           {/* Десктопная навигация */}
