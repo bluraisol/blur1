@@ -51,9 +51,12 @@ export default function ConnectPage() {
 
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 pt-28 pb-20">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Hero Section */}
-        <div className="text-center mb-24">
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center space-x-2 text-xs text-neutral-500 uppercase tracking-wider mb-6">
+          </div>
+          
           <h1 className="text-6xl md:text-8xl font-light leading-none tracking-tighter mb-6">
             Let's <span className="text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text">Connect</span>
           </h1>
