@@ -15,24 +15,17 @@ export default function ConnectPage() {
     },
     {
       name: 'Telegram',
-      handle: '@bluronsol',
-      url: 'https://t.me/bluronsol',
+      handle: '@blurbotai',
+      url: 'https://t.me/blurbotai',
       icon: Send,
       description: 'Community discussions and support'
-    },
-    {
-      name: 'Blur Bot',
-      handle: '@BlurCryptoBot',
-      url: 'https://t.me/BlurCryptoBot',
-      icon: FileText,
-      description: 'AI-powered memecoin scanner'
     }
   ];
 
   const contactEmails = [
-    { label: 'Business', email: 'business@blur.ceo', description: 'Partnerships and business inquiries' },
-    { label: 'Support', email: 'support@blur.ceo', description: 'Technical support and help' },
-    { label: 'General', email: 'hello@blur.ceo', description: 'General questions and feedback' }
+    { label: 'General', email: 'hello@blur.ceo', description: 'General questions, feedback, partnerships and business inquiries' },
+    { label: 'Media & Press', email: 'press@blur.ceo', description: 'Press releases, interviews, and media resources' },
+    { label: 'Support', email: 'help@blur.ceo', description: 'Technical support and help' },
   ];
 
   const handleCopyEmail = async (email: string) => {
@@ -57,7 +50,7 @@ export default function ConnectPage() {
           <div className="inline-flex items-center space-x-2 text-xs text-neutral-500 uppercase tracking-wider mb-6">
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-light leading-none tracking-tighter mb-6">
+          <h1 className="text-5xl md:text-7xl font-light leading-none tracking-tighter mb-6">
             Let's <span className="text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text">Connect</span>
           </h1>
           
@@ -72,7 +65,7 @@ export default function ConnectPage() {
           {/* Left Column - Social & Community */}
           <div className="space-y-12">
             <div>
-              <h2 className="text-3xl font-light text-neutral-200 mb-8">Join Our Community</h2>
+              <h2 className="text-3xl font-light text-neutral-200 mb-8">Join our community</h2>
               
               <div className="space-y-6">
                 {socialLinks.map((social, index) => {
@@ -152,15 +145,12 @@ export default function ConnectPage() {
             {/* Newsletter Section */}
             <div className="border-t border-neutral-800/30 pt-12">
               <h3 className="text-2xl font-light text-neutral-200 mb-6">Stay Updated</h3>
-              <p className="text-neutral-400 mb-8 leading-relaxed">
-                Get the latest AI insights and market updates delivered directly to your inbox.
-              </p>
-              
+
               <div className="space-y-4">
                 <div className="flex gap-3">
                   <input
                     type="email"
-                    placeholder="your@email.com"
+                    placeholder="example@blur.ceo"
                     className="flex-1 bg-neutral-900/50 border border-neutral-800/50 rounded-xl px-4 py-4 text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-blue-500/50 transition-colors duration-300"
                   />
                   <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-500/25">
@@ -173,23 +163,6 @@ export default function ConnectPage() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center border-t border-neutral-800/30 pt-16">
-          <h3 className="text-2xl font-light text-neutral-200 mb-6">Ready to Get Started?</h3>
-          <p className="text-neutral-400 mb-8 max-w-md mx-auto">
-            Launch the Blur scanner and start discovering profitable memecoins with AI-powered insights.
-          </p>
-          <a
-            href="https://t.me/BlurCryptoBot"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-500/25"
-          >
-            <span>Launch Blur Scanner</span>
-            <ArrowRight className="w-5 h-5" />
-          </a>
         </div>
       </div>
     </div>
