@@ -46,6 +46,9 @@ export default function ConnectPage() {
       <div className="max-w-4xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-20">
+          <div className="inline-flex items-center space-x-2 text-xs text-neutral-500 uppercase tracking-wider mb-6">
+          </div>
+          
           <h1 className="text-5xl md:text-7xl font-light leading-none tracking-tighter mb-8">
             <span className="text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text">Connect</span>
           </h1>
