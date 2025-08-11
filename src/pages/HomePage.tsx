@@ -326,7 +326,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
           }`}>
             <div className="flex items-center space-x-3 mb-8">
               <Trophy className="w-6 h-6 text-blue-400" />
-              <h3 className="text-3xl font-light tracking-tight">Top 5 Tokens Called by Blur</h3>
+              <h3 className="text-3xl font-light tracking-tight">Top 5 Tokens <span className="text-transparent bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text">Called by Blur</span></h3>
             </div>
             
             <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl overflow-hidden backdrop-blur-sm">
@@ -398,10 +398,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                               </div>
                             </div>
                             <div className="flex items-center space-x-1">
-                              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                              <span className="text-xs text-green-400 font-medium uppercase tracking-wider">
-                                Profit
-                              </span>
+                              <div></div>
                             </div>
                           </div>
                         </td>
