@@ -51,16 +51,16 @@ export default function WhitepaperPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-neutral-950">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 h-16 bg-white border-b border-neutral-200 z-50">
+      <header className="fixed top-0 left-0 right-0 h-16 bg-neutral-950 border-b border-neutral-800/50 z-50">
         <div className="flex items-center justify-between h-full px-4">
           <div className="flex items-center space-x-4">
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="lg:hidden p-2 hover:bg-neutral-100 rounded-lg transition-colors"
+              className="lg:hidden p-2 hover:bg-neutral-800 rounded-lg transition-colors"
             >
-              {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {sidebarOpen ? <X className="w-5 h-5 text-neutral-300" /> : <Menu className="w-5 h-5 text-neutral-300" />}
             </button>
             
             <div className="flex items-center space-x-3">
@@ -70,14 +70,14 @@ export default function WhitepaperPage() {
                 className="w-8 h-8 rounded-lg object-cover"
               />
               <div>
-                <h1 className="text-lg font-semibold text-neutral-900">Blur Protocol</h1>
+                <h1 className="text-lg font-semibold text-neutral-100">Blur Protocol</h1>
               </div>
             </div>
           </div>
           
           <button
             onClick={handleGoHome}
-            className="flex items-center space-x-2 px-3 py-1.5 text-sm text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 rounded-lg transition-colors"
+            className="flex items-center space-x-2 px-3 py-1.5 text-sm text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800 rounded-lg transition-colors"
           >
             <Home className="w-4 h-4" />
             <span>Home</span>
@@ -87,7 +87,7 @@ export default function WhitepaperPage() {
 
       <div className="flex pt-16">
         {/* Sidebar */}
-        <aside className={`fixed lg:static inset-y-0 left-0 z-40 w-64 bg-neutral-50 border-r border-neutral-200 transform transition-transform duration-300 ease-in-out ${
+        <aside className={`fixed inset-y-0 left-0 z-40 w-64 bg-neutral-900 border-r border-neutral-800/50 pt-16 transform transition-transform duration-300 ease-in-out ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}>
           <div className="pt-6 pb-4">
@@ -100,8 +100,8 @@ export default function WhitepaperPage() {
                     onClick={() => scrollToSection(item.id)}
                     className={`w-full flex items-center space-x-3 px-3 py-2 text-sm rounded-lg transition-colors text-left ${
                       activeSection === item.id
-                        ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-500'
-                        : 'text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900'
+                        ? 'bg-blue-500/10 text-blue-400 border-r-2 border-blue-500'
+                        : 'text-neutral-400 hover:bg-neutral-800 hover:text-neutral-200'
                     }`}
                   >
                     <IconComponent className="w-4 h-4 flex-shrink-0" />
@@ -122,13 +122,13 @@ export default function WhitepaperPage() {
         )}
 
         {/* Main Content */}
-        <main className="flex-1 lg:ml-0">
+        <main className="flex-1 lg:ml-64">
           <div className="max-w-4xl mx-auto px-6 py-8">
             
             {/* Page Title */}
             <div className="mb-12">
-              <h1 className="text-3xl font-bold text-neutral-900 mb-2">Technical Documentation</h1>
-              <p className="text-lg text-neutral-600">Comprehensive guide to Blur Protocol's features and policies</p>
+              <h1 className="text-3xl font-bold text-neutral-100 mb-2">Technical Documentation</h1>
+              <p className="text-lg text-neutral-400">Comprehensive guide to Blur Protocol's features and policies</p>
             </div>
 
             {/* Official Contacts */}
@@ -137,51 +137,51 @@ export default function WhitepaperPage() {
                 <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
                   <Shield className="w-4 h-4 text-blue-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-neutral-900">Official Contacts</h2>
+                <h2 className="text-2xl font-bold text-neutral-100">Official Contacts</h2>
               </div>
               
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-lg font-semibold text-neutral-900 mb-4">Official Channels</h3>
+                  <h3 className="text-lg font-semibold text-neutral-200 mb-4">Official Channels</h3>
                   <div className="space-y-3">
                     <a 
                       href="https://t.me/blurconnect" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center justify-between p-4 bg-white border border-neutral-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all group"
+                      className="flex items-center justify-between p-4 bg-neutral-800/30 border border-neutral-700/50 rounded-lg hover:border-blue-500/50 hover:bg-neutral-800/50 transition-all group"
                     >
                       <div>
-                        <div className="font-medium text-neutral-900">@blurconnect</div>
-                        <div className="text-sm text-neutral-500">Technical support, FAQ, CEO</div>
+                        <div className="font-medium text-neutral-100">@blurconnect</div>
+                        <div className="text-sm text-neutral-400">Technical support, FAQ, CEO</div>
                       </div>
-                      <ExternalLink className="w-4 h-4 text-neutral-400 group-hover:text-blue-500 transition-colors" />
+                      <ExternalLink className="w-4 h-4 text-neutral-500 group-hover:text-blue-400 transition-colors" />
                     </a>
                     
                     <a 
                       href="https://t.me/BlurCryptoBot" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center justify-between p-4 bg-white border border-neutral-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all group"
+                      className="flex items-center justify-between p-4 bg-neutral-800/30 border border-neutral-700/50 rounded-lg hover:border-blue-500/50 hover:bg-neutral-800/50 transition-all group"
                     >
                       <div>
-                        <div className="font-medium text-neutral-900">@BlurCryptoBot</div>
-                        <div className="text-sm text-neutral-500">Official Blur bot in Telegram</div>
+                        <div className="font-medium text-neutral-100">@BlurCryptoBot</div>
+                        <div className="text-sm text-neutral-400">Official Blur bot in Telegram</div>
                       </div>
-                      <ExternalLink className="w-4 h-4 text-neutral-400 group-hover:text-blue-500 transition-colors" />
+                      <ExternalLink className="w-4 h-4 text-neutral-500 group-hover:text-blue-400 transition-colors" />
                     </a>
                   </div>
                 </div>
                 
                 <div>
-                  <h3 className="text-lg font-semibold text-neutral-900 mb-4">Official Wallets</h3>
+                  <h3 className="text-lg font-semibold text-neutral-200 mb-4">Official Wallets</h3>
                   <div className="space-y-3">
                     {wallets.map((wallet, index) => (
-                      <div key={index} className="p-4 bg-white border border-neutral-200 rounded-lg">
+                      <div key={index} className="p-4 bg-neutral-800/30 border border-neutral-700/50 rounded-lg">
                         <div className="flex items-center justify-between mb-3">
-                          <span className="font-medium text-neutral-900">{wallet.name}</span>
+                          <span className="font-medium text-neutral-100">{wallet.name}</span>
                           <button
                             onClick={() => handleCopyWallet(wallet.address)}
-                            className="p-2 text-neutral-400 hover:text-blue-500 hover:bg-blue-50 rounded-lg transition-colors"
+                            className="p-2 text-neutral-500 hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition-colors"
                           >
                             {copiedWallet === wallet.address ? 
                               <Check className="w-4 h-4 text-green-500" /> : 
@@ -189,14 +189,14 @@ export default function WhitepaperPage() {
                             }
                           </button>
                         </div>
-                        <div className="bg-neutral-50 rounded-lg p-3">
+                        <div className="bg-neutral-900/50 rounded-lg p-3">
                           <code className="text-sm text-blue-600 font-mono break-all">{wallet.address}</code>
                         </div>
                       </div>
                     ))}
                   </div>
                   <div className="mt-3">
-                    <p className="text-sm text-neutral-500 italic">
+                    <p className="text-sm text-neutral-400 italic">
                       * Wallets can be changed after staff agreement
                     </p>
                   </div>
@@ -210,7 +210,7 @@ export default function WhitepaperPage() {
                 <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
                   <Users className="w-4 h-4 text-blue-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-neutral-900">Subscription Policy</h2>
+                <h2 className="text-2xl font-bold text-neutral-100">Subscription Policy</h2>
               </div>
               
               <div className="space-y-4">
@@ -236,9 +236,9 @@ export default function WhitepaperPage() {
                     content: "15% commission + 10% lifetime discount for first referral, then 2% discount for each subsequent referral."
                   }
                 ].map((item, index) => (
-                  <div key={index} className="p-4 bg-white border border-neutral-200 rounded-lg">
-                    <h4 className="font-semibold text-neutral-900 mb-2">{item.title}</h4>
-                    <p className="text-neutral-600 leading-relaxed">{item.content}</p>
+                  <div key={index} className="p-4 bg-neutral-800/30 border border-neutral-700/50 rounded-lg">
+                    <h4 className="font-semibold text-neutral-100 mb-2">{item.title}</h4>
+                    <p className="text-neutral-400 leading-relaxed">{item.content}</p>
                   </div>
                 ))}
               </div>
@@ -250,15 +250,15 @@ export default function WhitepaperPage() {
                 <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
                   <Coins className="w-4 h-4 text-blue-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-neutral-900">Investment Policy</h2>
+                <h2 className="text-2xl font-bold text-neutral-100">Investment Policy</h2>
               </div>
               
-              <div className="p-6 bg-blue-50 border border-blue-200 rounded-lg">
+              <div className="p-6 bg-blue-500/10 border border-blue-500/20 rounded-lg">
                 <div className="flex items-start space-x-4">
                   <div className="text-3xl font-bold text-blue-600">10%</div>
                   <div>
-                    <h4 className="font-semibold text-blue-900 mb-2">Revenue Share Program</h4>
-                    <p className="text-blue-800">
+                    <h4 className="font-semibold text-blue-300 mb-2">Revenue Share Program</h4>
+                    <p className="text-blue-200">
                       Investments of $7,000 or more receive 10% of all subscription revenue. 
                       All investment terms are discussed directly with the CEO.
                     </p>
@@ -273,7 +273,7 @@ export default function WhitepaperPage() {
                 <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
                   <Settings className="w-4 h-4 text-blue-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-neutral-900">Operating Principle</h2>
+                <h2 className="text-2xl font-bold text-neutral-100">Operating Principle</h2>
               </div>
               
               <div className="space-y-3">
@@ -304,14 +304,14 @@ export default function WhitepaperPage() {
                     description: "Final verification layer that compiles data from all AIs before sending to Telegram bot."
                   }
                 ].map((ai, index) => (
-                  <div key={index} className="p-4 bg-white border border-neutral-200 rounded-lg">
+                  <div key={index} className="p-4 bg-neutral-800/30 border border-neutral-700/50 rounded-lg">
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold text-neutral-900">{ai.name}</h4>
-                      <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">
+                      <h4 className="font-semibold text-neutral-100">{ai.name}</h4>
+                      <span className="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full font-medium">
                         {ai.performance}
                       </span>
                     </div>
-                    <p className="text-neutral-600">{ai.description}</p>
+                    <p className="text-neutral-400">{ai.description}</p>
                   </div>
                 ))}
               </div>
@@ -323,10 +323,10 @@ export default function WhitepaperPage() {
                 <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
                   <FileText className="w-4 h-4 text-blue-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-neutral-900">Blur Tokenomics</h2>
+                <h2 className="text-2xl font-bold text-neutral-100">Blur Tokenomics</h2>
               </div>
               
-              <div className="text-center p-8 bg-white border border-neutral-200 rounded-lg">
+              <div className="text-center p-8 bg-neutral-800/30 border border-neutral-700/50 rounded-lg">
                 <button
                   onClick={handleTokenomicsRedirect}
                   className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
@@ -338,8 +338,8 @@ export default function WhitepaperPage() {
             </section>
 
             {/* Footer */}
-            <footer className="pt-8 border-t border-neutral-200">
-              <p className="text-center text-neutral-500 text-sm">© 2025 Blur Protocol. All rights reserved.</p>
+            <footer className="pt-8 border-t border-neutral-800/50">
+              <p className="text-center text-neutral-400 text-sm">© 2025 Blur Protocol. All rights reserved.</p>
             </footer>
           </div>
         </main>
