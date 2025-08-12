@@ -10,14 +10,14 @@ export default function ConnectPage() {
       name: 'Blur Connect',
       handle: '@blurconnect',
       url: 'https://x.com/bluronsol',
-      icon: Send,
+      icon: 'x',
       description: 'CCO, Community & Support Lead'
     },
     {
       name: 'Twitter',
       handle: '@bluronsol',
       url: 'https://x.com/bluronsol',
-      icon: Twitter,
+      icon: 'x',
       description: 'Latest updates and announcements'
     },
     {
@@ -76,7 +76,6 @@ export default function ConnectPage() {
               
               <div className="space-y-6">
                 {socialLinks.map((social, index) => {
-                  const IconComponent = social.icon;
                   return (
                     <div
                       key={index}
@@ -92,7 +91,15 @@ export default function ConnectPage() {
                       >
                         <div className="flex items-center space-x-4">
                           <div className="w-12 h-12 bg-neutral-900/50 border border-neutral-800/50 rounded-xl flex items-center justify-center group-hover:border-blue-500/30 transition-colors duration-300">
-                            <IconComponent className="w-6 h-6 text-neutral-400 group-hover:text-blue-400 transition-colors duration-300" />
+                            {social.icon === 'x' ? (
+                              <img 
+                                src="/x.png" 
+                                alt="X (Twitter)" 
+                                className="w-6 h-6 object-contain opacity-60 group-hover:opacity-100 transition-all duration-300"
+                              />
+                            ) : (
+                              <social.icon className="w-6 h-6 text-neutral-400 group-hover:text-blue-400 transition-colors duration-300" />
+                            )}
                           </div>
                           <div>
                             <div className="text-neutral-200 font-medium text-lg group-hover:text-white transition-colors duration-300">{social.name}</div>
