@@ -34,11 +34,11 @@ export default function WhitepaperPage() {
   ];
 
   const navigationItems = [
-    { id: 'contacts', title: 'Official Contacts', icon: Shield },
-    { id: 'subscription', title: 'Subscription Policy', icon: Users },
-    { id: 'investment', title: 'Investment Policy', icon: Coins },
-    { id: 'operating', title: 'Operating Principle', icon: Settings },
-    { id: 'tokenomics', title: 'Tokenomics', icon: FileText }
+    { id: 'contacts', title: 'Official Contacts', number: '01' },
+    { id: 'subscription', title: 'Subscription Policy', number: '02' },
+    { id: 'investment', title: 'Investment Policy', number: '03' },
+    { id: 'operating', title: 'Operating Principle', number: '04' },
+    { id: 'tokenomics', title: 'Tokenomics', number: '05' }
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -93,7 +93,6 @@ export default function WhitepaperPage() {
           <div className="pt-6 pb-4">
             <nav className="px-4 space-y-1">
               {navigationItems.map((item) => {
-                const IconComponent = item.icon;
                 return (
                   <button
                     key={item.id}
@@ -104,7 +103,9 @@ export default function WhitepaperPage() {
                         : 'text-neutral-400 hover:bg-neutral-800 hover:text-neutral-200'
                     }`}
                   >
-                    <IconComponent className="w-4 h-4 flex-shrink-0" />
+                    <div className="w-6 h-6 flex items-center justify-center bg-neutral-800 rounded text-xs font-mono text-neutral-400 flex-shrink-0">
+                      {item.number}
+                    </div>
                     <span>{item.title}</span>
                   </button>
                 );
@@ -133,9 +134,9 @@ export default function WhitepaperPage() {
 
             {/* Official Contacts */}
             <section id="contacts" className="mb-16">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <Shield className="w-4 h-4 text-blue-600" />
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-lg flex items-center justify-center">
+                  <span className="text-lg font-mono font-bold text-blue-400">01</span>
                 </div>
                 <h2 className="text-2xl font-bold text-neutral-100">Official Contacts</h2>
               </div>
@@ -206,9 +207,9 @@ export default function WhitepaperPage() {
 
             {/* Subscription Policy */}
             <section id="subscription" className="mb-16">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <Users className="w-4 h-4 text-blue-600" />
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-lg flex items-center justify-center">
+                  <span className="text-lg font-mono font-bold text-blue-400">02</span>
                 </div>
                 <h2 className="text-2xl font-bold text-neutral-100">Subscription Policy</h2>
               </div>
@@ -246,9 +247,9 @@ export default function WhitepaperPage() {
 
             {/* Investment Policy */}
             <section id="investment" className="mb-16">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <Coins className="w-4 h-4 text-blue-600" />
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-lg flex items-center justify-center">
+                  <span className="text-lg font-mono font-bold text-blue-400">03</span>
                 </div>
                 <h2 className="text-2xl font-bold text-neutral-100">Investment Policy</h2>
               </div>
@@ -269,9 +270,9 @@ export default function WhitepaperPage() {
 
             {/* Operating Principle */}
             <section id="operating" className="mb-16">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <Settings className="w-4 h-4 text-blue-600" />
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-lg flex items-center justify-center">
+                  <span className="text-lg font-mono font-bold text-blue-400">04</span>
                 </div>
                 <h2 className="text-2xl font-bold text-neutral-100">Operating Principle</h2>
               </div>
@@ -319,9 +320,9 @@ export default function WhitepaperPage() {
 
             {/* Tokenomics */}
             <section id="tokenomics" className="mb-16">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <FileText className="w-4 h-4 text-blue-600" />
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-lg flex items-center justify-center">
+                  <span className="text-lg font-mono font-bold text-blue-400">05</span>
                 </div>
                 <h2 className="text-2xl font-bold text-neutral-100">Blur Tokenomics</h2>
               </div>
