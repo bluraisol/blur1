@@ -43,9 +43,16 @@ export default function WhitepaperPage() {
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
-    const element = document.getElementById(sectionId);
+    const element = document.getElementById(`${sectionId}-header`);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+      const headerHeight = 64; // 16 * 4 = 64px (h-16)
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight - 20; // 20px дополнительный отступ
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
     setSidebarOpen(false);
   };
@@ -134,7 +141,7 @@ export default function WhitepaperPage() {
 
             {/* Official Contacts */}
             <section className="mb-16">
-              <div id="contacts" className="flex items-center space-x-4 mb-8">
+              <div id="contacts-header" className="flex items-center space-x-4 mb-8">
                 <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
                   <span className="text-sm font-mono text-blue-400">01</span>
                 </div>
@@ -214,7 +221,7 @@ export default function WhitepaperPage() {
 
             {/* Subscription Policy */}
             <section className="mb-16">
-              <div id="subscription" className="flex items-center space-x-4 mb-8">
+              <div id="subscription-header" className="flex items-center space-x-4 mb-8">
                 <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
                   <span className="text-sm font-mono text-blue-400">02</span>
                 </div>
@@ -254,7 +261,7 @@ export default function WhitepaperPage() {
 
             {/* Investment Policy */}
             <section className="mb-16">
-              <div id="investment" className="flex items-center space-x-4 mb-8">
+              <div id="investment-header" className="flex items-center space-x-4 mb-8">
                 <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
                   <span className="text-sm font-mono text-blue-400">03</span>
                 </div>
@@ -277,7 +284,7 @@ export default function WhitepaperPage() {
 
             {/* Operating Principle */}
             <section className="mb-16">
-              <div id="operating" className="flex items-center space-x-4 mb-8">
+              <div id="operating-header" className="flex items-center space-x-4 mb-8">
                 <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
                   <span className="text-sm font-mono text-blue-400">04</span>
                 </div>
@@ -327,7 +334,7 @@ export default function WhitepaperPage() {
 
             {/* Tokenomics */}
             <section className="mb-16">
-              <div id="tokenomics" className="flex items-center space-x-4 mb-8">
+              <div id="tokenomics-header" className="flex items-center space-x-4 mb-8">
                 <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
                   <span className="text-sm font-mono text-blue-400">05</span>
                 </div>
