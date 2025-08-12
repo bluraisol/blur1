@@ -310,7 +310,15 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
               return (
                 <div key={index} className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 p-6 hover:border-blue-500/30 transition-all duration-200 rounded-xl backdrop-blur-sm hover:shadow-lg hover:shadow-blue-500/10 hover:scale-105 group">
                   <div className="flex items-center justify-between mb-4">
-                    <IconComponent className="w-6 h-6 text-neutral-400 group-hover:text-blue-400 transition-colors duration-200" />
+                    {metric.label === "Coins Detected" ? (
+                      <img 
+                        src="/CoinsDetected.png" 
+                        alt="Coins Detected" 
+                        className="w-6 h-6 object-contain opacity-60 group-hover:opacity-100 transition-all duration-200"
+                      />
+                    ) : (
+                      <IconComponent className="w-6 h-6 text-neutral-400 group-hover:text-blue-400 transition-colors duration-200" />
+                    )}
                   </div>
                   <div className="text-xs text-neutral-500 uppercase tracking-wider mb-2">{metric.label}</div>
                   <div className="text-3xl font-light text-neutral-100 mb-1 group-hover:text-white transition-colors duration-200">{metric.value}</div>
