@@ -25,10 +25,10 @@ export default function WhitepaperPage() {
   };
 
   const wallets = [
-    { name: 'Tether USDT TRC-20 (TRX)', address: 'TGU8xcD3Qg8zn2pLxkc8zKVhV3QvGiFh8b' },
-    { name: 'Solana (SOL)', address: 'Ckq7txJnC9xH3WkrkEheSYXbV8iqtwTD963gRCKvetET' },
-    { name: 'Bitcoin (BTC)', address: 'bc1qsuepk6ktryym2n4a6z996qmm4t7a0y0s38yp5z' },
-    { name: 'Ethereum (ETH)', address: '0xfe3A2437e0e0E3497C77924B5688d74B10bADEb6' }
+    { name: 'Tether USDT TRC-20 (TRX)', address: 'TGU8xcD3Qg8zn2pLxkc8zKVhV3QvGiFh8b', color: 'from-green-500 to-emerald-600' },
+    { name: 'Solana (SOL)', address: 'Ckq7txJnC9xH3WkrkEheSYXbV8iqtwTD963gRCKvetET', color: 'from-purple-500 to-violet-600' },
+    { name: 'Bitcoin (BTC)', address: 'bc1qsuepk6ktryym2n4a6z996qmm4t7a0y0s38yp5z', color: 'from-orange-500 to-amber-600' },
+    { name: 'Ethereum (ETH)', address: '0xfe3A2437e0e0E3497C77924B5688d74B10bADEb6', color: 'from-blue-500 to-indigo-600' }
   ];
 
   const sections = [
@@ -117,29 +117,6 @@ export default function WhitepaperPage() {
           </div>
         </div>
 
-        {/* Navigation */}
-        <div className="flex justify-center mb-16">
-          <div className="inline-flex bg-white/5 border border-white/10 rounded-2xl p-2 backdrop-blur-xl">
-            {sections.map((section, index) => {
-              const IconComponent = section.icon;
-              return (
-                <button
-                  key={section.id}
-                  className="group flex items-center space-x-2 px-4 py-2.5 rounded-xl transition-all duration-300 hover:bg-white/10"
-                  onClick={() => {
-                    document.getElementById(`section-${section.id}`)?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  <IconComponent className={`w-4 h-4 text-transparent bg-gradient-to-r ${section.gradient} bg-clip-text`} />
-                  <span className="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors duration-300 whitespace-nowrap">
-                    {section.title}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
         <div className="space-y-16">
           
           {/* Section 1: Official Contacts */}
@@ -171,7 +148,7 @@ export default function WhitepaperPage() {
                         className="group flex items-center justify-between bg-white/5 border border-white/10 hover:border-blue-400/30 rounded-2xl p-4 transition-all duration-300 hover:bg-white/10"
                       >
                         <div className="flex items-center space-x-3">
-                          <div className="w-10 h-10 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center">
+                          <div className="w-10 h-10 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center">
                             <ExternalLink className="w-5 h-5 text-blue-400" />
                           </div>
                           <div>
@@ -189,7 +166,7 @@ export default function WhitepaperPage() {
                         className="group flex items-center justify-between bg-white/5 border border-white/10 hover:border-blue-400/30 rounded-2xl p-4 transition-all duration-300 hover:bg-white/10"
                       >
                         <div className="flex items-center space-x-3">
-                          <div className="w-10 h-10 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center">
+                          <div className="w-10 h-10 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center">
                             <ExternalLink className="w-5 h-5 text-blue-400" />
                           </div>
                           <div>
@@ -209,7 +186,7 @@ export default function WhitepaperPage() {
                         <div key={index} className="bg-white/5 border border-white/10 rounded-2xl p-4">
                           <div className="flex items-center justify-between mb-3">
                             <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                              <div className={`w-8 h-8 bg-gradient-to-r ${wallet.color} rounded-lg flex items-center justify-center`}>
                                 <div className="w-4 h-4 bg-white rounded-sm"></div>
                               </div>
                               <span className="font-medium text-neutral-200">{wallet.name}</span>
@@ -321,7 +298,7 @@ export default function WhitepaperPage() {
                   </div>
                 </div>
                 
-                <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-400/20 rounded-2xl p-6">
+                <div className="bg-gradient-to-r from-blue-500/10 to-blue-600/10 border border-blue-400/20 rounded-2xl p-6">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
                       <span className="text-2xl font-bold text-blue-400">10%</span>
