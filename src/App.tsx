@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import PricingPage from './pages/PricingPage';
 import TokenomicsPage from './pages/TokenomicsPage';
 import ConnectPage from './pages/ConnectPage';
+import WhitepaperPage from './pages/WhitepaperPage';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -53,6 +54,7 @@ function App() {
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/tokenomics" element={<TokenomicsPage />} />
           <Route path="/connect" element={<ConnectPage />} />
+          <Route path="/whitepaper" element={<WhitepaperPage />} />
         </Routes>
         
         <Footer />
