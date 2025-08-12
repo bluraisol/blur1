@@ -171,39 +171,15 @@ export default function WhitepaperPage() {
 
           {/* Navigation Cards */}
           <div className="mb-20">
-            <div className="flex items-center space-x-2 text-xs text-neutral-500 uppercase tracking-wider mb-8">
-              <Menu className="w-3 h-3 text-blue-400" />
-              <span>Quick Navigation</span>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
               {navigationItems.map((item) => {
-                const IconComponent = item.icon;
                 return (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="group relative overflow-hidden bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 hover:border-blue-500/30 rounded-xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10 text-left"
+                    className="px-6 py-3 bg-neutral-900/40 border border-neutral-800/50 hover:border-blue-500/30 rounded-lg text-neutral-300 hover:text-white transition-all duration-200 hover:bg-blue-500/5"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    
-                    <div className="relative z-10 flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-neutral-900/50 border border-neutral-800/50 rounded-xl flex items-center justify-center group-hover:border-blue-500/30 transition-colors duration-300">
-                        <IconComponent className="w-6 h-6 text-neutral-400 group-hover:text-blue-400 transition-colors duration-300" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="text-neutral-200 font-medium group-hover:text-white transition-colors duration-300">
-                          {item.label}
-                        </div>
-                        <div className="text-neutral-500 text-sm mt-1 group-hover:text-neutral-400 transition-colors duration-300">
-                          {item.id === 'contacts' && 'Official project sources and wallets'}
-                          {item.id === 'policy' && 'Terms, refunds, and referral system'}
-                          {item.id === 'investment' && 'Investment opportunities and returns'}
-                          {item.id === 'operating' && 'AI systems and technology overview'}
-                          {item.id === 'tokenomics' && 'Token distribution and economics'}
-                        </div>
-                      </div>
-                    </div>
+                    {item.label}
                   </button>
                 );
               })}
