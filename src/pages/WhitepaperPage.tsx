@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Home, ArrowRight, Shield, Zap, Brain, Target, CheckCircle, Users, DollarSign, FileText } from 'lucide-react';
+import { Home, ArrowRight, Shield, Zap, Brain, Target, CheckCircle, Users, DollarSign, FileText, Menu } from 'lucide-react';
 
 export default function WhitepaperPage() {
   const navigate = useNavigate();
@@ -13,6 +13,21 @@ export default function WhitepaperPage() {
   const handleViewTokenomics = () => {
     navigate('/tokenomics');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const navigationItems = [
+    { id: 'contacts', label: 'Official Contacts', icon: Users },
+    { id: 'policy', label: 'Subscription Policy', icon: Shield },
+    { id: 'investment', label: 'Investment Policy', icon: DollarSign },
+    { id: 'operating', label: 'Operating Principle', icon: Brain },
+    { id: 'tokenomics', label: 'Tokenomics', icon: FileText }
+  ];
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   const officialContacts = [
@@ -140,6 +155,31 @@ export default function WhitepaperPage() {
         </div>
       </div>
 
+      {/* Floating Navigation */}
+      <div className="fixed left-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
+        <div className="bg-gradient-to-br from-neutral-900/80 to-neutral-800/60 border border-neutral-700/50 rounded-xl p-4 backdrop-blur-sm">
+          <div className="flex items-center space-x-2 mb-4">
+            <Menu className="w-4 h-4 text-blue-400" />
+            <span className="text-xs text-neutral-400 uppercase tracking-wider">Navigation</span>
+          </div>
+          <nav className="space-y-2">
+            {navigationItems.map((item) => {
+              const IconComponent = item.icon;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="flex items-center space-x-3 w-full text-left py-2 px-3 text-sm text-neutral-400 hover:text-white hover:bg-neutral-800/30 rounded-lg transition-all duration-200 group"
+                >
+                  <IconComponent className="w-4 h-4 group-hover:text-blue-400 transition-colors duration-200" />
+                  <span className="whitespace-nowrap">{item.label}</span>
+                </button>
+              );
+            })}
+          </nav>
+        </div>
+      </div>
+
       {/* Main Content */}
       <div className="pt-28 pb-20">
         <div className="max-w-5xl mx-auto px-6">
@@ -155,7 +195,7 @@ export default function WhitepaperPage() {
           </div>
 
           {/* Section 1: Official Contacts */}
-          <section className="mb-16">
+          <section id="contacts" className="mb-16">
             <h2 className="text-3xl font-light text-neutral-200 mb-8 flex items-center space-x-3">
               <Users className="w-8 h-8 text-blue-400" />
               <span>1. Official Contacts</span>
@@ -202,7 +242,7 @@ export default function WhitepaperPage() {
           </section>
 
           {/* Section 2: Subscription Policy */}
-          <section className="mb-16">
+          <section id="policy" className="mb-16">
             <h2 className="text-3xl font-light text-neutral-200 mb-8 flex items-center space-x-3">
               <Shield className="w-8 h-8 text-blue-400" />
               <span>2. Subscription Policy</span>
@@ -226,7 +266,7 @@ export default function WhitepaperPage() {
           </section>
 
           {/* Section 3: Investment Policy */}
-          <section className="mb-16">
+          <section id="investment" className="mb-16">
             <h2 className="text-3xl font-light text-neutral-200 mb-8 flex items-center space-x-3">
               <DollarSign className="w-8 h-8 text-blue-400" />
               <span>3. Investment Policy</span>
@@ -249,7 +289,7 @@ export default function WhitepaperPage() {
           </section>
 
           {/* Section 4: Operating Principle */}
-          <section className="mb-16">
+          <section id="operating" className="mb-16">
             <h2 className="text-3xl font-light text-neutral-200 mb-8 flex items-center space-x-3">
               <Brain className="w-8 h-8 text-blue-400" />
               <span>4. Operating Principle of Blur</span>
@@ -290,7 +330,7 @@ export default function WhitepaperPage() {
           </section>
 
           {/* Tokenomics Section */}
-          <section className="mb-16">
+          <section id="tokenomics" className="mb-16">
             <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-8 text-center">
               <FileText className="w-16 h-16 text-blue-400 mx-auto mb-6" />
               <h2 className="text-3xl font-light text-neutral-200 mb-4">Blur Coin Tokenomics</h2>
