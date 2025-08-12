@@ -19,7 +19,7 @@ export default function WhitepaperPage() {
       <div className="fixed inset-0 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 opacity-80" />
       
       {/* Go Home Button */}
-      <div className="fixed top-6 left-6 z-50">
+      <div className="fixed top-6 right-6 z-50">
         <button
           onClick={handleGoHome}
           className="flex items-center space-x-2 bg-gradient-to-r from-neutral-900/80 to-neutral-800/60 border border-neutral-700/50 hover:border-blue-500/50 px-4 py-2 rounded-xl backdrop-blur-sm transition-all duration-300 hover:scale-105 group"
