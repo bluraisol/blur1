@@ -143,11 +143,11 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
   ], []);
 
   const topTokensData = useMemo(() => [
-    { rank: 1, token: '$GORK', calledAt: '34K', ath: '100.8M', returnX: '2964x', link: 'https://pump.fun/coin/38PgzpJYu2HkiYvV8qePFakB8tuobPdGm2FFEn7Dpump' },
-    { rank: 2, token: '$DJI6930', calledAt: '68.4K', ath: '87.37M', returnX: '1277x', link: 'https://pump.fun/coin/DQnkBM4eYYMnVE8Qy2K3BB7uts1fh2EwBVktEz6jpump' },
-    { rank: 3, token: '$TOKABU', calledAt: '40.8K', ath: '47.2M', returnX: '1158x', link: 'https://pump.fun/coin/H8xQ6poBjB9DTPMDTKWzWPrnxu4bDEhybxiouF8Ppump' },
-    { rank: 4, token: '$MASK', calledAt: '40.7K', ath: '29.3M', returnX: '720x', link: 'https://pump.fun/coin/6MQpbiTC2YcogidTmKqMLK82qvE9z5QEm7EP3AEDpump' },
-    { rank: 5, token: '$URMOM', calledAt: '43.5K', ath: '24.32M', returnX: '453x', link: 'https://pump.fun/coin/9j6twpYWrV1ueJok76D9YK8wJTVoG9Zy8spC7wnTpump' }
+    { rank: 1, token: '$GORK', calledAt: '34K', ath: '100.8M', returnX: '2964x', link: 'https://pump.fun/coin/38PgzpJYu2HkiYvV8qePFakB8tuobPdGm2FFEn7Dpump'  },
+    { rank: 2, token: '$TOKABU', calledAt: '40.8K', ath: '72.6M', returnX: '1780x', link: 'https://pump.fun/coin/H8xQ6poBjB9DTPMDTKWzWPrnxu4bDEhybxiouF8Ppump'  },
+    { rank: 3, token: '$DJI6930', calledAt: '68.4K', ath: '87.37M', returnX: '1277x', link: 'https://pump.fun/coin/DQnkBM4eYYMnVE8Qy2K3BB7uts1fh2EwBVktEz6jpump'  },
+    { rank: 4, token: '$MASK', calledAt: '40.7K', ath: '29.3M', returnX: '720x', link: 'https://pump.fun/coin/6MQpbiTC2YcogidTmKqMLK82qvE9z5QEm7EP3AEDpump'  },
+    { rank: 5, token: '$URMOM', calledAt: '43.5K', ath: '24.32M', returnX: '453x', link: 'https://pump.fun/coin/9j6twpYWrV1ueJok76D9YK8wJTVoG9Zy8spC7wnTpump'  }
   ], []);
 
   const aiSystemsData = useMemo(() => [
