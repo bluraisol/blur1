@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -8,10 +8,13 @@ import TokenomicsPage from './pages/TokenomicsPage';
 import ConnectPage from './pages/ConnectPage';
 import WhitepaperPage from './pages/WhitepaperPage';
 
-function App() {
+function AppContent() {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolling, setIsScrolling] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const location = useLocation();
+  
+  const isWhitepaperPage = location.pathname === '/whitepaper';
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -27,38 +30,46 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans overflow-x-hidden relative">
-        {/* Animated background gradient */}
+    <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans overflow-x-hidden relative">
+      {/* Animated background gradient */}
+      {!isWhitepaperPage && (
         <div 
           className="fixed inset-0 opacity-50 pointer-events-none"
           style={{
             background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.25), transparent 40%)`
           }}
         />
-        
-        <Navbar mousePosition={mousePosition} activeSection={activeSection} />
-        
-        <Routes>
-          <Route 
-            path="/" 
-            element={
-              <HomePage 
-                activeSection={activeSection}
-                setActiveSection={setActiveSection}
-                isScrolling={isScrolling}
-                setIsScrolling={setIsScrolling}
-              />
-            } 
-          />
-          <Route path="/pricing" element={<PricingPage />} />
-          <Route path="/tokenomics" element={<TokenomicsPage />} />
-          <Route path="/connect" element={<ConnectPage />} />
-          <Route path="/whitepaper" element={<WhitepaperPage />} />
-        </Routes>
-        
-        <Footer />
-      </div>
+      )}
+      
+      {!isWhitepaperPage && <Navbar mousePosition={mousePosition} activeSection={activeSection} />}
+      
+      <Routes>
+        <Route 
+          path="/" 
+          element={
+            <HomePage 
+              activeSection={activeSection}
+              setActiveSection={setActiveSection}
+              isScrolling={isScrolling}
+              setIsScrolling={setIsScrolling}
+            />
+          } 
+        />
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/tokenomics" element={<TokenomicsPage />} />
+        <Route path="/connect" element={<ConnectPage />} />
+        <Route path="/whitepaper" element={<WhitepaperPage />} />
+      </Routes>
+      
+      {!isWhitepaperPage && <Footer />}
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

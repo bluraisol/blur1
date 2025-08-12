@@ -14,7 +14,7 @@ export default function WhitepaperPage() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 relative overflow-hidden">
+    <div className="min-h-screen bg-neutral-950 text-neutral-100 relative overflow-hidden pt-0">
       {/* Background gradient */}
       <div className="fixed inset-0 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 opacity-80" />
       
@@ -29,9 +29,9 @@ export default function WhitepaperPage() {
         </button>
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 py-20">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 py-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <div className="flex items-center justify-center space-x-4 mb-8">
             <img 
               src="/media/static/logo2.png" 
@@ -51,11 +51,10 @@ export default function WhitepaperPage() {
           </h2>
         </div>
 
-        {/* Content */}
-        <div className="space-y-12">
+        <div className="space-y-8">
           
           {/* Section 1: Official Contacts */}
-          <section className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-2xl p-8 backdrop-blur-sm">
+          <section className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-2xl p-6 backdrop-blur-sm">
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
               <h3 className="text-2xl font-light text-neutral-100">Official contacts related to the project</h3>
@@ -118,7 +117,7 @@ export default function WhitepaperPage() {
           </section>
 
           {/* Section 2: Subscriptions Policy */}
-          <section className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-2xl p-8 backdrop-blur-sm">
+          <section className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-2xl p-6 backdrop-blur-sm">
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
               <h3 className="text-2xl font-light text-neutral-100">Subscriptions policy</h3>
@@ -155,7 +154,7 @@ export default function WhitepaperPage() {
           </section>
 
           {/* Section 3: Investment Policy */}
-          <section className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-2xl p-8 backdrop-blur-sm">
+          <section className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-2xl p-6 backdrop-blur-sm">
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
               <h3 className="text-2xl font-light text-neutral-100">Investment policy</h3>
@@ -167,7 +166,7 @@ export default function WhitepaperPage() {
           </section>
 
           {/* Section 4: Operating Principle */}
-          <section className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-2xl p-8 backdrop-blur-sm">
+          <section className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-2xl p-6 backdrop-blur-sm">
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">4</div>
               <h3 className="text-2xl font-light text-neutral-100">Operating principle of Blur</h3>
@@ -187,7 +186,7 @@ export default function WhitepaperPage() {
           </section>
 
           {/* Section 5: Tokenomics */}
-          <section className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-2xl p-8 backdrop-blur-sm">
+          <section className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-2xl p-6 backdrop-blur-sm">
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">5</div>
               <h3 className="text-2xl font-light text-neutral-100">Blur Coin tokenomics</h3>
@@ -206,7 +205,7 @@ export default function WhitepaperPage() {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-16 pt-8 border-t border-neutral-800/30">
+        <div className="text-center mt-12 pt-6 border-t border-neutral-800/30">
           <p className="text-neutral-400 text-sm">All rights reserved. © Blur</p>
         </div>
       </div>
