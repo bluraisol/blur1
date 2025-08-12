@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Home, ExternalLink, ArrowRight, Copy, Check } from 'lucide-react';
+import { Home, ExternalLink, ArrowRight, Copy, Check, Shield, Users, Coins, Settings, FileText } from 'lucide-react';
 
 export default function WhitepaperPage() {
   const navigate = useNavigate();
@@ -25,242 +25,417 @@ export default function WhitepaperPage() {
   };
 
   const wallets = [
-    { name: 'Tether USDT TRC-20 (TRX)', address: 'TGU8xcD3Qg8zn2pLxkc8zKVhV3QvGiFh8b' },
-    { name: 'Solana (SOL)', address: 'Ckq7txJnC9xH3WkrkEheSYXbV8iqtwTD963gRCKvetET' },
-    { name: 'Bitcoin (BTC)', address: 'bc1qsuepk6ktryym2n4a6z996qmm4t7a0y0s38yp5z' },
-    { name: 'Ethereum (ETH)', address: '0xfe3A2437e0e0E3497C77924B5688d74B10bADEb6' }
+    { name: 'Tether USDT TRC-20 (TRX)', address: 'TGU8xcD3Qg8zn2pLxkc8zKVhV3QvGiFh8b', color: 'from-green-500 to-emerald-600' },
+    { name: 'Solana (SOL)', address: 'Ckq7txJnC9xH3WkrkEheSYXbV8iqtwTD963gRCKvetET', color: 'from-purple-500 to-violet-600' },
+    { name: 'Bitcoin (BTC)', address: 'bc1qsuepk6ktryym2n4a6z996qmm4t7a0y0s38yp5z', color: 'from-orange-500 to-amber-600' },
+    { name: 'Ethereum (ETH)', address: '0xfe3A2437e0e0E3497C77924B5688d74B10bADEb6', color: 'from-blue-500 to-indigo-600' }
+  ];
+
+  const sections = [
+    {
+      id: 1,
+      title: 'Official Contacts',
+      icon: Shield,
+      gradient: 'from-blue-500 to-cyan-500'
+    },
+    {
+      id: 2,
+      title: 'Subscription Policy',
+      icon: Users,
+      gradient: 'from-purple-500 to-pink-500'
+    },
+    {
+      id: 3,
+      title: 'Investment Policy',
+      icon: Coins,
+      gradient: 'from-green-500 to-emerald-500'
+    },
+    {
+      id: 4,
+      title: 'Operating Principle',
+      icon: Settings,
+      gradient: 'from-orange-500 to-red-500'
+    },
+    {
+      id: 5,
+      title: 'Tokenomics',
+      icon: FileText,
+      gradient: 'from-indigo-500 to-purple-500'
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 relative">
-      {/* Subtle background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-blue-600/5"></div>
-      
+    <div className="min-h-screen bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 text-neutral-100 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/3 to-purple-500/3 rounded-full blur-3xl"></div>
+      </div>
+
+      {/* Subtle grid overlay */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{
+        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)`,
+        backgroundSize: '40px 40px'
+      }}></div>
+
       {/* Go Home Button */}
-      <div className="fixed top-6 right-6 z-50">
+      <div className="fixed top-8 right-8 z-50">
         <button
           onClick={handleGoHome}
-          className="flex items-center space-x-2 bg-neutral-900/80 border border-neutral-700/50 hover:border-blue-500/50 px-4 py-2 rounded-lg backdrop-blur-sm transition-all duration-200 hover:scale-105"
+          className="group flex items-center space-x-2 bg-white/5 border border-white/10 hover:border-blue-400/30 px-4 py-2.5 rounded-xl backdrop-blur-xl transition-all duration-300 hover:bg-white/10 hover:scale-105"
         >
-          <Home className="w-4 h-4 text-neutral-400" />
-          <span className="text-sm text-neutral-300">Go Home</span>
+          <Home className="w-4 h-4 text-neutral-400 group-hover:text-blue-400 transition-colors duration-300" />
+          <span className="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors duration-300">Home</span>
         </button>
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 py-12">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center space-x-4 mb-6">
-            <img 
-              src="/media/static/logo2.png" 
-              alt="Blur Logo" 
-              className="w-12 h-12 rounded-lg object-cover shadow-lg shadow-blue-500/20"
-            />
+      <div className="relative z-10 max-w-5xl mx-auto px-8 py-16">
+        {/* Elegant Header */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center justify-center mb-8">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl"></div>
+              <div className="relative bg-gradient-to-br from-white/10 to-white/5 border border-white/20 rounded-2xl p-4 backdrop-blur-xl">
+                <img 
+                  src="/media/static/logo2.png" 
+                  alt="Blur Logo" 
+                  className="w-16 h-16 rounded-xl object-cover"
+                />
+              </div>
+            </div>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-light leading-tight tracking-tight mb-3">
-            <span className="text-transparent bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text">Blur Crypto Bot</span>
-            <br />
-            <span className="text-neutral-200">on Solana</span>
-          </h1>
-          
-          <div className="w-16 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto mb-3"></div>
-          
-          <h2 className="text-xl font-light text-neutral-400">Whitepaper</h2>
+          <div className="space-y-4">
+            <h1 className="text-5xl font-light tracking-tight">
+              <span className="text-transparent bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text">
+                Blur Protocol
+              </span>
+            </h1>
+            <div className="w-24 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto"></div>
+            <p className="text-xl font-light text-neutral-400 tracking-wide">Technical Documentation</p>
+          </div>
         </div>
 
-        <div className="space-y-8">
+        {/* Navigation */}
+        <div className="flex justify-center mb-16">
+          <div className="inline-flex bg-white/5 border border-white/10 rounded-2xl p-2 backdrop-blur-xl">
+            {sections.map((section, index) => {
+              const IconComponent = section.icon;
+              return (
+                <button
+                  key={section.id}
+                  className="group flex items-center space-x-2 px-4 py-2.5 rounded-xl transition-all duration-300 hover:bg-white/10"
+                  onClick={() => {
+                    document.getElementById(`section-${section.id}`)?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  <IconComponent className={`w-4 h-4 text-transparent bg-gradient-to-r ${section.gradient} bg-clip-text`} />
+                  <span className="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors duration-300 whitespace-nowrap">
+                    {section.title}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="space-y-16">
           
           {/* Section 1: Official Contacts */}
-          <section className="bg-neutral-900/40 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-semibold text-sm">1</div>
-              <h3 className="text-xl font-medium text-neutral-100">Official contacts related to the project</h3>
-            </div>
-            
-            <div className="space-y-4">
-              <div>
-                <h4 className="text-sm font-medium text-neutral-300 mb-3">1.1 The only sources officially linked to the project:</h4>
-                <div className="space-y-2 ml-4">
-                  <div className="flex items-center justify-between bg-neutral-800/30 border border-neutral-700/30 rounded-lg p-3">
-                    <div>
+          <section id="section-1" className="group">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 rounded-3xl blur-xl"></div>
+              <div className="relative bg-gradient-to-br from-white/5 to-white/2 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+                <div className="flex items-center space-x-4 mb-8">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl blur-sm"></div>
+                    <div className="relative bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl p-3">
+                      <Shield className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-light text-white">Official Contacts</h2>
+                    <p className="text-neutral-400 text-sm">Verified project channels and wallets</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-medium text-neutral-200 mb-4">Official Channels</h3>
+                    <div className="grid gap-3">
                       <a 
                         href="https://t.me/blurconnect" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-blue-400 hover:text-blue-300 transition-colors duration-200 font-mono text-sm"
+                        className="group flex items-center justify-between bg-white/5 border border-white/10 hover:border-blue-400/30 rounded-2xl p-4 transition-all duration-300 hover:bg-white/10"
                       >
-                        https://t.me/blurconnect
+                        <div className="flex items-center space-x-3">
+                          <div className="w-10 h-10 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center">
+                            <ExternalLink className="w-5 h-5 text-blue-400" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-white group-hover:text-blue-200 transition-colors duration-300">@blurconnect</div>
+                            <div className="text-xs text-neutral-500">Technical support, FAQ, CEO</div>
+                          </div>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-neutral-500 group-hover:text-blue-400 transition-all duration-300 group-hover:translate-x-1" />
                       </a>
-                      <p className="text-neutral-500 text-xs mt-1">technical support, FAQ and sales of subscriptions, CEO</p>
-                    </div>
-                    <ExternalLink className="w-4 h-4 text-neutral-500" />
-                  </div>
-                  
-                  <div className="flex items-center justify-between bg-neutral-800/30 border border-neutral-700/30 rounded-lg p-3">
-                    <div>
+                      
                       <a 
                         href="https://t.me/BlurCryptoBot" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-blue-400 hover:text-blue-300 transition-colors duration-200 font-mono text-sm"
+                        className="group flex items-center justify-between bg-white/5 border border-white/10 hover:border-blue-400/30 rounded-2xl p-4 transition-all duration-300 hover:bg-white/10"
                       >
-                        https://t.me/BlurCryptoBot
+                        <div className="flex items-center space-x-3">
+                          <div className="w-10 h-10 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center">
+                            <ExternalLink className="w-5 h-5 text-blue-400" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-white group-hover:text-blue-200 transition-colors duration-300">@BlurCryptoBot</div>
+                            <div className="text-xs text-neutral-500">Official Blur bot in Telegram</div>
+                          </div>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-neutral-500 group-hover:text-blue-400 transition-all duration-300 group-hover:translate-x-1" />
                       </a>
-                      <p className="text-neutral-500 text-xs mt-1">the only official Blur bot in Telegram</p>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-neutral-500" />
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg font-medium text-neutral-200 mb-4">Official Wallets</h3>
+                    <div className="grid gap-3">
+                      {wallets.map((wallet, index) => (
+                        <div key={index} className="bg-white/5 border border-white/10 rounded-2xl p-4">
+                          <div className="flex items-center justify-between mb-3">
+                            <div className="flex items-center space-x-3">
+                              <div className={`w-8 h-8 bg-gradient-to-r ${wallet.color} rounded-lg flex items-center justify-center`}>
+                                <div className="w-4 h-4 bg-white rounded-sm"></div>
+                              </div>
+                              <span className="font-medium text-neutral-200">{wallet.name}</span>
+                            </div>
+                            <button
+                              onClick={() => handleCopyWallet(wallet.address)}
+                              className="p-2 text-neutral-500 hover:text-blue-400 transition-colors duration-300 hover:bg-white/10 rounded-lg"
+                            >
+                              {copiedWallet === wallet.address ? 
+                                <Check className="w-4 h-4 text-green-400" /> : 
+                                <Copy className="w-4 h-4" />
+                              }
+                            </button>
+                          </div>
+                          <div className="bg-black/20 border border-white/5 rounded-xl p-3">
+                            <code className="text-xs text-blue-300 font-mono break-all">{wallet.address}</code>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-xs text-neutral-500 mt-3 italic">
+                      * Wallets can be changed after staff agreement
+                    </p>
                   </div>
                 </div>
-              </div>
-              
-              <div>
-                <h4 className="text-sm font-medium text-neutral-300 mb-3">1.2 The only wallets officially linked to the project:</h4>
-                <div className="space-y-2 ml-4">
-                  {wallets.map((wallet, index) => (
-                    <div key={index} className="bg-neutral-800/30 border border-neutral-700/30 rounded-lg p-3">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-neutral-300 text-sm font-medium">{wallet.name}:</span>
-                        <button
-                          onClick={() => handleCopyWallet(wallet.address)}
-                          className="p-1 text-neutral-500 hover:text-blue-400 transition-colors duration-200"
-                          title="Copy wallet address"
-                        >
-                          {copiedWallet === wallet.address ? 
-                            <Check className="w-3 h-3 text-green-400" /> : 
-                            <Copy className="w-3 h-3" />
-                          }
-                        </button>
-                      </div>
-                      <code className="block bg-neutral-900/50 px-3 py-2 rounded text-blue-400 font-mono text-xs break-all">
-                        {wallet.address}
-                      </code>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-neutral-500 text-xs mt-3 ml-4 italic">
-                  Wallets can be changed after the agreement of staff members.
-                </p>
               </div>
             </div>
           </section>
 
-          {/* Section 2: Subscriptions Policy */}
-          <section className="bg-neutral-900/40 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-semibold text-sm">2</div>
-              <h3 className="text-xl font-medium text-neutral-100">Subscriptions policy</h3>
-            </div>
-            
-            <div className="space-y-3 text-sm text-neutral-300">
-              <div className="bg-neutral-800/20 p-4 rounded-lg">
-                <p className="font-medium mb-2 text-neutral-200">2.1. Subscription duration is fully discussed with one of the technical support team.</p>
-                <div className="ml-4 space-y-1 text-xs">
-                  <p>• 2.1.1. Minimum available subscription duration - 1 month</p>
-                  <p>• 2.1.2. Lifetime subscriptions are available too</p>
+          {/* Section 2: Subscription Policy */}
+          <section id="section-2" className="group">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-3xl blur-xl"></div>
+              <div className="relative bg-gradient-to-br from-white/5 to-white/2 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+                <div className="flex items-center space-x-4 mb-8">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl blur-sm"></div>
+                    <div className="relative bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl p-3">
+                      <Users className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-light text-white">Subscription Policy</h2>
+                    <p className="text-neutral-400 text-sm">Terms and conditions for subscriptions</p>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="bg-neutral-800/20 p-4 rounded-lg">
-                <p>2.2. The subscription is terminated without refund if the user shares his/her subscription account with third parties (forwarding messages to chat rooms with Blur calls is allowed).</p>
-              </div>
-              
-              <div className="bg-neutral-800/20 p-4 rounded-lg">
-                <p>2.3. Subscription refund policy: money can be refunded only in case of unsuccessful bot operation or in emergency situations of clients (to be discussed additionally with CEO)</p>
-              </div>
-              
-              <div className="bg-neutral-800/20 p-4 rounded-lg">
-                <p className="font-medium mb-2 text-neutral-200">2.4. Subscription renewal policy</p>
-                <div className="ml-4 space-y-1 text-xs">
-                  <p>• 2.4.1. Subscription may be renewed for free in case Blur does not work properly or in emergency situations of clients (to be discussed additionally with CEO)</p>
-                  <p>• 2.4.2. Subscription renewal is 15% cheaper for customers who have used Blur before.</p>
-                </div>
-              </div>
-              
-              <div className="bg-neutral-800/20 p-4 rounded-lg">
-                <p className="font-medium mb-2 text-neutral-200">2.5. Blur referral system</p>
-                <div className="ml-4 text-xs">
-                  <p>• 2.5.1. For each customer who purchases a Blur subscription because of you, you will receive 15% of the subscription price and a lifetime discount of 10% on subscription renewal, afterward you will receive a 2% discount for each subsequent customer.</p>
+                
+                <div className="space-y-4">
+                  {[
+                    {
+                      title: "Subscription Duration",
+                      content: "Minimum 1 month, lifetime subscriptions available. Duration discussed with technical support team.",
+                      details: ["Minimum: 1 month", "Lifetime options available"]
+                    },
+                    {
+                      title: "Account Sharing Policy", 
+                      content: "Subscription terminated without refund if shared with third parties. Message forwarding to chat rooms is allowed."
+                    },
+                    {
+                      title: "Refund Policy",
+                      content: "Refunds available for bot malfunctions or emergency situations (discussed with CEO)."
+                    },
+                    {
+                      title: "Renewal Benefits",
+                      content: "15% discount for returning customers. Free renewal for technical issues or emergencies.",
+                      details: ["15% discount for returning users", "Free renewal for technical issues"]
+                    },
+                    {
+                      title: "Referral System",
+                      content: "15% commission + 10% lifetime discount for first referral, then 2% discount for each subsequent referral.",
+                      details: ["15% commission on first referral", "10% lifetime discount", "2% additional discount per referral"]
+                    }
+                  ].map((item, index) => (
+                    <div key={index} className="bg-white/5 border border-white/10 rounded-2xl p-5">
+                      <h4 className="font-medium text-neutral-200 mb-2">{item.title}</h4>
+                      <p className="text-sm text-neutral-400 mb-3">{item.content}</p>
+                      {item.details && (
+                        <div className="space-y-1">
+                          {item.details.map((detail, idx) => (
+                            <div key={idx} className="flex items-center space-x-2">
+                              <div className="w-1 h-1 bg-purple-400 rounded-full"></div>
+                              <span className="text-xs text-neutral-500">{detail}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </section>
 
           {/* Section 3: Investment Policy */}
-          <section className="bg-neutral-900/40 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-semibold text-sm">3</div>
-              <h3 className="text-xl font-medium text-neutral-100">Investment policy</h3>
-            </div>
-            
-            <div className="bg-neutral-800/20 p-4 rounded-lg">
-              <p className="text-sm text-neutral-300">
-                For every investment in Blur development of $7000 or more, you will ALWAYS receive 10% of subscriptions sold. Investments are to be discussed with CEO.
-              </p>
+          <section id="section-3" className="group">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-emerald-500/5 rounded-3xl blur-xl"></div>
+              <div className="relative bg-gradient-to-br from-white/5 to-white/2 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+                <div className="flex items-center space-x-4 mb-8">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl blur-sm"></div>
+                    <div className="relative bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl p-3">
+                      <Coins className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-light text-white">Investment Policy</h2>
+                    <p className="text-neutral-400 text-sm">Partnership and investment opportunities</p>
+                  </div>
+                </div>
+                
+                <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-400/20 rounded-2xl p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-2xl font-bold text-green-400">10%</span>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-green-200 mb-2">Revenue Share Program</h4>
+                      <p className="text-sm text-neutral-300 leading-relaxed">
+                        Investments of $7,000 or more receive 10% of all subscription revenue. 
+                        All investment terms are discussed directly with the CEO.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 
           {/* Section 4: Operating Principle */}
-          <section className="bg-neutral-900/40 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-semibold text-sm">4</div>
-              <h3 className="text-xl font-medium text-neutral-100">Operating principle of Blur</h3>
-            </div>
-            
-            <div className="space-y-3">
-              {[
-                {
-                  title: "4.1. Blur Twitter (X) Scanning AI",
-                  content: "made by Blur Team processes up to 1,000,000 posts per second in search of a coin contract address shared by a popular influencer. It also has a feature to scan top X tweets (likes, subscribers, views, retweets, replies, bookmarks, quotes,) and authors verification percent."
-                },
-                {
-                  title: "4.2. Blur DEX Scanning AI", 
-                  content: "made by Blur Team processes up to 30,000 coins per second and looks for coins that match such characteristics as liquidity, market cap, volume, top 10 holders holding percent, insider holding percent, sniper holding percent, bundlers, rug probability, DEV's previous coins."
-                },
-                {
-                  title: "4.3. Blur Success ratio AI",
-                  content: "made by Blur Team counts success ratio of particular coin, traffic success and popularity of coin in general."
-                },
-                {
-                  title: "4.4. Blur Solscan AI",
-                  content: "made by Blur Team processes up to 30,000 coins per seconds and researches all smart-contracts of coins minted in the Wrapped Solana blockchain."
-                },
-                {
-                  title: "4.5. Blur Validation AI",
-                  content: "made by Blur Team is responsible for outputting the coin to the Blur Bot in Telegram after the coin passing inspection of the previous 4 Blur AI's. It outputs a coin with all the necessary characteristics and links to terminals and Twitter (X). All Blur AI's work simultaneously and the check takes no more than one second."
-                }
-              ].map((item, index) => (
-                <div key={index} className="bg-neutral-800/20 p-4 rounded-lg">
-                  <p className="text-sm text-neutral-300">
-                    <span className="font-medium text-neutral-200">{item.title}</span> {item.content}
-                  </p>
+          <section id="section-4" className="group">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-red-500/5 rounded-3xl blur-xl"></div>
+              <div className="relative bg-gradient-to-br from-white/5 to-white/2 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+                <div className="flex items-center space-x-4 mb-8">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl blur-sm"></div>
+                    <div className="relative bg-gradient-to-r from-orange-500 to-red-500 rounded-xl p-3">
+                      <Settings className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-light text-white">Operating Principle</h2>
+                    <p className="text-neutral-400 text-sm">How Blur AI systems work</p>
+                  </div>
                 </div>
-              ))}
+                
+                <div className="grid gap-4">
+                  {[
+                    {
+                      name: "Twitter (X) Scanning AI",
+                      performance: "1M posts/sec",
+                      description: "Processes posts to detect coin contracts from influencers, analyzes engagement metrics and verification status."
+                    },
+                    {
+                      name: "DEX Scanning AI", 
+                      performance: "30K coins/sec",
+                      description: "Analyzes liquidity, market cap, volume, holder distribution, insider holdings, and rug probability."
+                    },
+                    {
+                      name: "Success Ratio AI",
+                      performance: "Real-time",
+                      description: "Calculates success ratios, traffic trends, and overall coin popularity metrics."
+                    },
+                    {
+                      name: "Solscan AI",
+                      performance: "30K coins/sec", 
+                      description: "Deep analysis of smart contracts for tokens minted on Wrapped Solana blockchain."
+                    },
+                    {
+                      name: "Validation AI",
+                      performance: "<1 second",
+                      description: "Final verification layer that compiles data from all AIs before sending to Telegram bot."
+                    }
+                  ].map((ai, index) => (
+                    <div key={index} className="bg-white/5 border border-white/10 rounded-2xl p-5">
+                      <div className="flex items-center justify-between mb-3">
+                        <h4 className="font-medium text-neutral-200">{ai.name}</h4>
+                        <span className="text-xs bg-orange-500/20 text-orange-300 px-2 py-1 rounded-lg">
+                          {ai.performance}
+                        </span>
+                      </div>
+                      <p className="text-sm text-neutral-400">{ai.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </section>
 
           {/* Section 5: Tokenomics */}
-          <section className="bg-neutral-900/40 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-semibold text-sm">5</div>
-              <h3 className="text-xl font-medium text-neutral-100">Blur Coin tokenomics</h3>
-            </div>
-            
-            <div className="flex justify-center">
-              <button
-                onClick={handleTokenomicsRedirect}
-                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-500/25 flex items-center space-x-2"
-              >
-                <span>View Tokenomics</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+          <section id="section-5" className="group">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 rounded-3xl blur-xl"></div>
+              <div className="relative bg-gradient-to-br from-white/5 to-white/2 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+                <div className="flex items-center space-x-4 mb-8">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl blur-sm"></div>
+                    <div className="relative bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl p-3">
+                      <FileText className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-light text-white">Blur Tokenomics</h2>
+                    <p className="text-neutral-400 text-sm">Token distribution and economics</p>
+                  </div>
+                </div>
+                
+                <div className="text-center">
+                  <button
+                    onClick={handleTokenomicsRedirect}
+                    className="group relative inline-flex items-center space-x-3 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white px-8 py-4 rounded-2xl font-medium transition-all duration-300 hover:scale-105 shadow-2xl shadow-indigo-500/25"
+                  >
+                    <span>View Detailed Tokenomics</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </button>
+                </div>
+              </div>
             </div>
           </section>
         </div>
 
-        {/* Footer */}
-        <div className="text-center mt-12 pt-8 border-t border-neutral-800/30">
-          <p className="text-neutral-500 text-sm">All rights reserved. © Blur</p>
+        {/* Elegant Footer */}
+        <div className="text-center mt-20 pt-8">
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mx-auto mb-6"></div>
+          <p className="text-neutral-500 text-sm font-light">© 2025 Blur Protocol. All rights reserved.</p>
         </div>
       </div>
     </div>
