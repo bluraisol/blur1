@@ -508,7 +508,7 @@ export default function WhitepaperPage() {
             <section id="conclusion" className="scroll-mt-32">
               <div className="flex items-center space-x-3 mb-8">
                 <div className="w-8 h-8 bg-blue-500/20 border border-blue-400/30 rounded-lg flex items-center justify-center">
-                  <span className="text-blue-400 font-bold text-sm">11</span>
+                  <span className="text-blue-400 font-bold text-sm">15</span>
                 </div>
                 <h2 className="text-3xl font-light text-neutral-200">Conclusion</h2>
               </div>
@@ -534,6 +534,13 @@ export default function WhitepaperPage() {
                   >
                     <span className="text-lg">Get Started with Blur</span>
                   </a>
+                </div>
+                
+                {/* Copyright */}
+                <div className="mt-16 pt-8 border-t border-neutral-800/30 text-center">
+                  <p className="text-neutral-500 text-sm">
+                    All rights reserved. © Blur
+                  </p>
                 </div>
               </div>
             </section>
