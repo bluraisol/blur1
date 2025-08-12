@@ -25,10 +25,10 @@ export default function WhitepaperPage() {
   };
 
   const wallets = [
-    { name: 'Tether USDT TRC-20 (TRX)', address: 'TGU8xcD3Qg8zn2pLxkc8zKVhV3QvGiFh8b', color: 'from-green-500 to-emerald-600' },
-    { name: 'Solana (SOL)', address: 'Ckq7txJnC9xH3WkrkEheSYXbV8iqtwTD963gRCKvetET', color: 'from-purple-500 to-violet-600' },
-    { name: 'Bitcoin (BTC)', address: 'bc1qsuepk6ktryym2n4a6z996qmm4t7a0y0s38yp5z', color: 'from-orange-500 to-amber-600' },
-    { name: 'Ethereum (ETH)', address: '0xfe3A2437e0e0E3497C77924B5688d74B10bADEb6', color: 'from-blue-500 to-indigo-600' }
+    { name: 'Tether USDT TRC-20 (TRX)', address: 'TGU8xcD3Qg8zn2pLxkc8zKVhV3QvGiFh8b' },
+    { name: 'Solana (SOL)', address: 'Ckq7txJnC9xH3WkrkEheSYXbV8iqtwTD963gRCKvetET' },
+    { name: 'Bitcoin (BTC)', address: 'bc1qsuepk6ktryym2n4a6z996qmm4t7a0y0s38yp5z' },
+    { name: 'Ethereum (ETH)', address: '0xfe3A2437e0e0E3497C77924B5688d74B10bADEb6' }
   ];
 
   const sections = [
@@ -145,12 +145,12 @@ export default function WhitepaperPage() {
           {/* Section 1: Official Contacts */}
           <section id="section-1" className="group">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 rounded-3xl blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-blue-600/5 rounded-3xl blur-xl"></div>
               <div className="relative bg-gradient-to-br from-white/5 to-white/2 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
                 <div className="flex items-center space-x-4 mb-8">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl blur-sm"></div>
-                    <div className="relative bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl p-3">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl blur-sm"></div>
+                    <div className="relative bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-3">
                       <Shield className="w-6 h-6 text-white" />
                     </div>
                   </div>
@@ -209,7 +209,7 @@ export default function WhitepaperPage() {
                         <div key={index} className="bg-white/5 border border-white/10 rounded-2xl p-4">
                           <div className="flex items-center justify-between mb-3">
                             <div className="flex items-center space-x-3">
-                              <div className={`w-8 h-8 bg-gradient-to-r ${wallet.color} rounded-lg flex items-center justify-center`}>
+                              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
                                 <div className="w-4 h-4 bg-white rounded-sm"></div>
                               </div>
                               <span className="font-medium text-neutral-200">{wallet.name}</span>
@@ -242,12 +242,12 @@ export default function WhitepaperPage() {
           {/* Section 2: Subscription Policy */}
           <section id="section-2" className="group">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-3xl blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-blue-600/5 rounded-3xl blur-xl"></div>
               <div className="relative bg-gradient-to-br from-white/5 to-white/2 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
                 <div className="flex items-center space-x-4 mb-8">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl blur-sm"></div>
-                    <div className="relative bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl p-3">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl blur-sm"></div>
+                    <div className="relative bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-3">
                       <Users className="w-6 h-6 text-white" />
                     </div>
                   </div>
@@ -290,7 +290,7 @@ export default function WhitepaperPage() {
                         <div className="space-y-1">
                           {item.details.map((detail, idx) => (
                             <div key={idx} className="flex items-center space-x-2">
-                              <div className="w-1 h-1 bg-purple-400 rounded-full"></div>
+                              <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
                               <span className="text-xs text-neutral-500">{detail}</span>
                             </div>
                           ))}
@@ -306,12 +306,12 @@ export default function WhitepaperPage() {
           {/* Section 3: Investment Policy */}
           <section id="section-3" className="group">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-emerald-500/5 rounded-3xl blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-blue-600/5 rounded-3xl blur-xl"></div>
               <div className="relative bg-gradient-to-br from-white/5 to-white/2 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
                 <div className="flex items-center space-x-4 mb-8">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl blur-sm"></div>
-                    <div className="relative bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl p-3">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl blur-sm"></div>
+                    <div className="relative bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-3">
                       <Coins className="w-6 h-6 text-white" />
                     </div>
                   </div>
@@ -323,11 +323,11 @@ export default function WhitepaperPage() {
                 
                 <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-400/20 rounded-2xl p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-2xl font-bold text-green-400">10%</span>
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-2xl font-bold text-blue-400">10%</span>
                     </div>
                     <div>
-                      <h4 className="font-medium text-green-200 mb-2">Revenue Share Program</h4>
+                      <h4 className="font-medium text-blue-200 mb-2">Revenue Share Program</h4>
                       <p className="text-sm text-neutral-300 leading-relaxed">
                         Investments of $7,000 or more receive 10% of all subscription revenue. 
                         All investment terms are discussed directly with the CEO.
@@ -342,12 +342,12 @@ export default function WhitepaperPage() {
           {/* Section 4: Operating Principle */}
           <section id="section-4" className="group">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-red-500/5 rounded-3xl blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-blue-600/5 rounded-3xl blur-xl"></div>
               <div className="relative bg-gradient-to-br from-white/5 to-white/2 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
                 <div className="flex items-center space-x-4 mb-8">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl blur-sm"></div>
-                    <div className="relative bg-gradient-to-r from-orange-500 to-red-500 rounded-xl p-3">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl blur-sm"></div>
+                    <div className="relative bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-3">
                       <Settings className="w-6 h-6 text-white" />
                     </div>
                   </div>
@@ -388,7 +388,7 @@ export default function WhitepaperPage() {
                     <div key={index} className="bg-white/5 border border-white/10 rounded-2xl p-5">
                       <div className="flex items-center justify-between mb-3">
                         <h4 className="font-medium text-neutral-200">{ai.name}</h4>
-                        <span className="text-xs bg-orange-500/20 text-orange-300 px-2 py-1 rounded-lg">
+                        <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded-lg">
                           {ai.performance}
                         </span>
                       </div>
@@ -403,12 +403,12 @@ export default function WhitepaperPage() {
           {/* Section 5: Tokenomics */}
           <section id="section-5" className="group">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 rounded-3xl blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-blue-600/5 rounded-3xl blur-xl"></div>
               <div className="relative bg-gradient-to-br from-white/5 to-white/2 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
                 <div className="flex items-center space-x-4 mb-8">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl blur-sm"></div>
-                    <div className="relative bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl p-3">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl blur-sm"></div>
+                    <div className="relative bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-3">
                       <FileText className="w-6 h-6 text-white" />
                     </div>
                   </div>
@@ -421,7 +421,7 @@ export default function WhitepaperPage() {
                 <div className="text-center">
                   <button
                     onClick={handleTokenomicsRedirect}
-                    className="group relative inline-flex items-center space-x-3 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white px-8 py-4 rounded-2xl font-medium transition-all duration-300 hover:scale-105 shadow-2xl shadow-indigo-500/25"
+                    className="group relative inline-flex items-center space-x-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-2xl font-medium transition-all duration-300 hover:scale-105 shadow-2xl shadow-blue-500/25"
                   >
                     <span>View Detailed Tokenomics</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
