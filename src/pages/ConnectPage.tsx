@@ -10,7 +10,7 @@ export default function ConnectPage() {
       name: 'Blur Connect',
       handle: '@blurconnect',
       url: 'https://x.com/bluronsol',
-      icon: 'x',
+      icon: Send,
       description: 'CCO, Community & Support Lead'
     },
     {
