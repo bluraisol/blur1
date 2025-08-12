@@ -316,6 +316,24 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                         alt="Coins Detected" 
                         className="w-10 h-10 object-contain opacity-60 group-hover:opacity-100 transition-all duration-200"
                       />
+                    ) : metric.label === "Total Return" ? (
+                      <img 
+                        src="/TotalReturn.png" 
+                        alt="Total Return" 
+                        className="w-10 h-10 object-contain opacity-60 group-hover:opacity-100 transition-all duration-200"
+                      />
+                    ) : metric.label === "Average Return" ? (
+                      <img 
+                        src="/AverageReturn.png" 
+                        alt="Average Return" 
+                        className="w-10 h-10 object-contain opacity-60 group-hover:opacity-100 transition-all duration-200"
+                      />
+                    ) : metric.label === "Average Hit Rate" ? (
+                      <img 
+                        src="/AverageHitRate.png" 
+                        alt="Average Hit Rate" 
+                        className="w-10 h-10 object-contain opacity-60 group-hover:opacity-100 transition-all duration-200"
+                      />
                     ) : (
                       <IconComponent className="w-6 h-6 text-neutral-400 group-hover:text-blue-400 transition-colors duration-200" />
                     )}
