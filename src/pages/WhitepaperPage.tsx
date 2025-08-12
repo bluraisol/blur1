@@ -155,31 +155,6 @@ export default function WhitepaperPage() {
         </div>
       </div>
 
-      {/* Floating Navigation */}
-      <div className="fixed left-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
-        <div className="bg-gradient-to-br from-neutral-900/80 to-neutral-800/60 border border-neutral-700/50 rounded-xl p-4 backdrop-blur-sm">
-          <div className="flex items-center space-x-2 mb-4">
-            <Menu className="w-4 h-4 text-blue-400" />
-            <span className="text-xs text-neutral-400 uppercase tracking-wider">Navigation</span>
-          </div>
-          <nav className="space-y-2">
-            {navigationItems.map((item) => {
-              const IconComponent = item.icon;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="flex items-center space-x-3 w-full text-left py-2 px-3 text-sm text-neutral-400 hover:text-white hover:bg-neutral-800/30 rounded-lg transition-all duration-200 group"
-                >
-                  <IconComponent className="w-4 h-4 group-hover:text-blue-400 transition-colors duration-200" />
-                  <span className="whitespace-nowrap">{item.label}</span>
-                </button>
-              );
-            })}
-          </nav>
-        </div>
-      </div>
-
       {/* Main Content */}
       <div className="pt-28 pb-20">
         <div className="max-w-5xl mx-auto px-6">
@@ -192,6 +167,47 @@ export default function WhitepaperPage() {
             <p className="text-lg text-neutral-400 max-w-3xl mx-auto leading-relaxed font-light">
               Official documentation for the revolutionary AI-powered memecoin scanner on Solana
             </p>
+          </div>
+
+          {/* Navigation Cards */}
+          <div className="mb-20">
+            <div className="flex items-center space-x-2 text-xs text-neutral-500 uppercase tracking-wider mb-8">
+              <Menu className="w-3 h-3 text-blue-400" />
+              <span>Quick Navigation</span>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {navigationItems.map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="group relative overflow-hidden bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 hover:border-blue-500/30 rounded-xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10 text-left"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <div className="relative z-10 flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-neutral-900/50 border border-neutral-800/50 rounded-xl flex items-center justify-center group-hover:border-blue-500/30 transition-colors duration-300">
+                        <IconComponent className="w-6 h-6 text-neutral-400 group-hover:text-blue-400 transition-colors duration-300" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-neutral-200 font-medium group-hover:text-white transition-colors duration-300">
+                          {item.label}
+                        </div>
+                        <div className="text-neutral-500 text-sm mt-1 group-hover:text-neutral-400 transition-colors duration-300">
+                          {item.id === 'contacts' && 'Official project sources and wallets'}
+                          {item.id === 'policy' && 'Terms, refunds, and referral system'}
+                          {item.id === 'investment' && 'Investment opportunities and returns'}
+                          {item.id === 'operating' && 'AI systems and technology overview'}
+                          {item.id === 'tokenomics' && 'Token distribution and economics'}
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Section 1: Official Contacts */}
