@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Home, ArrowRight, Shield, Zap, Brain, Target, CheckCircle, Users, DollarSign, FileText, Menu } from 'lucide-react';
+import { Home, ArrowRight, Shield, Zap, Brain, Target, CheckCircle, Users, DollarSign, FileText } from 'lucide-react';
 
 export default function WhitepaperPage() {
   const navigate = useNavigate();
@@ -13,21 +13,6 @@ export default function WhitepaperPage() {
   const handleViewTokenomics = () => {
     navigate('/tokenomics');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const navigationItems = [
-    { id: 'contacts', label: 'Official Contacts', icon: Users },
-    { id: 'policy', label: 'Subscription Policy', icon: Shield },
-    { id: 'investment', label: 'Investment Policy', icon: DollarSign },
-    { id: 'operating', label: 'Operating Principle', icon: Brain },
-    { id: 'tokenomics', label: 'Tokenomics', icon: FileText }
-  ];
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
   };
 
   const officialContacts = [
@@ -169,25 +154,8 @@ export default function WhitepaperPage() {
             </p>
           </div>
 
-          {/* Navigation Cards */}
-          <div className="mb-20">
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              {navigationItems.map((item) => {
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className="px-6 py-3 bg-neutral-900/40 border border-neutral-800/50 hover:border-blue-500/30 rounded-lg text-neutral-300 hover:text-white transition-all duration-200 hover:bg-blue-500/5"
-                  >
-                    {item.label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
           {/* Section 1: Official Contacts */}
-          <section id="contacts" className="mb-16">
+          <section className="mb-16">
             <h2 className="text-3xl font-light text-neutral-200 mb-8 flex items-center space-x-3">
               <Users className="w-8 h-8 text-blue-400" />
               <span>1. Official Contacts</span>
@@ -234,7 +202,7 @@ export default function WhitepaperPage() {
           </section>
 
           {/* Section 2: Subscription Policy */}
-          <section id="policy" className="mb-16">
+          <section className="mb-16">
             <h2 className="text-3xl font-light text-neutral-200 mb-8 flex items-center space-x-3">
               <Shield className="w-8 h-8 text-blue-400" />
               <span>2. Subscription Policy</span>
@@ -258,7 +226,7 @@ export default function WhitepaperPage() {
           </section>
 
           {/* Section 3: Investment Policy */}
-          <section id="investment" className="mb-16">
+          <section className="mb-16">
             <h2 className="text-3xl font-light text-neutral-200 mb-8 flex items-center space-x-3">
               <DollarSign className="w-8 h-8 text-blue-400" />
               <span>3. Investment Policy</span>
@@ -281,7 +249,7 @@ export default function WhitepaperPage() {
           </section>
 
           {/* Section 4: Operating Principle */}
-          <section id="operating" className="mb-16">
+          <section className="mb-16">
             <h2 className="text-3xl font-light text-neutral-200 mb-8 flex items-center space-x-3">
               <Brain className="w-8 h-8 text-blue-400" />
               <span>4. Operating Principle of Blur</span>
@@ -322,7 +290,7 @@ export default function WhitepaperPage() {
           </section>
 
           {/* Tokenomics Section */}
-          <section id="tokenomics" className="mb-16">
+          <section className="mb-16">
             <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-8 text-center">
               <FileText className="w-16 h-16 text-blue-400 mx-auto mb-6" />
               <h2 className="text-3xl font-light text-neutral-200 mb-4">Blur Coin Tokenomics</h2>
