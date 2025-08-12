@@ -312,27 +312,27 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                   <div className="flex items-center justify-between mb-4">
                     {metric.label === "Coins Detected" ? (
                       <img 
-                        src="/CoinsDetected.png" 
+                        src="/media/static/CoinsDetected.png" 
                         alt="Coins Detected" 
-                        className="w-10 h-10 object-contain opacity-60 group-hover:opacity-100 transition-all duration-200"
+                        className="w-8 h-8 object-contain opacity-60 group-hover:opacity-100 transition-all duration-200"
                       />
                     ) : metric.label === "Total Return" ? (
                       <img 
-                        src="/TotalReturn.png" 
+                        src="/media/static/TotalReturn.png" 
                         alt="Total Return" 
-                        className="w-10 h-10 object-contain opacity-60 group-hover:opacity-100 transition-all duration-200"
+                        className="w-8 h-8 object-contain opacity-60 group-hover:opacity-100 transition-all duration-200"
                       />
                     ) : metric.label === "Average Return" ? (
                       <img 
-                        src="/AverageReturn.png" 
+                        src="/media/static/AverageReturn.png" 
                         alt="Average Return" 
-                        className="w-10 h-10 object-contain opacity-60 group-hover:opacity-100 transition-all duration-200"
+                        className="w-8 h-8 object-contain opacity-60 group-hover:opacity-100 transition-all duration-200"
                       />
                     ) : metric.label === "Average Hit Rate" ? (
                       <img 
-                        src="/AverageHitRate.png" 
+                        src="/media/static/AverageHitRate.png" 
                         alt="Average Hit Rate" 
-                        className="w-10 h-10 object-contain opacity-60 group-hover:opacity-100 transition-all duration-200"
+                        className="w-8 h-8 object-contain opacity-60 group-hover:opacity-100 transition-all duration-200"
                       />
                     ) : (
                       <IconComponent className="w-6 h-6 text-neutral-400 group-hover:text-blue-400 transition-colors duration-200" />
@@ -385,7 +385,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                         <td className="py-4 px-6">
                           <div className="flex items-center space-x-3">
                             <img 
-                              src={`/coin${token.rank}.png`}
+                              src={`/media/static/coin${token.rank}.png`}
                               alt={`${token.token} logo`}
                               className="w-8 h-8 rounded-full object-cover shadow-lg"
                               onError={(e) => {
@@ -477,7 +477,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                 <div className="w-32 h-32 bg-gradient-to-br from-blue-500/30 to-blue-600/20 border-2 border-blue-400/50 rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/30 backdrop-blur-sm">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center">
                     <img 
-                      src="/core.png" 
+                      src="/media/static/core.png" 
                       alt="Core" 
                       className="w-full h-full object-cover rounded-full"
                     />

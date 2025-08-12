@@ -93,7 +93,7 @@ export default function ConnectPage() {
                           <div className="w-12 h-12 bg-neutral-900/50 border border-neutral-800/50 rounded-xl flex items-center justify-center group-hover:border-blue-500/30 transition-colors duration-300">
                             {social.icon === 'x' ? (
                               <img 
-                                src="/x.png" 
+                                src="/media/static/x.png" 
                                 alt="X (Twitter)" 
                                 className="w-6 h-6 object-contain opacity-60 group-hover:opacity-100 transition-all duration-300"
                               />

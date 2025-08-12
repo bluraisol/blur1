@@ -89,7 +89,7 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
               className="flex items-center space-x-2 cursor-pointer"
             >
               <img 
-                src="/logo2.png" 
+                src="/media/static/logo2.png" 
                 alt="Blur Logo" 
                 className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl shadow-xl shadow-blue-500/40 object-cover ring-1 ring-blue-500/20"
               />
