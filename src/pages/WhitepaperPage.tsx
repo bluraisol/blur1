@@ -84,19 +84,19 @@ export default function WhitepaperPage() {
 
           {/* Quick Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm">
+            <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-200">
               <div className="text-3xl font-light text-blue-400 mb-2">9</div>
               <div className="text-sm text-neutral-400 uppercase tracking-wider">AI Systems</div>
             </div>
-            <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm">
+            <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-200">
               <div className="text-3xl font-light text-blue-400 mb-2">100K</div>
               <div className="text-sm text-neutral-400 uppercase tracking-wider">Posts/Second</div>
             </div>
-            <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm">
+            <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-200">
               <div className="text-3xl font-light text-blue-400 mb-2">30K</div>
               <div className="text-sm text-neutral-400 uppercase tracking-wider">Tokens/Second</div>
             </div>
-            <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm">
+            <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-200">
               <div className="text-3xl font-light text-blue-400 mb-2">0.3s</div>
               <div className="text-sm text-neutral-400 uppercase tracking-wider">Alert Speed</div>
             </div>
@@ -142,7 +142,7 @@ export default function WhitepaperPage() {
                 <h2 className="text-3xl font-light text-neutral-200">Abstract</h2>
               </div>
               
-              <div className="bg-gradient-to-br from-blue-500/5 to-blue-600/5 border border-blue-500/20 rounded-2xl p-8">
+              <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-blue-500/20 rounded-2xl p-8 backdrop-blur-sm">
                 <p className="text-neutral-300 leading-relaxed text-lg mb-6">
                   Blur represents a paradigm shift in cryptocurrency analysis, leveraging nine custom-built artificial intelligence systems to provide unprecedented insights into the Solana memecoin ecosystem.
                 </p>
@@ -195,19 +195,19 @@ export default function WhitepaperPage() {
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-gradient-to-br from-red-500/5 to-red-600/5 border border-red-500/20 rounded-xl p-6">
+                <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 hover:border-blue-500/30 transition-all duration-200">
                   <h4 className="text-neutral-200 font-medium mb-3 text-lg">Speed of Market Movement</h4>
                   <p className="text-neutral-400 leading-relaxed">Memecoins can gain or lose significant value within minutes, making manual analysis ineffective and costly.</p>
                 </div>
-                <div className="bg-gradient-to-br from-orange-500/5 to-orange-600/5 border border-orange-500/20 rounded-xl p-6">
+                <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 hover:border-blue-500/30 transition-all duration-200">
                   <h4 className="text-neutral-200 font-medium mb-3 text-lg">Information Fragmentation</h4>
                   <p className="text-neutral-400 leading-relaxed">Critical data is scattered across multiple platforms, making comprehensive analysis time-consuming.</p>
                 </div>
-                <div className="bg-gradient-to-br from-yellow-500/5 to-yellow-600/5 border border-yellow-500/20 rounded-xl p-6">
+                <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 hover:border-blue-500/30 transition-all duration-200">
                   <h4 className="text-neutral-200 font-medium mb-3 text-lg">Lack of Early Detection</h4>
                   <p className="text-neutral-400 leading-relaxed">Most tools only identify opportunities after significant price movements have already occurred.</p>
                 </div>
-                <div className="bg-gradient-to-br from-purple-500/5 to-purple-600/5 border border-purple-500/20 rounded-xl p-6">
+                <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl p-6 hover:border-blue-500/30 transition-all duration-200">
                   <h4 className="text-neutral-200 font-medium mb-3 text-lg">Security Concerns</h4>
                   <p className="text-neutral-400 leading-relaxed">High prevalence of rugpulls and fraudulent projects requires sophisticated security analysis.</p>
                 </div>
@@ -344,15 +344,15 @@ export default function WhitepaperPage() {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <div className="flex items-start space-x-3 p-4 bg-gradient-to-r from-blue-500/10 to-transparent rounded-lg border-l-2 border-blue-500/50">
+                  <div className="flex items-start space-x-3 p-4 bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 rounded-lg border-l-2 border-blue-500/50">
                     <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                     <div>
                       <span className="text-neutral-200 font-medium">Social Media Data:</span>
                       <span className="text-neutral-300 ml-2">100,000+ posts per second from Twitter/X</span>
                     </div>
                   </div>
-                  <div className="flex items-start space-x-3 p-4 bg-gradient-to-r from-green-500/10 to-transparent rounded-lg border-l-2 border-green-500/50">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="flex items-start space-x-3 p-4 bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 rounded-lg border-l-2 border-blue-500/50">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                     <div>
                       <span className="text-neutral-200 font-medium">Blockchain Data:</span>
                       <span className="text-neutral-300 ml-2">Direct integration with Solana blockchain</span>
@@ -360,15 +360,15 @@ export default function WhitepaperPage() {
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <div className="flex items-start space-x-3 p-4 bg-gradient-to-r from-purple-500/10 to-transparent rounded-lg border-l-2 border-purple-500/50">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="flex items-start space-x-3 p-4 bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 rounded-lg border-l-2 border-blue-500/50">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                     <div>
                       <span className="text-neutral-200 font-medium">DEX Analytics:</span>
                       <span className="text-neutral-300 ml-2">Real-time trading data from multiple exchanges</span>
                     </div>
                   </div>
-                  <div className="flex items-start space-x-3 p-4 bg-gradient-to-r from-orange-500/10 to-transparent rounded-lg border-l-2 border-orange-500/50">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="flex items-start space-x-3 p-4 bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 rounded-lg border-l-2 border-blue-500/50">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                     <div>
                       <span className="text-neutral-200 font-medium">Smart Contract Analysis:</span>
                       <span className="text-neutral-300 ml-2">Automated security and functionality assessment</span>
@@ -405,7 +405,7 @@ export default function WhitepaperPage() {
                     <div className="text-sm text-neutral-500">400M tokens for community</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-5xl font-light text-green-400 mb-3">10.5%</div>
+                    <div className="text-5xl font-light text-blue-400 mb-3">10.5%</div>
                     <div className="text-lg text-neutral-300 font-medium mb-2">Airdrop</div>
                     <div className="text-sm text-neutral-500">105M tokens for early users</div>
                   </div>
@@ -429,7 +429,7 @@ export default function WhitepaperPage() {
                     <div className="w-px h-16 bg-blue-500/30 mt-2"></div>
                   </div>
                   <div className="flex-1 pb-8">
-                    <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-500/20 rounded-xl p-6">
+                    <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-blue-500/20 rounded-xl p-6 backdrop-blur-sm">
                       <h4 className="text-xl font-medium text-neutral-200 mb-2">Q1 2025 - Platform Launch</h4>
                       <p className="text-neutral-400">Launch of Blur Telegram bot with core AI systems operational and initial user onboarding.</p>
                     </div>
@@ -517,7 +517,7 @@ export default function WhitepaperPage() {
                   As the cryptocurrency market continues to evolve at an accelerating pace, tools like Blur become essential for investors seeking to capitalize on emerging opportunities while managing risk effectively.
                 </p>
                 
-                <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-500/20 rounded-2xl p-12 text-center">
+                <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-blue-500/20 rounded-2xl p-12 text-center backdrop-blur-sm">
                   <h4 className="text-3xl font-light text-blue-400 mb-6">Join the Revolution</h4>
                   <p className="text-neutral-300 text-lg mb-8 max-w-2xl mx-auto">
                     Experience the power of AI-driven memecoin analysis and be part of the future of cryptocurrency trading intelligence.
