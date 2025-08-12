@@ -13,6 +13,7 @@ const navigationItems = [
   { id: 'about', label: 'About', icon: Info, path: '/#about', type: 'anchor' },
   { id: 'pricing', label: 'Pricing', icon: DollarSign, path: '/pricing', type: 'route' },
   { id: 'tokenomics', label: 'Tokenomics', icon: FileText, type: 'route', path: '/tokenomics' },
+  { id: 'whitepaper', label: 'Whitepaper', icon: FileText, type: 'route', path: '/whitepaper' },
   { id: 'contact', label: 'Connect', icon: Phone, path: '/connect', type: 'route' },
 ];
 
@@ -32,6 +33,8 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
       setCurrentActive('pricing');
     } else if (path === '/tokenomics') {
       setCurrentActive('tokenomics');
+    } else if (path === '/whitepaper') {
+      setCurrentActive('whitepaper');
     } else if (path === '/connect') {
       setCurrentActive('contact');
     } else {
