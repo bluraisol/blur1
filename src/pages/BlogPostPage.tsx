@@ -434,6 +434,41 @@ export default function BlogPostPage() {
                 />
                 <input
                   type="text"
+                  placeholder="Caption"
+                  value={block.content.caption}
+                  onChange={(e) => updateBlock(block.id, { ...block.content, caption: e.target.value })}
+                  className="w-full bg-neutral-800 border border-neutral-600 rounded px-4 py-3"
+                />
+                <button
+                  onClick={() => setEditingBlockId(null)}
+                  className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+                >
+                  Done
+                </button>
+              </div>
+            ) : (
+              <figure
+                className={`cursor-pointer ${isEditing ? 'hover:opacity-80 transition-opacity' : ''}`}
+                onClick={() => isEditing && setEditingBlockId(block.id)}
+              >
+                {block.content.url && (
+                  <img
+                    src={block.content.url}
+                    alt={block.content.alt}
+                    className="w-full rounded-lg shadow-lg"
+                  />
+                )}
+                {block.content.caption && (
+                  <figcaption className="text-sm text-neutral-400 mt-3 text-center">
+                    {block.content.caption}
+                  </figcaption>
+                )}
+              </figure>
+            )}
+          </div>
+        );
+
+      case 'code':
               {/* Meta Info Row */}
               <div className="flex items-center space-x-6 mb-8 text-sm text-neutral-400">
                 {/* Tags */}
