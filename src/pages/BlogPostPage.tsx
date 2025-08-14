@@ -863,6 +863,12 @@ export default function BlogPostPage() {
                 className="w-full text-4xl md:text-5xl font-light leading-tight mb-6 bg-transparent border-b border-neutral-800 pb-4 focus:outline-none focus:border-blue-500 text-neutral-100"
                 placeholder="Enter title..."
               />
+            ) : (
+              <h1 className="text-4xl md:text-5xl font-light leading-tight mb-6 text-neutral-100">
+                {post.title}
+              </h1>
+            )}
+
             {/* Subtitle/Excerpt */}
             {isEditing ? (
               <textarea
