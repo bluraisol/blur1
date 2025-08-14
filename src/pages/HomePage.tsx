@@ -523,6 +523,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                       <div className="relative bg-gradient-to-br from-neutral-900/80 to-neutral-800/60 border border-neutral-700/50 group-hover:border-blue-400/50 rounded-xl p-3 backdrop-blur-sm transition-all duration-200 group-hover:scale-110">
                         <div className="text-center">
                           <div className="text-lg font-bold text-blue-400 mb-1">{ai.percentage}</div>
+                          <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">Accuracy</div>
                           <div className="text-xs text-neutral-300 font-medium uppercase tracking-wider whitespace-nowrap">{ai.name}</div>
                         </div>
                       </div>
@@ -540,6 +541,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                 }`}>
                   <div className="flex items-center justify-between mb-2">
                     <div className="text-2xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors duration-200">{ai.percentage}</div>
+                    <div className="text-xs text-neutral-500 uppercase tracking-wider">Accuracy</div>
                   </div>
                   <div className="font-medium text-neutral-100 text-sm mb-3 uppercase tracking-wider group-hover:text-white transition-colors duration-200">{ai.name}</div>
                   
