@@ -530,16 +530,6 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                               parseFloat(ai.percentage) >= 70 ? 'bg-orange-400' : 'bg-red-400'
                             }`}></div>
                           </div>
-                          <div className="w-full bg-neutral-800 rounded-full h-1 mb-2">
-                            <div 
-                              className={`h-1 rounded-full transition-all duration-500 ${
-                                parseFloat(ai.percentage) >= 95 ? 'bg-green-400' :
-                                parseFloat(ai.percentage) >= 85 ? 'bg-yellow-400' :
-                                parseFloat(ai.percentage) >= 70 ? 'bg-orange-400' : 'bg-red-400'
-                              }`}
-                              style={{ width: ai.percentage }}
-                            ></div>
-                          </div>
                           <div className="text-xs text-neutral-300 font-medium uppercase tracking-wider whitespace-nowrap">{ai.name}</div>
                         </div>
                       </div>
@@ -557,33 +547,13 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                 }`}>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-3">
-                      <div className="text-2xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors duration-200">{ai.percentage}</div>
+                      <div className="text-3xl font-light text-blue-400 group-hover:text-blue-300 transition-colors duration-200">{ai.percentage}</div>
                       <div className={`w-3 h-3 rounded-full ${
                         parseFloat(ai.percentage) >= 95 ? 'bg-green-400' :
                         parseFloat(ai.percentage) >= 85 ? 'bg-yellow-400' :
                         parseFloat(ai.percentage) >= 70 ? 'bg-orange-400' : 'bg-red-400'
                       }`}></div>
                     </div>
-                    <div className={`px-2 py-1 rounded-full text-xs font-medium ${
-                      parseFloat(ai.percentage) >= 95 ? 'bg-green-500/20 text-green-400' :
-                      parseFloat(ai.percentage) >= 85 ? 'bg-yellow-500/20 text-yellow-400' :
-                      parseFloat(ai.percentage) >= 70 ? 'bg-orange-500/20 text-orange-400' : 'bg-red-500/20 text-red-400'
-                    }`}>
-                      {parseFloat(ai.percentage) >= 95 ? 'Excellent' :
-                       parseFloat(ai.percentage) >= 85 ? 'High' :
-                       parseFloat(ai.percentage) >= 70 ? 'Good' : 'Fair'}
-                    </div>
-                  </div>
-                  
-                  <div className="w-full bg-neutral-800 rounded-full h-2 mb-4">
-                    <div 
-                      className={`h-2 rounded-full transition-all duration-500 ${
-                        parseFloat(ai.percentage) >= 95 ? 'bg-green-400' :
-                        parseFloat(ai.percentage) >= 85 ? 'bg-yellow-400' :
-                        parseFloat(ai.percentage) >= 70 ? 'bg-orange-400' : 'bg-red-400'
-                      }`}
-                      style={{ width: ai.percentage }}
-                    ></div>
                   </div>
                   
                   <div className="font-medium text-neutral-100 text-sm mb-3 uppercase tracking-wider group-hover:text-white transition-colors duration-200">{ai.name}</div>
