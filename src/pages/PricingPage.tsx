@@ -146,7 +146,7 @@ export default function PricingPage() {
                         className="relative group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-black py-5 px-12 rounded-2xl font-bold uppercase tracking-wider text-sm transition-all duration-300 transform hover:scale-105 shadow-xl shadow-green-500/30 hover:shadow-green-500/50 overflow-hidden"
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <span className="relative z-10">Try Blurr</span>
+                        <span className="relative z-10">Try Blur</span>
                       </button>
                     </div>
                   </div>
