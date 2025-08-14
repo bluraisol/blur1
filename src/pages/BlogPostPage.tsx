@@ -451,11 +451,13 @@ export default function BlogPostPage() {
                 className={`cursor-pointer ${isEditing ? 'hover:opacity-80 transition-opacity' : ''}`}
                 onClick={() => isEditing && setEditingBlockId(block.id)}
               >
-                <img
-                  src={block.content.url}
-                  alt={block.content.alt}
-                  className="w-full rounded-lg"
-                />
+                {block.content.url && (
+                  <img
+                    src={block.content.url}
+                    alt={block.content.alt}
+                    className="w-full rounded-lg shadow-lg"
+                  />
+                )}
                 {block.content.caption && (
                   <figcaption className="text-sm text-neutral-400 mt-3 text-center">
                     {block.content.caption}
@@ -770,7 +772,7 @@ export default function BlogPostPage() {
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100">
       {/* Header */}
-      <header className="border-b border-neutral-800 bg-neutral-950/80 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b border-neutral-800/50 bg-neutral-950/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-6">
