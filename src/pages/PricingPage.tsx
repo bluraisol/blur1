@@ -27,7 +27,7 @@ export default function PricingPage() {
         'Default support',
         'Community access'
       ],
-      icon: TrendingDown,
+      icon: '/media/static/1m.png',
       popular: false
     },
     {
@@ -41,7 +41,7 @@ export default function PricingPage() {
         'Airdrop eligibility',
         'Advanced metrics and analytics',
       ],
-      icon: TrendingUp,
+      icon: '/media/static/3m.png',
       popular: true
     },
     {
@@ -57,7 +57,7 @@ export default function PricingPage() {
         'Priority airdrop eligibility',
         'Exclusive community events'
       ],
-      icon: TrendingUp,
+      icon: '/media/static/6m.png',
       popular: false
     }
   ];
