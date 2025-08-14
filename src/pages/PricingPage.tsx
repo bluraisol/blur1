@@ -96,7 +96,7 @@ export default function PricingPage() {
                 {/* Glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-transparent to-green-500/5 opacity-50"></div>
                 
-                <div className="absolute -top-4 left-8">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <div className="bg-gradient-to-r from-green-400 to-emerald-500 text-black px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
                     Free Trial
                   </div>
