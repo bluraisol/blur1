@@ -203,11 +203,11 @@ export default function BlogPostPage() {
   const { id } = useParams<{ id: string }>();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const isEditor = searchParams.get('editor') === 'true';
+  const hasEditorFlag = searchParams.get('editor') === 'true';
   const isCreateNew = id === 'create-new';
   
   const [post, setPost] = useState<BlogPost | null>(null);
-  const [isEditing, setIsEditing] = useState(isCreateNew);
+  const [isEditing, setIsEditing] = useState(isCreateNew || hasEditorFlag);
   const [editingBlockId, setEditingBlockId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -764,7 +764,7 @@ export default function BlogPostPage() {
                 </div>
               )}
               
-              {(isEditor || isCreateNew) && (
+              {(hasEditorFlag || isCreateNew) && (
                 <button
                   onClick={() => setIsEditing(!isEditing)}
                   className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
