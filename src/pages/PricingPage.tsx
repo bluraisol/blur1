@@ -94,7 +94,7 @@ export default function PricingPage() {
                   plan.trial
                     ? 'from-green-900/30 to-emerald-800/20 border-2 border-green-500/50 shadow-xl shadow-green-500/20'
                     : plan.popular 
-                    ? 'border-blue-500/50 shadow-lg shadow-blue-500/20' 
+                    ? 'from-neutral-900/40 to-neutral-800/20 border-2 border-blue-500/50 shadow-xl shadow-blue-500/20' 
                     : 'from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 hover:border-blue-500/30'
                 }`}
               >
