@@ -44,10 +44,9 @@ const mockBlogPosts: { [key: string]: BlogPost } = {
     id: '1',
     title: 'Blur v2.0 Release - Revolutionary Updates',
     excerpt: 'Major update brings enhanced AI capabilities, improved accuracy, and new features to the Blur ecosystem.',
-    author: 'Blur Team',
+    author: 'Alex Chen',
     publishedAt: '2025-01-15T10:00:00Z',
     status: 'published',
-    featuredImage: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200',
     tags: ['Update', 'AI', 'Features'],
     blocks: [
       {
@@ -154,10 +153,9 @@ const mockBlogPosts: { [key: string]: BlogPost } = {
     id: '2',
     title: 'New Partnership with Major DEX Platform',
     excerpt: 'Blur announces strategic partnership to enhance liquidity scanning and provide real-time DEX data.',
-    author: 'Blur Team',
+    author: 'Sarah Johnson',
     publishedAt: '2025-01-10T14:30:00Z',
     status: 'published',
-    featuredImage: 'https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=1200',
     tags: ['Partnership', 'DEX', 'Integration'],
     blocks: [
       {
@@ -172,10 +170,9 @@ const mockBlogPosts: { [key: string]: BlogPost } = {
     id: '3',
     title: 'Community Milestone: 50K Active Users',
     excerpt: 'Celebrating our growing community and the incredible success stories from our users.',
-    author: 'Community Team',
+    author: 'Mike Rodriguez',
     publishedAt: '2025-01-05T09:15:00Z',
     status: 'published',
-    featuredImage: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200',
     tags: ['Community', 'Milestone', 'Success'],
     blocks: [
       {
@@ -186,6 +183,42 @@ const mockBlogPosts: { [key: string]: BlogPost } = {
       }
     ]
   }
+};
+
+// Author avatars mapping
+const authorAvatars: { [key: string]: string } = {
+  'Alex Chen': 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150',
+  'Sarah Johnson': 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150',
+  'Mike Rodriguez': 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150',
+  'Blur Team': 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=150'
+};
+
+// Reading time calculation
+const calculateReadingTime = (blocks: ContentBlock[]): number => {
+  const wordsPerMinute = 200;
+  let totalWords = 0;
+  
+  blocks.forEach(block => {
+    switch (block.type) {
+      case 'text':
+        totalWords += block.content.text.split(' ').length;
+        break;
+      case 'heading':
+        totalWords += block.content.text.split(' ').length;
+        break;
+      case 'quote':
+        totalWords += block.content.text.split(' ').length;
+        break;
+      case 'list':
+        totalWords += block.content.items.join(' ').split(' ').length;
+        break;
+      case 'callout':
+        totalWords += (block.content.title + ' ' + block.content.text).split(' ').length;
+        break;
+    }
+  });
+  
+  return Math.max(1, Math.ceil(totalWords / wordsPerMinute));
 };
 
 const blockTypes = [
@@ -803,21 +836,57 @@ export default function BlogPostPage() {
             )}
 
             {/* Meta */}
-            <div className="flex flex-wrap items-center gap-6 text-sm text-neutral-500 mb-12">
-              <div className="flex items-center space-x-2">
-                <User className="w-4 h-4" />
-                <span>{post.author}</span>
+            <div className="flex flex-wrap items-center gap-8 mb-12">
+              {/* Author with Avatar */}
+              <div className="flex items-center space-x-3">
+                <img 
+                  src={authorAvatars[post.author] || authorAvatars['Blur Team']}
+                  alt={post.author}
+                  className="w-12 h-12 rounded-full object-cover border-2 border-neutral-700"
+                />
+                <div>
+                  <div className="text-neutral-200 font-medium">{post.author}</div>
+                  <div className="text-sm text-neutral-500">Author</div>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <Calendar className="w-4 h-4" />
-                <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
+              
+              {/* Publication Date */}
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
+                  <Calendar className="w-5 h-5 text-blue-400" />
+                </div>
+                <div>
+                  <div className="text-neutral-200 font-medium">
+                    {new Date(post.publishedAt).toLocaleDateString('en-US', { 
+                      month: 'long', 
+                      day: 'numeric', 
+                      year: 'numeric' 
+                    })}
+                  </div>
+                  <div className="text-sm text-neutral-500">Published</div>
+                </div>
               </div>
+              
+              {/* Reading Time */}
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
+                  <Eye className="w-5 h-5 text-green-400" />
+                </div>
+                <div>
+                  <div className="text-neutral-200 font-medium">
+                    {calculateReadingTime(post.blocks)} min read
+                  </div>
+                  <div className="text-sm text-neutral-500">Reading time</div>
+                </div>
+              </div>
+              
+              {/* Tags */}
               {post.tags.length > 0 && (
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center flex-wrap gap-2">
                   {post.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs border border-blue-500/20"
+                      className="px-4 py-2 bg-gradient-to-r from-blue-500/10 to-blue-600/10 text-blue-400 rounded-full text-sm border border-blue-500/20 hover:border-blue-400/40 transition-colors"
                     >
                       {tag}
                     </span>
@@ -825,17 +894,6 @@ export default function BlogPostPage() {
                 </div>
               )}
             </div>
-
-            {/* Featured Image */}
-            {post.featuredImage && (
-              <div className="mb-12">
-                <img
-                  src={post.featuredImage}
-                  alt={post.title}
-                  className="w-full h-64 md:h-96 object-cover rounded-xl"
-                />
-              </div>
-            )}
 
             {/* Excerpt */}
             {isEditing ? (
@@ -846,7 +904,97 @@ export default function BlogPostPage() {
                 placeholder="Enter excerpt..."
               />
             ) : (
-              <p className="text-lg text-neutral-400 leading-relaxed mb-12">
+              <div className="relative mb-12">
+                <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-blue-600 rounded-full"></div>
+                <p className="text-xl text-neutral-300 leading-relaxed pl-6 font-light italic">
+                  {post.excerpt}
+                </p>
+              </div>
+            )}
+            
+            {/* Divider */}
+            <div className="mb-12">
+              <div className="h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent"></div>
+            </div>
+          </header>
+
+          {/* Article Stats Bar */}
+          {!isEditing && (
+            <div className="flex items-center justify-between p-6 bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl mb-12 backdrop-blur-sm">
+              <div className="flex items-center space-x-8">
+                <div className="text-center">
+                  <div className="text-2xl font-light text-blue-400">{post.blocks.length}</div>
+                  <div className="text-xs text-neutral-500 uppercase tracking-wider">Blocks</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-light text-green-400">{calculateReadingTime(post.blocks)}</div>
+                  <div className="text-xs text-neutral-500 uppercase tracking-wider">Min Read</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-light text-purple-400">{post.tags.length}</div>
+                  <div className="text-xs text-neutral-500 uppercase tracking-wider">Tags</div>
+                </div>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className={`w-3 h-3 rounded-full ${
+                  post.status === 'published' ? 'bg-green-400' : 'bg-yellow-400'
+                } animate-pulse`}></div>
+                <span className="text-sm text-neutral-400 capitalize">{post.status}</span>
+              </div>
+            </div>
+          )}
+
+          {/* Content Introduction */}
+          {!isEditing && post.blocks.length > 0 && (
+            <div className="mb-16 p-8 bg-gradient-to-br from-blue-500/5 to-purple-500/5 border border-blue-500/20 rounded-2xl">
+              <h3 className="text-lg font-medium text-blue-300 mb-3">In this article</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {post.blocks
+                  .filter(block => block.type === 'heading' && block.content.level <= 3)
+                  .slice(0, 6)
+                  .map((block, index) => (
+                    <div key={index} className="flex items-center space-x-3 text-sm">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                      <span className="text-neutral-300">{block.content.text}</span>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          )}
+
+          {/* Content Blocks */}
+          <div className="space-y-8">
+            {post.blocks
+              .sort((a, b) => a.order - b.order)
+              .map(renderBlock)}
+          </div>
+
+          {/* Add Block Panel */}
+          {isEditing && (
+            <div className="mt-16 p-8 bg-neutral-900/50 rounded-xl border border-neutral-800/50">
+              <h3 className="text-lg font-medium mb-6 text-neutral-200">Add Content Block</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {blockTypes.map((blockType) => {
+                  const IconComponent = blockType.icon;
+                  return (
+                    <button
+                      key={blockType.type}
+                      onClick={() => addBlock(blockType.type as ContentBlock['type'])}
+                      className="flex items-center space-x-3 p-4 bg-neutral-800/50 hover:bg-neutral-700/50 rounded-lg transition-colors text-sm border border-neutral-700/50 hover:border-neutral-600/50"
+                    >
+                      <IconComponent className="w-4 h-4 text-neutral-400" />
+                      <span className="text-neutral-300">{blockType.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </article>
+      </main>
+    </div>
+  );
+}
                 {post.excerpt}
               </p>
             )}
