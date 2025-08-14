@@ -835,64 +835,26 @@ export default function BlogPostPage() {
               </h1>
             )}
 
-            {/* Meta */}
-            <div className="flex flex-wrap items-center gap-8 mb-12">
-              {/* Author with Avatar */}
-              <div className="flex items-center space-x-3">
+            {/* Simple Meta */}
+            <div className="flex items-center space-x-6 mb-8 text-sm text-neutral-400">
+              <div className="flex items-center space-x-2">
                 <img 
                   src={authorAvatars[post.author] || authorAvatars['Blur Team']}
                   alt={post.author}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-neutral-700"
+                  className="w-8 h-8 rounded-full object-cover"
                 />
-                <div>
-                  <div className="text-neutral-200 font-medium">{post.author}</div>
-                  <div className="text-sm text-neutral-500">Author</div>
-                </div>
+                <span>{post.author}</span>
               </div>
-              
-              {/* Publication Date */}
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
-                  <Calendar className="w-5 h-5 text-blue-400" />
-                </div>
-                <div>
-                  <div className="text-neutral-200 font-medium">
-                    {new Date(post.publishedAt).toLocaleDateString('en-US', { 
-                      month: 'long', 
-                      day: 'numeric', 
-                      year: 'numeric' 
-                    })}
-                  </div>
-                  <div className="text-sm text-neutral-500">Published</div>
-                </div>
-              </div>
-              
-              {/* Reading Time */}
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
-                  <Eye className="w-5 h-5 text-green-400" />
-                </div>
-                <div>
-                  <div className="text-neutral-200 font-medium">
-                    {calculateReadingTime(post.blocks)} min read
-                  </div>
-                  <div className="text-sm text-neutral-500">Reading time</div>
-                </div>
-              </div>
-              
-              {/* Tags */}
-              {post.tags.length > 0 && (
-                <div className="flex items-center flex-wrap gap-2">
-                  {post.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-4 py-2 bg-gradient-to-r from-blue-500/10 to-blue-600/10 text-blue-400 rounded-full text-sm border border-blue-500/20 hover:border-blue-400/40 transition-colors"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
+              <span>•</span>
+              <span>
+                {new Date(post.publishedAt).toLocaleDateString('en-US', { 
+                  month: 'short', 
+                  day: 'numeric', 
+                  year: 'numeric' 
+                })}
+              </span>
+              <span>•</span>
+              <span>{calculateReadingTime(post.blocks)} min read</span>
             </div>
 
             {/* Excerpt */}
@@ -900,70 +862,32 @@ export default function BlogPostPage() {
               <textarea
                 value={post.excerpt}
                 onChange={(e) => setPost({ ...post, excerpt: e.target.value })}
-                className="w-full text-lg text-neutral-400 leading-relaxed mb-12 bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-4 min-h-[100px] focus:outline-none focus:border-blue-500"
+                className="w-full text-lg text-neutral-400 leading-relaxed mb-8 bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-4 min-h-[100px] focus:outline-none focus:border-blue-500"
                 placeholder="Enter excerpt..."
               />
             ) : (
-              <div className="relative mb-12">
-                <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-blue-600 rounded-full"></div>
-                <p className="text-xl text-neutral-300 leading-relaxed pl-6 font-light italic">
-                  {post.excerpt}
-                </p>
-              </div>
+              <p className="text-lg text-neutral-400 leading-relaxed mb-8 font-light">
+                {post.excerpt}
+              </p>
             )}
             
-            {/* Divider */}
-            <div className="mb-12">
-              <div className="h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent"></div>
-            </div>
+            {/* Tags */}
+            {post.tags.length > 0 && (
+              <div className="flex items-center flex-wrap gap-2 mb-8">
+                {post.tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-neutral-800 text-neutral-300 rounded-full text-sm"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </header>
 
-          {/* Article Stats Bar */}
-          {!isEditing && (
-            <div className="flex items-center justify-between p-6 bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl mb-12 backdrop-blur-sm">
-              <div className="flex items-center space-x-8">
-                <div className="text-center">
-                  <div className="text-2xl font-light text-blue-400">{post.blocks.length}</div>
-                  <div className="text-xs text-neutral-500 uppercase tracking-wider">Blocks</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-light text-green-400">{calculateReadingTime(post.blocks)}</div>
-                  <div className="text-xs text-neutral-500 uppercase tracking-wider">Min Read</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-light text-purple-400">{post.tags.length}</div>
-                  <div className="text-xs text-neutral-500 uppercase tracking-wider">Tags</div>
-                </div>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className={`w-3 h-3 rounded-full ${
-                  post.status === 'published' ? 'bg-green-400' : 'bg-yellow-400'
-                } animate-pulse`}></div>
-                <span className="text-sm text-neutral-400 capitalize">{post.status}</span>
-              </div>
-            </div>
-          )}
-
-          {/* Content Introduction */}
-          {!isEditing && post.blocks.length > 0 && (
-            <div className="mb-16 p-8 bg-gradient-to-br from-blue-500/5 to-purple-500/5 border border-blue-500/20 rounded-2xl">
-              <h3 className="text-lg font-medium text-blue-300 mb-3">In this article</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {post.blocks
-                  .filter(block => block.type === 'heading' && block.content.level <= 3)
-                  .slice(0, 6)
-                  .map((block, index) => (
-                    <div key={index} className="flex items-center space-x-3 text-sm">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                      <span className="text-neutral-300">{block.content.text}</span>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          )}
-
           {/* Content Blocks */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {post.blocks
               .sort((a, b) => a.order - b.order)
               .map(renderBlock)}
