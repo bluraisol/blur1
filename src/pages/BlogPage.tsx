@@ -35,9 +35,10 @@ export default function BlogPage() {
   const { id } = useParams();
   const [searchParams] = useSearchParams();
   const isEditorMode = searchParams.has('editor');
+  const isNewMode = searchParams.has('new');
 
   // Состояние для редактирования
-  const [isEditing, setIsEditing] = useState(isEditorMode);
+  const [isEditing, setIsEditing] = useState(isEditorMode || isNewMode);
   const [editedPost, setEditedPost] = useState<BlogPost | null>(null);
 
   // Исходные данные поста
@@ -114,13 +115,41 @@ export default function BlogPage() {
 
   // Загружаем данные из localStorage или используем исходные
   useEffect(() => {
-    const savedPost = localStorage.getItem(`blog-post-${id}`);
-    if (savedPost) {
-      setEditedPost(JSON.parse(savedPost));
+    if (isNewMode) {
+      // Создаем новый пост
+      const newPost: BlogPost = {
+        id: parseInt(id || '1'),
+        title: "New Blog Post",
+        subtitle: "Enter your subtitle here",
+        date: new Date().toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        }),
+        readTime: "5 min read",
+        category: "Update",
+        author: {
+          name: "Blur Team",
+          avatar: "/media/static/logo2.png"
+        },
+        content: [
+          {
+            type: "paragraph",
+            text: "Start writing your blog post here..."
+          }
+        ],
+        tags: ["New"]
+      };
+      setEditedPost(newPost);
     } else {
-      setEditedPost(initialBlogPost);
+      const savedPost = localStorage.getItem(`blog-post-${id}`);
+      if (savedPost) {
+        setEditedPost(JSON.parse(savedPost));
+      } else {
+        setEditedPost(initialBlogPost);
+      }
     }
-  }, [id]);
+  }, [id, isNewMode]);
 
   const handleGoBack = () => {
     navigate('/');
@@ -130,21 +159,26 @@ export default function BlogPage() {
     if (editedPost) {
       localStorage.setItem(`blog-post-${id}`, JSON.stringify(editedPost));
       setIsEditing(false);
-      // Убираем параметр editor из URL
+      // Убираем параметры editor и new из URL
       navigate(`/blog/${id}`, { replace: true });
     }
   };
 
   const handleCancel = () => {
-    // Восстанавливаем исходные данные
-    const savedPost = localStorage.getItem(`blog-post-${id}`);
-    if (savedPost) {
-      setEditedPost(JSON.parse(savedPost));
+    if (isNewMode) {
+      // Если это новый пост, возвращаемся на главную
+      navigate('/');
     } else {
-      setEditedPost(initialBlogPost);
+      // Восстанавливаем исходные данные
+      const savedPost = localStorage.getItem(`blog-post-${id}`);
+      if (savedPost) {
+        setEditedPost(JSON.parse(savedPost));
+      } else {
+        setEditedPost(initialBlogPost);
+      }
+      setIsEditing(false);
+      navigate(`/blog/${id}`, { replace: true });
     }
-    setIsEditing(false);
-    navigate(`/blog/${id}`, { replace: true });
   };
 
   const updatePost = (field: keyof BlogPost, value: any) => {
@@ -519,25 +553,17 @@ export default function BlogPage() {
                   className="flex items-center space-x-2 px-4 py-2 text-neutral-400 hover:text-neutral-100 border border-neutral-700 rounded-lg transition-colors"
                 >
                   <X className="w-4 h-4" />
-                  <span>Cancel</span>
+                  <span>{isNewMode ? 'Discard' : 'Cancel'}</span>
                 </button>
                 <button
                   onClick={handleSave}
                   className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
                 >
                   <Save className="w-4 h-4" />
-                  <span>Save</span>
+                  <span>{isNewMode ? 'Create' : 'Save'}</span>
                 </button>
               </div>
-            ) : (
-              <button
-                onClick={() => setIsEditing(true)}
-                className="flex items-center space-x-2 px-4 py-2 text-neutral-400 hover:text-neutral-100 border border-neutral-700 rounded-lg transition-colors"
-              >
-                <Edit3 className="w-4 h-4" />
-                <span>Edit</span>
-              </button>
-            )}
+            ) : null}
           </div>
           
           <div className="flex items-center space-x-3 mb-4">
