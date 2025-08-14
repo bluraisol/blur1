@@ -810,74 +810,85 @@ export default function BlogPostPage() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-6 py-16">
+      <main className="max-w-4xl mx-auto px-6 py-8">
         <article>
           {/* Article Header */}
-          <header className="mb-16">
+          <header className="mb-12">
+            {/* Meta Info Row - Tags, Date, Reading Time */}
+            <div className="flex items-center space-x-6 mb-6 text-sm text-neutral-400">
+              {/* Tags */}
+              {post.tags.length > 0 && (
+                <>
+                  <div className="flex items-center flex-wrap gap-2">
+                    {post.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-neutral-800 text-neutral-300 rounded-full text-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <span>•</span>
+                </>
+              )}
+              
+              {/* Date */}
+              <div className="flex items-center space-x-2">
+                <Calendar className="w-4 h-4" />
+                <span>
+                  {new Date(post.publishedAt).toLocaleDateString('en-US', { 
+                    month: 'short', 
+                    day: 'numeric', 
+                    year: 'numeric' 
+                  })}
+                </span>
+              </div>
+              
+              <span>•</span>
+              
+              {/* Reading Time */}
+              <div className="flex items-center space-x-2">
+                <Clock className="w-4 h-4" />
+                <span>{calculateReadingTime(post.blocks)} min read</span>
+              </div>
+            </div>
+
             {/* Title */}
             {isEditing ? (
               <input
                 type="text"
                 value={post.title}
                 onChange={(e) => setPost({ ...post, title: e.target.value })}
-                className="w-full text-4xl md:text-5xl font-light leading-tight mb-8 bg-transparent border-b border-neutral-800 pb-4 focus:outline-none focus:border-blue-500 text-neutral-100"
+                className="w-full text-4xl md:text-5xl font-light leading-tight mb-6 bg-transparent border-b border-neutral-800 pb-4 focus:outline-none focus:border-blue-500 text-neutral-100"
                 placeholder="Enter title..."
               />
-            ) : (
-              <h1 className="text-4xl md:text-5xl font-light leading-tight mb-8 text-neutral-100">
-                {post.title}
-              </h1>
-            )}
-
-            {/* Simple Meta */}
-            <div className="flex items-center space-x-6 mb-8 text-sm text-neutral-400">
-              <div className="flex items-center space-x-2">
-                <img 
-                  src={authorAvatars[post.author] || authorAvatars['Blur Team']}
-                  alt={post.author}
-                  className="w-8 h-8 rounded-full object-cover"
-                />
-                <span>{post.author}</span>
-              </div>
-              <span>•</span>
-              <span>
-                {new Date(post.publishedAt).toLocaleDateString('en-US', { 
-                  month: 'short', 
-                  day: 'numeric', 
-                  year: 'numeric' 
-                })}
-              </span>
-              <span>•</span>
-              <span>{calculateReadingTime(post.blocks)} min read</span>
-            </div>
-
-            {/* Excerpt */}
+            {/* Subtitle/Excerpt */}
             {isEditing ? (
               <textarea
                 value={post.excerpt}
                 onChange={(e) => setPost({ ...post, excerpt: e.target.value })}
-                className="w-full text-lg text-neutral-400 leading-relaxed mb-8 bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-4 min-h-[100px] focus:outline-none focus:border-blue-500"
+                className="w-full text-lg text-neutral-400 leading-relaxed mb-6 bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-4 min-h-[100px] focus:outline-none focus:border-blue-500"
                 placeholder="Enter excerpt..."
               />
             ) : (
-              <p className="text-lg text-neutral-400 leading-relaxed mb-8 font-light">
+              <p className="text-lg text-neutral-400 leading-relaxed mb-6 font-light">
                 {post.excerpt}
               </p>
             )}
-            
-            {/* Tags */}
-            {post.tags.length > 0 && (
-              <div className="flex items-center flex-wrap gap-2 mb-8">
-                {post.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 bg-neutral-800 text-neutral-300 rounded-full text-sm"
-                  >
-                    {tag}
-                  </span>
-                ))}
+
+            {/* Author */}
+            <div className="flex items-center space-x-4">
+              <img 
+                src={authorAvatars[post.author] || authorAvatars['Blur Team']}
+                alt={post.author}
+                className="w-12 h-12 rounded-full object-cover border-2 border-neutral-800"
+              />
+              <div>
+                <div className="text-neutral-100 font-medium">{post.author}</div>
+                <div className="text-neutral-500 text-sm">Author</div>
               </div>
-            )}
+            </div>
           </header>
 
           {/* Content Blocks */}
