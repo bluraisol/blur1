@@ -91,54 +91,73 @@ export default function PricingPage() {
             return (
               <div
                 key={index}
-                className="relative bg-gradient-to-br from-green-900/30 to-emerald-800/20 border-2 border-green-500/50 shadow-xl shadow-green-500/20 rounded-2xl p-8 backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] transform group mb-12"
+                className="relative bg-gradient-to-br from-neutral-900/60 to-neutral-800/40 border border-green-500/30 shadow-2xl shadow-green-500/10 rounded-3xl overflow-hidden backdrop-blur-sm transition-all duration-500 hover:scale-[1.01] transform group mb-16"
               >
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-1 rounded-full text-sm font-medium uppercase tracking-wider">
-                    TRY BLUR
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-transparent to-green-500/5 opacity-50"></div>
+                
+                <div className="absolute -top-3 left-8">
+                  <div className="bg-gradient-to-r from-green-400 to-emerald-500 text-black px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
+                    Free Trial
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                  {/* Left - Icon and Price */}
-                  <div className="text-center lg:text-left">
-                    <div className="flex items-center justify-center lg:justify-start space-x-4 mb-4">
-                      <img 
-                        src={plan.icon} 
-                        alt={plan.name} 
-                        className="w-16 h-16 object-contain opacity-100"
-                      />
-                      <div>
-                        <div className="text-4xl font-light mb-1 text-green-400">{plan.price}</div>
-                        <div className="text-sm text-neutral-500 uppercase tracking-wider">{plan.name}</div>
+                <div className="relative z-10 p-10">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    {/* Left - Icon and Price */}
+                    <div className="lg:col-span-3 text-center lg:text-left">
+                      <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-4 lg:space-y-0 lg:space-x-4">
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-green-400/20 rounded-2xl blur-xl"></div>
+                          <img 
+                            src={plan.icon} 
+                            alt={plan.name} 
+                            className="relative w-20 h-20 object-contain opacity-100 drop-shadow-lg"
+                          />
+                        </div>
+                        <div className="text-center lg:text-left">
+                          <div className="text-6xl font-extralight mb-2 text-transparent bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text">
+                            {plan.price}
+                          </div>
+                          <div className="text-sm text-green-400/80 uppercase tracking-widest font-medium">
+                            {plan.name}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
-                  {/* Center - Description and Features */}
-                  <div className="lg:col-span-1">
-                    <p className="text-neutral-400 leading-relaxed text-sm mb-6">
-                      {plan.description}
-                    </p>
                     
-                    <ul className="space-y-2">
-                      {plan.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center space-x-3">
-                          <Check className="w-4 h-4 flex-shrink-0 text-green-400" />
-                          <span className="text-neutral-300 text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                    {/* Center - Description and Features */}
+                    <div className="lg:col-span-6">
+                      <p className="text-neutral-300 leading-relaxed text-base mb-8 font-light">
+                        {plan.description}
+                      </p>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {plan.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-center space-x-3 group">
+                            <div className="w-5 h-5 bg-green-500/20 rounded-full flex items-center justify-center group-hover:bg-green-500/30 transition-colors duration-200">
+                              <Check className="w-3 h-3 text-green-400" />
+                            </div>
+                            <span className="text-neutral-200 text-sm font-medium">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
 
-                  {/* Right - CTA Button */}
-                  <div className="text-center lg:text-right">
-                    <button
-                      onClick={() => handleSubscribe(plan.name)}
-                      className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-4 px-8 rounded-lg font-medium uppercase tracking-wider text-sm transition-all duration-300 transform hover:scale-105 shadow-lg shadow-green-500/25 hover:shadow-green-500/40"
-                    >
-                      Start Free Trial
-                    </button>
+                    {/* Right - CTA Button */}
+                    <div className="lg:col-span-3 text-center">
+                      <button
+                        onClick={() => handleSubscribe(plan.name)}
+                        className="relative group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-black py-5 px-10 rounded-2xl font-bold uppercase tracking-wider text-sm transition-all duration-300 transform hover:scale-105 shadow-xl shadow-green-500/30 hover:shadow-green-500/50 overflow-hidden"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <span className="relative z-10">Start Free Trial</span>
+                      </button>
+                      
+                      <p className="text-xs text-neutral-500 mt-4 font-light">
+                        No credit card required
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
