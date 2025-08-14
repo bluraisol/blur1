@@ -45,7 +45,7 @@ const mockBlogPosts: { [key: string]: BlogPost } = {
   '1': {
     id: '1',
     title: 'Blur v2.0: asdasdasd',
-    excerpt: 'Sosiski',
+    excerpt: '',
     author: 'Blur Team',
     publishedAt: '2025-08-15T10:00:00Z',
     status: 'published',
@@ -68,7 +68,17 @@ const mockBlogPosts: { [key: string]: BlogPost } = {
         type: 'text',
         content: { text: 'We\'re excited to announce the release of Blur AI v2.0, our most significant update yet. This release brings revolutionary improvements to our AI scanning capabilities, enhanced accuracy across all nine AI systems, and several new features requested by our community.' },
         order: 3
-      }
+      },
+      {
+        id: 'block-4',
+        type: 'callout',
+        content: { 
+          type: 'success',
+          title: 'Performance Boost',
+          text: 'Our new AI core processes 40% more tokens per second while maintaining 99.2% accuracy.'
+        },
+        order: 4
+      },
     ]
   },
   'test': {
