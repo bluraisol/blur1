@@ -38,6 +38,10 @@ export interface ContentBlock {
 export const blogApi = {
   // Get published posts
   async getPublishedPosts() {
+    if (supabaseUrl.includes('placeholder')) {
+      throw new Error('Supabase not configured. Please connect to Supabase to use blog functionality.');
+    }
+    
     const { data, error } = await supabase
       .from('blog_posts')
       .select('*')
@@ -50,6 +54,10 @@ export const blogApi = {
 
   // Get post by slug
   async getPostBySlug(slug: string) {
+    if (supabaseUrl.includes('placeholder')) {
+      throw new Error('Supabase not configured. Please connect to Supabase to use blog functionality.');
+    }
+    
     const { data, error } = await supabase
       .from('blog_posts')
       .select('*')
@@ -62,6 +70,10 @@ export const blogApi = {
 
   // Create new post
   async createPost(post: Partial<BlogPost>) {
+    if (supabaseUrl.includes('placeholder')) {
+      throw new Error('Supabase not configured. Please connect to Supabase to use blog functionality.');
+    }
+    
     const { data, error } = await supabase
       .from('blog_posts')
       .insert([{
@@ -77,6 +89,10 @@ export const blogApi = {
 
   // Update post
   async updatePost(id: string, updates: Partial<BlogPost>) {
+    if (supabaseUrl.includes('placeholder')) {
+      throw new Error('Supabase not configured. Please connect to Supabase to use blog functionality.');
+    }
+    
     const { data, error } = await supabase
       .from('blog_posts')
       .update({
@@ -93,6 +109,10 @@ export const blogApi = {
 
   // Delete post
   async deletePost(id: string) {
+    if (supabaseUrl.includes('placeholder')) {
+      throw new Error('Supabase not configured. Please connect to Supabase to use blog functionality.');
+    }
+    
     const { error } = await supabase
       .from('blog_posts')
       .delete()
