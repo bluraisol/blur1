@@ -855,7 +855,7 @@ export default function BlogPostPage() {
           </header>
 
           {/* Separator */}
-          <div className="border-t border-neutral-800/50 mt-8 mb-12"></div>
+          <div className="border-t border-neutral-800/50 mt-6 mb-12"></div>
 
           {/* Content Blocks */}
           <div className="space-y-6">
