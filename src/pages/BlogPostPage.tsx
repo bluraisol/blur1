@@ -817,11 +817,11 @@ export default function BlogPostPage() {
                 type="text"
                 value={post.title}
                 onChange={(e) => setPost({ ...post, title: e.target.value })}
-                className="w-full text-4xl md:text-5xl font-light leading-tight mb-8 bg-transparent border-b border-neutral-800 pb-4 focus:outline-none focus:border-blue-500 text-neutral-100"
+                className="w-full text-4xl md:text-5xl font-light leading-tight mb-4 bg-transparent border-b border-neutral-800 pb-4 focus:outline-none focus:border-blue-500 text-neutral-100"
                 placeholder="Enter title..."
               />
             ) : (
-              <h1 className="text-4xl md:text-5xl font-light leading-tight mb-8 text-neutral-100">
+              <h1 className="text-4xl md:text-5xl font-light leading-tight mb-4 text-neutral-100">
                 {post.title}
               </h1>
             )}
