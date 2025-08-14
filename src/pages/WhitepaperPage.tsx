@@ -82,9 +82,13 @@ export default function WhitepaperPage() {
           
           <button
             onClick={handleGoHome}
-            className="flex items-center space-x-2 px-3 py-1.5 text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
+           className="flex items-center space-x-2 px-3 py-1.5 text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
           >
-            <Home className="w-4 h-4" />
+           <img 
+             src="/media/static/home.png" 
+             alt="Home" 
+             className="w-4 h-4 object-contain opacity-60 hover:opacity-100 transition-all duration-200"
+           />
             <span>Home</span>
           </button>
         </div>

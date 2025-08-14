@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Home, BarChart3, Info, Phone, DollarSign, FileText, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   mousePosition: { x: number; y: number };
@@ -8,12 +8,12 @@ interface NavbarProps {
 }
 
 const navigationItems = [
-  { id: 'home', label: 'Home', icon: Home, type: 'anchor', path: '/#home' },
-  { id: 'metrics', label: 'Metrics', icon: BarChart3, path: '/#metrics', type: 'anchor' },
-  { id: 'about', label: 'About', icon: Info, path: '/#about', type: 'anchor' },
-  { id: 'pricing', label: 'Pricing', icon: DollarSign, path: '/pricing', type: 'route' },
-  { id: 'tokenomics', label: 'Tokenomics', icon: FileText, type: 'route', path: '/tokenomics' },
-  { id: 'contact', label: 'Connect', icon: Phone, path: '/connect', type: 'route' },
+  { id: 'home', label: 'Home', icon: '/media/static/home.png', type: 'anchor', path: '/#home' },
+  { id: 'metrics', label: 'Metrics', icon: '/media/static/metrics.png', path: '/#metrics', type: 'anchor' },
+  { id: 'about', label: 'About', icon: '/media/static/about.png', path: '/#about', type: 'anchor' },
+  { id: 'pricing', label: 'Pricing', icon: '/media/static/pricing.png', path: '/pricing', type: 'route' },
+  { id: 'tokenomics', label: 'Tokenomics', icon: '/media/static/tokenomics.png', type: 'route', path: '/tokenomics' },
+  { id: 'contact', label: 'Connect', icon: '/media/static/email.png', path: '/connect', type: 'route' },
 ];
 
 export default function Navbar({ mousePosition, activeSection = 'home' }: NavbarProps) {
@@ -110,7 +110,6 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
               
               {/* Навигационные элементы */}
               {navigationItems.map((item, index) => {
-                const IconComponent = item.icon;
                 const isActive = item.id === currentActive;
                 
                 return (
@@ -124,9 +123,13 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                     }`}
                     style={{ flex: '1 1 0%', minWidth: '140px' }}
                   >
-                    <IconComponent className={`w-4 h-4 flex-shrink-0 transition-all duration-300 ${
-                      isActive ? 'text-blue-400' : 'group-hover:text-blue-400'
-                    }`} />
+                    <img 
+                      src={item.icon} 
+                      alt={item.label} 
+                      className={`w-4 h-4 flex-shrink-0 object-contain transition-all duration-300 ${
+                        isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-100'
+                      }`}
+                    />
                     <span className="whitespace-nowrap text-sm font-medium">{item.label}</span>
                   </button>
                 );
@@ -156,7 +159,6 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
         >
           <div className="px-4 sm:px-6 py-4 space-y-2">
             {navigationItems.map((item) => {
-              const IconComponent = item.icon;
               const isActive = item.id === currentActive;
               
               return (
@@ -169,9 +171,13 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                       : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30'
                   }`}
                 >
-                  <IconComponent className={`w-5 h-5 flex-shrink-0 transition-all duration-200 ${
-                    isActive ? 'text-blue-400' : 'group-hover:text-blue-400'
-                  }`} />
+                  <img 
+                    src={item.icon} 
+                    alt={item.label} 
+                    className={`w-5 h-5 flex-shrink-0 object-contain transition-all duration-200 ${
+                      isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-100'
+                    }`}
+                  />
                   <span className="truncate">{item.label}</span>
                 </button>
               );

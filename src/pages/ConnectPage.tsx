@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Twitter, Send, Mail, ExternalLink, Copy, Check, FileText, ArrowRight } from 'lucide-react';
+import { Twitter, Send, ExternalLink, Copy, Check, FileText, ArrowRight } from 'lucide-react';
 
 export default function ConnectPage() {
   const [emailCopied, setEmailCopied] = useState(false);
@@ -132,7 +132,11 @@ export default function ConnectPage() {
                     <div className="relative flex items-center justify-between p-6 border border-neutral-800/50 rounded-xl hover:border-neutral-700/50 transition-all duration-300">
                       <div className="flex items-center space-x-4 flex-1">
                         <div className="w-12 h-12 bg-neutral-900/50 border border-neutral-800/50 rounded-xl flex items-center justify-center group-hover:border-blue-500/30 transition-colors duration-300">
-                          <Mail className="w-6 h-6 text-neutral-400 group-hover:text-blue-400 transition-colors duration-300" />
+                          <img 
+                            src="/media/static/email.png" 
+                            alt="Email" 
+                            className="w-6 h-6 object-contain opacity-60 group-hover:opacity-100 transition-all duration-300"
+                          />
                         </div>
                         <div className="flex-1">
                           <div className="text-neutral-300 text-sm mb-1">{contact.label}</div>
