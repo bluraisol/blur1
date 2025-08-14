@@ -8,11 +8,10 @@ export default function PricingPage() {
       price: 'FREE',
       description: "You'll be able to explore every feature, experience the full power of our new update, and see how Blur works in real time — no subscription required. Our team will be there to support you throughout.",
       features: [
-        'Full access to all features',
         'Real-time memecoin scanning',
         'Telegram alerts',
-        'Team support included',
-        'No commitment required'
+        'Default support',
+        'Community access',
       ],
       icon: '/media/static/trial.png',
       popular: false,
@@ -102,14 +101,14 @@ export default function PricingPage() {
                 {plan.trial && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-1 rounded-full text-sm font-medium uppercase tracking-wider">
-                      Free Trial
+                      Trial
                     </div>
                   </div>
                 )}
                 {plan.popular && !plan.trial && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium uppercase tracking-wider">
-                      Most Popular
+                      Popular
                     </div>
                   </div>
                 )}
