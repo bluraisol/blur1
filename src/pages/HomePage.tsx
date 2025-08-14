@@ -522,8 +522,24 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                       {/* AI Node */}
                       <div className="relative bg-gradient-to-br from-neutral-900/80 to-neutral-800/60 border border-neutral-700/50 group-hover:border-blue-400/50 rounded-xl p-3 backdrop-blur-sm transition-all duration-200 group-hover:scale-110">
                         <div className="text-center">
-                          <div className="text-lg font-bold text-blue-400 mb-1">{ai.percentage}</div>
-                          <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">Accuracy</div>
+                          <div className="flex items-center justify-center space-x-2 mb-2">
+                            <div className="text-lg font-bold text-blue-400">{ai.percentage}</div>
+                            <div className={`w-2 h-2 rounded-full ${
+                              parseFloat(ai.percentage) >= 95 ? 'bg-green-400' :
+                              parseFloat(ai.percentage) >= 85 ? 'bg-yellow-400' :
+                              parseFloat(ai.percentage) >= 70 ? 'bg-orange-400' : 'bg-red-400'
+                            }`}></div>
+                          </div>
+                          <div className="w-full bg-neutral-800 rounded-full h-1 mb-2">
+                            <div 
+                              className={`h-1 rounded-full transition-all duration-500 ${
+                                parseFloat(ai.percentage) >= 95 ? 'bg-green-400' :
+                                parseFloat(ai.percentage) >= 85 ? 'bg-yellow-400' :
+                                parseFloat(ai.percentage) >= 70 ? 'bg-orange-400' : 'bg-red-400'
+                              }`}
+                              style={{ width: ai.percentage }}
+                            ></div>
+                          </div>
                           <div className="text-xs text-neutral-300 font-medium uppercase tracking-wider whitespace-nowrap">{ai.name}</div>
                         </div>
                       </div>
@@ -539,10 +555,37 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                 <div key={index} className={`group bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 hover:border-blue-500/30 p-6 rounded-xl backdrop-blur-sm transition-all duration-200 hover:scale-105 ${
                   activeSection === 'about' ? 'opacity-100' : 'opacity-0'
                 }`}>
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="text-2xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors duration-200">{ai.percentage}</div>
-                    <div className="text-xs text-neutral-500 uppercase tracking-wider">Accuracy</div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="text-2xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors duration-200">{ai.percentage}</div>
+                      <div className={`w-3 h-3 rounded-full ${
+                        parseFloat(ai.percentage) >= 95 ? 'bg-green-400' :
+                        parseFloat(ai.percentage) >= 85 ? 'bg-yellow-400' :
+                        parseFloat(ai.percentage) >= 70 ? 'bg-orange-400' : 'bg-red-400'
+                      }`}></div>
+                    </div>
+                    <div className={`px-2 py-1 rounded-full text-xs font-medium ${
+                      parseFloat(ai.percentage) >= 95 ? 'bg-green-500/20 text-green-400' :
+                      parseFloat(ai.percentage) >= 85 ? 'bg-yellow-500/20 text-yellow-400' :
+                      parseFloat(ai.percentage) >= 70 ? 'bg-orange-500/20 text-orange-400' : 'bg-red-500/20 text-red-400'
+                    }`}>
+                      {parseFloat(ai.percentage) >= 95 ? 'Excellent' :
+                       parseFloat(ai.percentage) >= 85 ? 'High' :
+                       parseFloat(ai.percentage) >= 70 ? 'Good' : 'Fair'}
+                    </div>
                   </div>
+                  
+                  <div className="w-full bg-neutral-800 rounded-full h-2 mb-4">
+                    <div 
+                      className={`h-2 rounded-full transition-all duration-500 ${
+                        parseFloat(ai.percentage) >= 95 ? 'bg-green-400' :
+                        parseFloat(ai.percentage) >= 85 ? 'bg-yellow-400' :
+                        parseFloat(ai.percentage) >= 70 ? 'bg-orange-400' : 'bg-red-400'
+                      }`}
+                      style={{ width: ai.percentage }}
+                    ></div>
+                  </div>
+                  
                   <div className="font-medium text-neutral-100 text-sm mb-3 uppercase tracking-wider group-hover:text-white transition-colors duration-200">{ai.name}</div>
                   
                   <div className="text-neutral-400 text-sm leading-relaxed group-hover:text-neutral-300 transition-colors duration-200">{ai.description}</div>
