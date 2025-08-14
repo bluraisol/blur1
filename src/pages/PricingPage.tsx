@@ -101,7 +101,7 @@ export default function PricingPage() {
                 {plan.trial && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-1 rounded-full text-sm font-medium uppercase tracking-wider">
-                      Trial
+                      TRY BLUR
                     </div>
                   </div>
                 )}
@@ -119,7 +119,7 @@ export default function PricingPage() {
                       <img 
                         src={plan.icon} 
                         alt={plan.name} 
-                        className={`w-8 h-8 object-contain transition-all duration-300 ${
+                        className={`w-12 h-12 object-contain transition-all duration-300 ${
                           plan.trial 
                             ? 'opacity-100' 
                             : plan.popular 
@@ -176,7 +176,7 @@ export default function PricingPage() {
                       : 'border border-neutral-700 hover:border-blue-500/50 text-neutral-300 hover:text-white hover:bg-blue-500/5'
                   }`}
                 >
-                  {plan.trial ? 'Start Free Trial' : 'Subscribe Now'}
+                  {plan.trial ? 'Start' : 'Subscribe Now'}
                 </button>
               </div>
             );
