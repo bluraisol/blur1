@@ -14,7 +14,7 @@ function AppContent() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const location = useLocation();
   
-  const isWhitepaperPage = location.pathname === '/whitepaper';
+  const isWhitepaperPage = location.pathname === '/testwp';
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -58,7 +58,7 @@ function AppContent() {
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/tokenomics" element={<TokenomicsPage />} />
         <Route path="/connect" element={<ConnectPage />} />
-        <Route path="/whitepaper" element={<WhitepaperPage />} />
+        <Route path="/testwp" element={<WhitepaperPage />} />
       </Routes>
       
       {!isWhitepaperPage && <Footer />}
