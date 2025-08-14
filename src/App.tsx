@@ -7,6 +7,7 @@ import PricingPage from './pages/PricingPage';
 import TokenomicsPage from './pages/TokenomicsPage';
 import ConnectPage from './pages/ConnectPage';
 import WhitepaperPage from './pages/WhitepaperPage';
+import BlogPage from './pages/BlogPage';
 
 function AppContent() {
   const [activeSection, setActiveSection] = useState('home');
@@ -59,6 +60,7 @@ function AppContent() {
         <Route path="/tokenomics" element={<TokenomicsPage />} />
         <Route path="/connect" element={<ConnectPage />} />
         <Route path="/testwp" element={<WhitepaperPage />} />
+        <Route path="/blog/:id" element={<BlogPage />} />
       </Routes>
       
       {!isWhitepaperPage && <Footer />}
