@@ -228,6 +228,14 @@ export default function BlogPage() {
               <option value="heading">Heading</option>
               <option value="list">List</option>
               <option value="code">Code</option>
+              <option value="quote">Quote</option>
+              <option value="image">Image</option>
+              <option value="divider">Divider</option>
+              <option value="callout">Callout</option>
+              <option value="table">Table</option>
+              <option value="video">Video</option>
+              <option value="stats">Stats</option>
+              <option value="timeline">Timeline</option>
             </select>
             <button
               onClick={() => removeContentBlock(index)}
@@ -237,7 +245,11 @@ export default function BlogPage() {
             </button>
           </div>
 
-          {content.type === 'list' ? (
+          {content.type === 'divider' ? (
+            <div className="text-center text-neutral-500 text-sm">
+              Horizontal divider (no content needed)
+            </div>
+          ) : content.type === 'list' ? (
             <div className="space-y-2">
               {content.items?.map((item, itemIndex) => (
                 <div key={itemIndex} className="flex items-center space-x-2">
@@ -264,12 +276,56 @@ export default function BlogPage() {
                 <span>Add item</span>
               </button>
             </div>
+          ) : content.type === 'image' ? (
+            <div className="space-y-3">
+              <input
+                type="text"
+                value={content.url || ''}
+                onChange={(e) => updateContent(index, 'url', e.target.value)}
+                className="w-full bg-neutral-900/50 border border-neutral-700/50 rounded px-3 py-2 text-neutral-200"
+                placeholder="Image URL..."
+              />
+              <input
+                type="text"
+                value={content.alt || ''}
+                onChange={(e) => updateContent(index, 'alt', e.target.value)}
+                className="w-full bg-neutral-900/50 border border-neutral-700/50 rounded px-3 py-2 text-neutral-200"
+                placeholder="Alt text..."
+              />
+              <input
+                type="text"
+                value={content.text || ''}
+                onChange={(e) => updateContent(index, 'text', e.target.value)}
+                className="w-full bg-neutral-900/50 border border-neutral-700/50 rounded px-3 py-2 text-neutral-200"
+                placeholder="Caption..."
+              />
+            </div>
+          ) : content.type === 'callout' ? (
+            <div className="space-y-3">
+              <select
+                value={content.variant || 'info'}
+                onChange={(e) => updateContent(index, 'variant', e.target.value)}
+                className="bg-neutral-900/50 border border-neutral-700/50 rounded px-3 py-1 text-sm text-neutral-200"
+              >
+                <option value="info">Info</option>
+                <option value="warning">Warning</option>
+                <option value="success">Success</option>
+                <option value="error">Error</option>
+              </select>
+              <textarea
+                value={content.text || ''}
+                onChange={(e) => updateContent(index, 'text', e.target.value)}
+                className="w-full bg-neutral-900/50 border border-neutral-700/50 rounded px-3 py-2 text-neutral-200 resize-vertical"
+                rows={3}
+                placeholder="Callout content..."
+              />
+            </div>
           ) : (
             <textarea
               value={content.text || ''}
               onChange={(e) => updateContent(index, 'text', e.target.value)}
               className="w-full bg-neutral-900/50 border border-neutral-700/50 rounded px-3 py-2 text-neutral-200 resize-vertical"
-              rows={content.type === 'code' ? 6 : content.type === 'heading' ? 2 : 4}
+              rows={content.type === 'code' ? 6 : content.type === 'heading' ? 2 : content.type === 'quote' ? 3 : 4}
               placeholder={`Enter ${content.type} content...`}
             />
           )}
@@ -290,6 +346,129 @@ export default function BlogPage() {
           <h3 key={index} className="text-2xl font-medium text-neutral-100 mb-4 mt-8">
             {content.text}
           </h3>
+        );
+      case 'quote':
+        return (
+          <blockquote key={index} className="border-l-4 border-blue-500 pl-6 py-4 my-6 bg-blue-500/5 rounded-r-lg">
+            <p className="text-lg text-neutral-200 italic leading-relaxed">
+              "{content.text}"
+            </p>
+          </blockquote>
+        );
+      case 'image':
+        return (
+          <div key={index} className="my-8 text-center">
+            <img 
+              src={content.url} 
+              alt={content.alt || ''} 
+              className="max-w-full h-auto rounded-lg shadow-lg mx-auto"
+            />
+            {content.text && (
+              <p className="text-sm text-neutral-400 mt-3 italic">{content.text}</p>
+            )}
+          </div>
+        );
+      case 'divider':
+        return (
+          <div key={index} className="my-8 flex items-center">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-neutral-600 to-transparent"></div>
+            <div className="px-4">
+              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-neutral-600 to-transparent"></div>
+          </div>
+        );
+      case 'callout':
+        const calloutStyles = {
+          info: 'border-blue-500/30 bg-blue-500/10 text-blue-200',
+          warning: 'border-yellow-500/30 bg-yellow-500/10 text-yellow-200',
+          success: 'border-green-500/30 bg-green-500/10 text-green-200',
+          error: 'border-red-500/30 bg-red-500/10 text-red-200'
+        };
+        return (
+          <div key={index} className={`border-l-4 p-4 my-6 rounded-r-lg ${calloutStyles[content.variant || 'info']}`}>
+            <p className="leading-relaxed">{content.text}</p>
+          </div>
+        );
+      case 'table':
+        return (
+          <div key={index} className="my-8 overflow-x-auto">
+            <table className="w-full border border-neutral-700 rounded-lg overflow-hidden">
+              {content.headers && (
+                <thead className="bg-neutral-800/50">
+                  <tr>
+                    {content.headers.map((header, headerIndex) => (
+                      <th key={headerIndex} className="px-4 py-3 text-left text-neutral-200 font-medium border-b border-neutral-700">
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+              )}
+              <tbody>
+                {content.rows?.map((row, rowIndex) => (
+                  <tr key={rowIndex} className="border-b border-neutral-800/50 hover:bg-neutral-800/20">
+                    {row.map((cell, cellIndex) => (
+                      <td key={cellIndex} className="px-4 py-3 text-neutral-300">
+                        {cell}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+      case 'stats':
+        return (
+          <div key={index} className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+            {content.stats?.map((stat, statIndex) => (
+              <div key={statIndex} className="bg-neutral-900/40 border border-neutral-800/50 rounded-lg p-6 text-center">
+                <div className="text-2xl font-light text-blue-400 mb-2">{stat.value}</div>
+                <div className="text-sm text-neutral-300 mb-1">{stat.label}</div>
+                {stat.change && (
+                  <div className={`text-xs ${stat.change.startsWith('+') ? 'text-green-400' : stat.change.startsWith('-') ? 'text-red-400' : 'text-neutral-500'}`}>
+                    {stat.change}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        );
+      case 'timeline':
+        return (
+          <div key={index} className="my-8">
+            <div className="space-y-6">
+              {content.timelineItems?.map((item, itemIndex) => (
+                <div key={itemIndex} className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-3 h-3 bg-blue-500 rounded-full mt-2"></div>
+                  <div className="flex-1">
+                    <div className="flex items-center space-x-3 mb-1">
+                      <h4 className="font-medium text-neutral-200">{item.title}</h4>
+                      <span className="text-sm text-blue-400 bg-blue-500/20 px-2 py-1 rounded">{item.date}</span>
+                    </div>
+                    <p className="text-neutral-400 text-sm">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      case 'video':
+        return (
+          <div key={index} className="my-8">
+            <div className="aspect-video bg-neutral-900/50 border border-neutral-800/50 rounded-lg flex items-center justify-center">
+              <div className="text-center text-neutral-400">
+                <div className="text-4xl mb-2">📹</div>
+                <p>Video: {content.text || 'No title'}</p>
+                {content.url && (
+                  <a href={content.url} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 text-sm">
+                    Watch Video
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
         );
       case 'list':
         return (
@@ -486,6 +665,56 @@ export default function BlogPage() {
                     className="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded text-sm transition-colors"
                   >
                     Code
+                  </button>
+                  <button
+                    onClick={() => addContentBlock('quote')}
+                    className="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded text-sm transition-colors"
+                  >
+                    Quote
+                  </button>
+                  <button
+                    onClick={() => addContentBlock('image')}
+                    className="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded text-sm transition-colors"
+                  >
+                    Image
+                  </button>
+                </div>
+                <div className="flex justify-center space-x-3 mt-2">
+                  <button
+                    onClick={() => addContentBlock('divider')}
+                    className="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded text-sm transition-colors"
+                  >
+                    Divider
+                  </button>
+                  <button
+                    onClick={() => addContentBlock('callout')}
+                    className="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded text-sm transition-colors"
+                  >
+                    Callout
+                  </button>
+                  <button
+                    onClick={() => addContentBlock('table')}
+                    className="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded text-sm transition-colors"
+                  >
+                    Table
+                  </button>
+                  <button
+                    onClick={() => addContentBlock('stats')}
+                    className="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded text-sm transition-colors"
+                  >
+                    Stats
+                  </button>
+                  <button
+                    onClick={() => addContentBlock('timeline')}
+                    className="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded text-sm transition-colors"
+                  >
+                    Timeline
+                  </button>
+                  <button
+                    onClick={() => addContentBlock('video')}
+                    className="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded text-sm transition-colors"
+                  >
+                    Video
                   </button>
                 </div>
               </div>
