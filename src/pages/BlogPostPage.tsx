@@ -45,11 +45,11 @@ const mockBlogPosts: { [key: string]: BlogPost } = {
   '1': {
     id: '1',
     title: 'Blur v2.0: asdasdasd',
-    excerpt: '',
+    excerpt: 'Sosiski',
     author: 'Blur Team',
     publishedAt: '2025-08-15T10:00:00Z',
     status: 'published',
-    tags: [],
+    tags: ['Update'],
     blocks: [
       {
         id: 'block-1',
