@@ -17,7 +17,8 @@ import {
   User,
   Eye,
   Home,
-  MoveLeft
+  MoveLeft,
+  Clock
 } from 'lucide-react';
 
 interface ContentBlock {
@@ -433,29 +434,59 @@ export default function BlogPostPage() {
                 />
                 <input
                   type="text"
-                  placeholder="Caption"
+              {/* Meta Info Row */}
+              <div className="flex items-center space-x-6 mb-8 text-sm text-neutral-400">
+                {/* Tags */}
+                {post.tags.length > 0 && (
+                  <>
+                    {post.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-neutral-800 text-neutral-300 rounded-full text-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                    <span>•</span>
+                  </>
+                )}
+                
+                {/* Date */}
+                <div className="flex items-center space-x-2">
+                  <Calendar className="w-4 h-4" />
+                  <span>
+                    {new Date(post.publishedAt).toLocaleDateString('en-US', { 
+                      month: 'short', 
+                      day: 'numeric', 
+                      year: 'numeric' 
+                    })}
+                  </span>
+                </div>
+                
+                <span>•</span>
+                
+                {/* Reading Time */}
+                <div className="flex items-center space-x-2">
+                  <Clock className="w-4 h-4" />
+                  <span>{calculateReadingTime(post.blocks)} min read</span>
+                </div>
+              </div>
+
+              {/* Title */}
                   value={block.content.caption}
                   onChange={(e) => updateBlock(block.id, { ...block.content, caption: e.target.value })}
                   className="w-full bg-neutral-800 border border-neutral-600 rounded px-4 py-3"
                 />
                 <button
-                  onClick={() => setEditingBlockId(null)}
+                  className="w-full text-4xl md:text-5xl font-light leading-tight mb-6 bg-transparent border-b border-neutral-800 pb-4 focus:outline-none focus:border-blue-500 text-neutral-100"
                   className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
                 >
                   Done
-                </button>
+                <h1 className="text-4xl md:text-5xl font-light leading-tight mb-6 text-neutral-100">
               </div>
             ) : (
               <figure
                 className={`cursor-pointer ${isEditing ? 'hover:opacity-80 transition-opacity' : ''}`}
-                onClick={() => isEditing && setEditingBlockId(block.id)}
-              >
-                {block.content.url && (
-                  <img
-                    src={block.content.url}
-                    alt={block.content.alt}
-                    className="w-full rounded-lg"
-                  />
                 )}
                 {block.content.caption && (
                   <figcaption className="text-sm text-neutral-400 mt-3 text-center">
@@ -762,47 +793,32 @@ export default function BlogPostPage() {
           >
             <MoveLeft className="w-5 h-5" />
             <span>Back to Last Blog</span>
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100">
-      {/* Clean Header */}
-      <header className="sticky top-0 bg-neutral-950/95 backdrop-blur-sm border-b border-neutral-800/30 z-40">
-        <div className="max-w-4xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <button
-              onClick={() => navigate('/')}
-              className="flex items-center space-x-2 text-neutral-400 hover:text-neutral-100 transition-colors"
+              {/* Subtitle/Excerpt */}
             >
               <ArrowLeft className="w-5 h-5" />
               <span>Home</span>
             </button>
-            
+                  className="w-full text-lg text-neutral-400 leading-relaxed mb-12 bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-4 min-h-[100px] focus:outline-none focus:border-blue-500"
             <div className="flex items-center space-x-4">
               {!isCreateNew && (
                 <div className="flex items-center space-x-2 text-sm text-neutral-500">
-                  <Eye className="w-4 h-4" />
+                <p className="text-lg text-neutral-400 leading-relaxed mb-12 font-light">
                   <span>{post.status === 'published' ? 'Published' : 'Draft'}</span>
                 </div>
               )}
-              
-              {(hasEditorFlag || isCreateNew) && (
-                <button
-                  onClick={() => setIsEditing(!isEditing)}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
-                    isEditing 
-                      ? 'bg-green-600 hover:bg-green-700 text-white' 
-                      : 'bg-blue-600 hover:bg-blue-700 text-white'
-                  }`}
-                >
-                  {isEditing ? <Save className="w-4 h-4" /> : <Edit3 className="w-4 h-4" />}
-                  <span>{isEditing ? 'Save' : 'Edit'}</span>
+
+              {/* Author */}
+              <div className="flex items-center space-x-4">
+                <img 
+                  src={authorAvatars[post.author] || authorAvatars['Blur Team']}
+                  alt={post.author}
+                  className="w-12 h-12 rounded-full object-cover border-2 border-neutral-800"
+                />
+                <div>
+                  <div className="text-neutral-100 font-medium">{post.author}</div>
+                  <div className="text-neutral-500 text-sm">Author</div>
                 </button>
-              )}
+              </div>
             </div>
           </div>
         </div>
