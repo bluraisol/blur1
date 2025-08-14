@@ -771,51 +771,13 @@ export default function BlogPostPage() {
 
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100">
-      {/* Header */}
-      <header className="border-b border-neutral-800/50 bg-neutral-950/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-6">
-              <button
-                onClick={() => navigate('/')}
-                className="flex items-center space-x-2 text-neutral-400 hover:text-neutral-100 transition-colors"
-              >
-                <ArrowLeft className="w-5 h-5" />
-                <span>Home</span>
-              </button>
-            </div>
-
-            <div className="flex items-center space-x-4">
-              {!isCreateNew && (
-                <div className="flex items-center space-x-2 text-sm text-neutral-500">
-                  <span>{post.status === 'published' ? 'Published' : 'Draft'}</span>
-                </div>
-              )}
-
-              {/* Author */}
-              <div className="flex items-center space-x-4">
-                <img 
-                  src={authorAvatars[post.author] || authorAvatars['Blur Team']}
-                  alt={post.author}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-neutral-800"
-                />
-                <div>
-                  <div className="text-neutral-100 font-medium">{post.author}</div>
-                  <div className="text-neutral-500 text-sm">Author</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-6 py-8">
+      <main className="max-w-4xl mx-auto px-6 pt-28 pb-8">
         <article>
           {/* Article Header */}
-          <header className="mb-12">
-            {/* Meta Info Row - Tags, Date, Reading Time */}
-            <div className="flex items-center space-x-6 mb-6 text-sm text-neutral-400">
+          <header className="mb-16">
+            {/* 1. Теги, дата, время чтения */}
+            <div className="flex items-center space-x-6 mb-8 text-sm text-neutral-400">
               {/* Tags */}
               {post.tags.length > 0 && (
                 <>
@@ -854,41 +816,41 @@ export default function BlogPostPage() {
               </div>
             </div>
 
-            {/* Title */}
+            {/* 2. Заголовок */}
             {isEditing ? (
               <input
                 type="text"
                 value={post.title}
                 onChange={(e) => setPost({ ...post, title: e.target.value })}
-                className="w-full text-4xl md:text-5xl font-light leading-tight mb-6 bg-transparent border-b border-neutral-800 pb-4 focus:outline-none focus:border-blue-500 text-neutral-100"
+                className="w-full text-4xl md:text-5xl font-light leading-tight mb-8 bg-transparent border-b border-neutral-800 pb-4 focus:outline-none focus:border-blue-500 text-neutral-100"
                 placeholder="Enter title..."
               />
             ) : (
-              <h1 className="text-4xl md:text-5xl font-light leading-tight mb-6 text-neutral-100">
+              <h1 className="text-4xl md:text-5xl font-light leading-tight mb-8 text-neutral-100">
                 {post.title}
               </h1>
             )}
 
-            {/* Subtitle/Excerpt */}
+            {/* 3. Подзаголовок */}
             {isEditing ? (
               <textarea
                 value={post.excerpt}
                 onChange={(e) => setPost({ ...post, excerpt: e.target.value })}
-                className="w-full text-lg text-neutral-400 leading-relaxed mb-6 bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-4 min-h-[100px] focus:outline-none focus:border-blue-500"
+                className="w-full text-lg text-neutral-400 leading-relaxed mb-8 bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-4 min-h-[100px] focus:outline-none focus:border-blue-500"
                 placeholder="Enter excerpt..."
               />
             ) : (
-              <p className="text-lg text-neutral-400 leading-relaxed mb-6 font-light">
+              <p className="text-lg text-neutral-400 leading-relaxed mb-8 font-light">
                 {post.excerpt}
               </p>
             )}
 
-            {/* Author */}
+            {/* 4. Автор */}
             <div className="flex items-center space-x-4">
               <img 
                 src={authorAvatars[post.author] || authorAvatars['Blur Team']}
                 alt={post.author}
-                className="w-12 h-12 rounded-full object-cover border-2 border-neutral-800"
+                className="w-14 h-14 rounded-full object-cover border-2 border-neutral-800"
               />
               <div>
                 <div className="text-neutral-100 font-medium">{post.author}</div>
