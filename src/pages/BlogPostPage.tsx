@@ -16,7 +16,8 @@ import {
   Calendar,
   User,
   Eye,
-  Home
+  Home,
+  MoveLeft
 } from 'lucide-react';
 
 interface ContentBlock {
@@ -42,17 +43,46 @@ interface BlogPost {
 const mockBlogPosts: { [key: string]: BlogPost } = {
   '1': {
     id: '1',
-    title: 'Blur v2.0 Release - Revolutionary Updates',
-    excerpt: 'Major update brings enhanced AI capabilities, improved accuracy, and new features to the Blur ecosystem.',
-    author: 'Alex Chen',
-    publishedAt: '2025-01-15T10:00:00Z',
+    title: 'Blur v2.0: asdasdasd',
+    excerpt: '',
+    author: 'Blur Team',
+    publishedAt: '2025-08-15T10:00:00Z',
     status: 'published',
-    tags: ['Update', 'AI', 'Features'],
+    tags: [],
+    blocks: [
+      {
+        id: 'block-1',
+        type: 'text',
+        content: { text: 'Hello! It\'s been a while since our last update — and yes, the bot has been quiet for too long. But the silence had its purpose. We\'ve used this downtime to fix, improve, and prepare several changes aimed at making Blur smoother, more stable, and easier to use.' },
+        order: 1
+      },
+      {
+        id: 'block-2',
+        type: 'heading',
+        content: { level: 2, text: 'Here\'s what\'s new' },
+        order: 2
+      },
+      {
+        id: 'block-3',
+        type: 'text',
+        content: { text: 'We\'re excited to announce the release of Blur AI v2.0, our most significant update yet. This release brings revolutionary improvements to our AI scanning capabilities, enhanced accuracy across all nine AI systems, and several new features requested by our community.' },
+        order: 3
+      },
+    ]
+  },
+  'test': {
+    id: 'test',
+    title: 'Test Post',
+    excerpt: 'This is a test post.',
+    author: 'Blur Team',
+    publishedAt: '2025-08-15T10:00:00Z',
+    status: 'published',
+    tags: [],
     blocks: [
       {
         id: 'block-1',
         type: 'heading',
-        content: { level: 2, text: 'What\'s New in v2.0' },
+        content: { level: 2, text: 'What\'s New in v2.0?' },
         order: 1
       },
       {
@@ -148,49 +178,12 @@ const mockBlogPosts: { [key: string]: BlogPost } = {
         order: 11
       }
     ]
-  },
-  '2': {
-    id: '2',
-    title: 'New Partnership with Major DEX Platform',
-    excerpt: 'Blur announces strategic partnership to enhance liquidity scanning and provide real-time DEX data.',
-    author: 'Sarah Johnson',
-    publishedAt: '2025-01-10T14:30:00Z',
-    status: 'published',
-    tags: ['Partnership', 'DEX', 'Integration'],
-    blocks: [
-      {
-        id: 'block-1',
-        type: 'text',
-        content: { text: 'We\'re thrilled to announce our strategic partnership with a leading DEX platform, bringing enhanced liquidity scanning and real-time market data to all Blur users.' },
-        order: 1
-      }
-    ]
-  },
-  '3': {
-    id: '3',
-    title: 'Community Milestone: 50K Active Users',
-    excerpt: 'Celebrating our growing community and the incredible success stories from our users.',
-    author: 'Mike Rodriguez',
-    publishedAt: '2025-01-05T09:15:00Z',
-    status: 'published',
-    tags: ['Community', 'Milestone', 'Success'],
-    blocks: [
-      {
-        id: 'block-1',
-        type: 'text',
-        content: { text: 'We\'ve reached an incredible milestone - 50,000 active users! This achievement wouldn\'t be possible without our amazing community.' },
-        order: 1
-      }
-    ]
   }
 };
 
 // Author avatars mapping
 const authorAvatars: { [key: string]: string } = {
-  'Alex Chen': 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150',
-  'Sarah Johnson': 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150',
-  'Mike Rodriguez': 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150',
-  'Blur Team': 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=150'
+  'Blur Team': '/media/static/logo2.png'
 };
 
 // Reading time calculation
@@ -764,11 +757,11 @@ export default function BlogPostPage() {
         <div className="text-center">
           <h1 className="text-3xl font-light mb-6">Post Not Found</h1>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/blog/1')}
             className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors mx-auto"
           >
-            <Home className="w-5 h-5" />
-            <span>Back to Home</span>
+            <MoveLeft className="w-5 h-5" />
+            <span>Back to Last Blog</span>
           </button>
         </div>
       </div>

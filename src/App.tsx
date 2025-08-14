@@ -7,7 +7,6 @@ import PricingPage from './pages/PricingPage';
 import TokenomicsPage from './pages/TokenomicsPage';
 import ConnectPage from './pages/ConnectPage';
 import WhitepaperPage from './pages/WhitepaperPage';
-import BlogListPage from './pages/BlogListPage';
 import BlogPostPage from './pages/BlogPostPage';
 
 function AppContent() {
