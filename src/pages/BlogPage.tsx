@@ -3,9 +3,16 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, Tag, ExternalLink, Edit3, Save, X, Plus, Trash2 } from 'lucide-react';
 
 interface ContentBlock {
-  type: 'paragraph' | 'heading' | 'list' | 'code';
+  type: 'paragraph' | 'heading' | 'list' | 'code' | 'quote' | 'image' | 'divider' | 'callout' | 'table' | 'video' | 'stats' | 'timeline';
   text?: string;
   items?: string[];
+  url?: string;
+  alt?: string;
+  variant?: 'info' | 'warning' | 'success' | 'error';
+  rows?: string[][];
+  headers?: string[];
+  stats?: { label: string; value: string; change?: string }[];
+  timelineItems?: { date: string; title: string; description: string }[];
 }
 
 interface BlogPost {
