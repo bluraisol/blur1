@@ -95,12 +95,7 @@ export default function PricingPage() {
               >
                 {/* Glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-transparent to-green-500/5 opacity-50"></div>
-                
-               <div className="absolute top-6 left-6">
-                 <div className="bg-gradient-to-r from-green-400 to-emerald-500 text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
-                    Free Trial
-                  </div>
-                </div>
+              
 
                 <div className="relative z-10 p-10">
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -148,15 +143,11 @@ export default function PricingPage() {
                     <div className="lg:col-span-3 text-center">
                       <button
                         onClick={() => handleSubscribe(plan.name)}
-                        className="relative group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-black py-5 px-10 rounded-2xl font-bold uppercase tracking-wider text-sm transition-all duration-300 transform hover:scale-105 shadow-xl shadow-green-500/30 hover:shadow-green-500/50 overflow-hidden"
+                        className="relative group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-black py-5 px-12 rounded-2xl font-bold uppercase tracking-wider text-sm transition-all duration-300 transform hover:scale-105 shadow-xl shadow-green-500/30 hover:shadow-green-500/50 overflow-hidden"
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <span className="relative z-10">Start Free Trial</span>
+                        <span className="relative z-10">Try Blur</span>
                       </button>
-                      
-                      <p className="text-xs text-neutral-500 mt-4 font-light">
-                        No credit card required
-                      </p>
                     </div>
                   </div>
                 </div>
