@@ -780,19 +780,16 @@ export default function BlogPostPage() {
             <div className="flex items-center space-x-6 mb-8 text-sm text-neutral-400">
               {/* Tags */}
               {post.tags.length > 0 && (
-                <>
-                  <div className="flex items-center flex-wrap gap-2">
-                    {post.tags.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-neutral-800 text-neutral-300 rounded-full text-sm"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <span>•</span>
-                </>
+                <div className="flex items-center flex-wrap gap-2">
+                  {post.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm border border-blue-500/30"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               )}
               
               {/* Date */}
@@ -806,8 +803,6 @@ export default function BlogPostPage() {
                   })}
                 </span>
               </div>
-              
-              <span>•</span>
               
               {/* Reading Time */}
               <div className="flex items-center space-x-2">
