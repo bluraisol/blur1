@@ -476,11 +476,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
               <div className="relative z-10 flex items-center justify-center h-96">
                 <div className="w-32 h-32 bg-gradient-to-br from-blue-500/30 to-blue-600/20 border-2 border-blue-400/50 rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/30 backdrop-blur-sm">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center">
-                    <div className={`w-3 h-3 rounded-full ${
-                      parseFloat(ai.percentage) >= 95 ? 'bg-green-400' :
-                      parseFloat(ai.percentage) >= 85 ? 'bg-yellow-400' :
-                      parseFloat(ai.percentage) >= 70 ? 'bg-orange-400' : 'bg-red-400'
-                    }`}></div>
+                    <div className="w-3 h-3 rounded-full bg-blue-400"></div>
                   </div>
                 </div>
                 
