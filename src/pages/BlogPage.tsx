@@ -121,9 +121,9 @@ export default function BlogPage() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100">
+    <div className="min-h-screen bg-neutral-950 text-neutral-100 pt-20">
       {/* Header */}
-      <header className="border-b border-neutral-800/30 bg-neutral-950/90 backdrop-blur-sm">
+      <header className="border-b border-neutral-800/30 bg-neutral-950/90 backdrop-blur-sm pt-8">
         <div className="max-w-4xl mx-auto px-6 py-6">
           <button
             onClick={handleGoBack}
