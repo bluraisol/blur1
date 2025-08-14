@@ -17,7 +17,7 @@ interface BlogPost {
 const mockBlogPosts: BlogPost[] = [
   {
     id: '1',
-    title: 'Blur AI v2.0 Release - Revolutionary Updates',
+    title: 'Blur v2.0 Release - Revolutionary Updates',
     excerpt: 'Major update brings enhanced AI capabilities, improved accuracy, and new features to the Blur ecosystem.',
     author: 'Blur Team',
     publishedAt: '2025-01-15T10:00:00Z',
