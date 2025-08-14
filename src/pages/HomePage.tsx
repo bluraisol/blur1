@@ -550,6 +550,7 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                         parseFloat(ai.percentage) >= 70 ? 'bg-orange-400' : 'bg-red-400'
                       }`}></div>
                     </div>
+                   <div className="text-xs text-neutral-500 uppercase tracking-wider">Accuracy</div>
                   </div>
                   
                   <div className="font-medium text-neutral-100 text-sm mb-3 uppercase tracking-wider group-hover:text-white transition-colors duration-200">{ai.name}</div>
