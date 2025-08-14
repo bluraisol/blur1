@@ -493,8 +493,8 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
                   { name: "VALIDATION AI", percentage: "87.2%", angle: 160, distance: 175 },
                   { name: "DISTRIBUTION AI", percentage: "98.4%", angle: 200, distance: 155 },
                   { name: "HOLDER AI", percentage: "100%", angle: 240, distance: 180 },
-                  { name: "RUG CHECK AI", percentage: "70.4%", angle: 280, distance: 170 },
-                  { name: "PHISHING AI", percentage: "64.4%", angle: 320, distance: 165 }
+                  { name: "PHISHING AI", percentage: "64.4%", angle: 280, distance: 170 },
+                  { name: "RUG CHECK AI", percentage: "70.4%", angle: 320, distance: 165 }
                 ].map((ai, index) => {
                   const x = Math.cos((ai.angle * Math.PI) / 180) * ai.distance;
                   const y = Math.sin((ai.angle * Math.PI) / 180) * ai.distance;
