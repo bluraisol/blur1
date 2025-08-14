@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 
 interface NavbarProps {
   mousePosition: { x: number; y: number };
@@ -13,7 +13,7 @@ const navigationItems = [
   { id: 'about', label: 'About', icon: '/media/static/about.png', path: '/#about', type: 'anchor' },
   { id: 'pricing', label: 'Pricing', icon: '/media/static/pricing.png', path: '/pricing', type: 'route' },
   { id: 'tokenomics', label: 'Tokenomics', icon: '/media/static/tokenomics.png', type: 'route', path: '/tokenomics' },
-  { id: 'contact', label: 'Connect', icon: '/media/static/email.png', path: '/connect', type: 'route' },
+  { id: 'contact', label: 'Connect', icon: MessageCircle, path: '/connect', type: 'route' },
 ];
 
 export default function Navbar({ mousePosition, activeSection = 'home' }: NavbarProps) {
@@ -123,13 +123,19 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                     }`}
                     style={{ flex: '1 1 0%', minWidth: '140px' }}
                   >
-                    <img 
-                      src={item.icon} 
-                      alt={item.label} 
-                      className={`w-4 h-4 flex-shrink-0 object-contain transition-all duration-300 ${
-                        isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-100'
-                      }`}
-                    />
+                    {typeof item.icon === 'string' ? (
+                      <img 
+                        src={item.icon} 
+                        alt={item.label} 
+                        className={`w-4 h-4 flex-shrink-0 object-contain transition-all duration-300 ${
+                          isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-100'
+                        }`}
+                      />
+                    ) : (
+                      <item.icon className={`w-4 h-4 flex-shrink-0 transition-all duration-300 ${
+                        isActive ? 'text-white' : 'text-neutral-400 group-hover:text-neutral-200'
+                      }`} />
+                    )}
                     <span className="whitespace-nowrap text-sm font-medium">{item.label}</span>
                   </button>
                 );
@@ -171,13 +177,19 @@ export default function Navbar({ mousePosition, activeSection = 'home' }: Navbar
                       : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30'
                   }`}
                 >
-                  <img 
-                    src={item.icon} 
-                    alt={item.label} 
-                    className={`w-5 h-5 flex-shrink-0 object-contain transition-all duration-200 ${
-                      isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-100'
-                    }`}
-                  />
+                  {typeof item.icon === 'string' ? (
+                    <img 
+                      src={item.icon} 
+                      alt={item.label} 
+                      className={`w-5 h-5 flex-shrink-0 object-contain transition-all duration-200 ${
+                        isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-100'
+                      }`}
+                    />
+                  ) : (
+                    <item.icon className={`w-5 h-5 flex-shrink-0 transition-all duration-200 ${
+                      isActive ? 'text-white' : 'text-neutral-400 group-hover:text-neutral-200'
+                    }`} />
+                  )}
                   <span className="truncate">{item.label}</span>
                 </button>
               );
