@@ -770,17 +770,19 @@ export default function BlogPostPage() {
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100">
       {/* Header */}
-      <header className="border-b border-neutral-800/50 bg-neutral-950/80 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b border-neutral-800 bg-neutral-950/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <button
-              onClick={() => navigate('/')}
-              className="flex items-center space-x-2 text-neutral-400 hover:text-neutral-100 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span>Home</span>
-            </button>
-            
+            <div className="flex items-center space-x-6">
+              <button
+                onClick={() => navigate('/')}
+                className="flex items-center space-x-2 text-neutral-400 hover:text-neutral-100 transition-colors"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                <span>Home</span>
+              </button>
+            </div>
+
             <div className="flex items-center space-x-4">
               {!isCreateNew && (
                 <div className="flex items-center space-x-2 text-sm text-neutral-500">
