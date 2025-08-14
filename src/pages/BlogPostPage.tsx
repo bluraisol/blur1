@@ -44,41 +44,115 @@ interface BlogPost {
 const mockBlogPosts: { [key: string]: BlogPost } = {
   '1': {
     id: '1',
-    title: 'Blur v2.0: asdasdasd',
+    title: '🆕 Blur v2: New Site, LetsBonk Pool, Trial Access',
     excerpt: '',
     author: 'Blur Team',
-    publishedAt: '2025-08-15T10:00:00Z',
+    publishedAt: '2025-08-15T00:00:00Z',
     status: 'published',
-    tags: ['Update'],
+    tags: ['Major Update'],
     blocks: [
+      {
+        id: 'block-0',
+        type: 'callout',
+        content: { 
+          type: 'warning',
+          title: 'Blur Bot Stability Notice',
+          text: 'Due to time-intensive deployment processes, the bot may experience occasional instability. This notice will disappear automatically once everything is running smoothly.'
+        },
+        order: 0
+      },
       {
         id: 'block-1',
         type: 'text',
-        content: { text: 'Hello! It\'s been a while since our last update — and yes, the bot has been quiet for too long. But the silence had its purpose. We\'ve used this downtime to fix, improve, and prepare several changes aimed at making Blur smoother, more stable, and easier to use.' },
+        content: { text: '👋 Hello! It\'s been a while since our last update — and yes, the bot has been quiet for too long. But the silence had its purpose. We\'ve used this downtime to fix, improve, and prepare several changes aimed at making Blur smoother, more stable, and easier to use.' },
         order: 1
       },
       {
         id: 'block-2',
         type: 'heading',
-        content: { level: 2, text: 'Here\'s what\'s new' },
+        content: { level: 2, text: '❓ Here\'s what\'s new' },
         order: 2
       },
       {
         id: 'block-3',
         type: 'text',
-        content: { text: 'We\'re excited to announce the release of Blur AI v2.0, our most significant update yet. This release brings revolutionary improvements to our AI scanning capabilities, enhanced accuracy across all nine AI systems, and several new features requested by our community.' },
+        content: { text: 'We\'re excited to announce the release of Blur v2.0, our most significant update yet. This release brings revolutionary improvements to our AI scanning capabilities, enhanced accuracy across all nine AI systems, and several new features requested by our community.' },
         order: 3
       },
       {
-        id: 'block-4',
+        id: 'block-5',
+        type: 'heading',
+        content: { level: 3, text: '➕ New Pool Added: LetsBonk' },
+        order: 4
+      },
+      {
+        id: 'block-6',
+        type: 'text',
+        content: { text: 'We\'ve expanded Blur\'s functionality with a new pool — LetsBonk. This integration gives you direct access to trading and analytics for one of Solana\'s most active memecoins pool. The LetsBonk pool is now available in the bot, allowing you to track market movements, identify opportunities, and execute decisions with the same speed and precision you\'re used to in Blur.' },
+        order: 6
+      },
+      {
+        id: 'block-5',
         type: 'callout',
         content: { 
           type: 'success',
-          title: 'Performance Boost',
-          text: 'Our new AI core processes 40% more tokens per second while maintaining 99.2% accuracy.'
+          title: 'LetsBonk is Live',
+          text: 'Early access to the LetsBonk pool for all active subscribers — no extra setup required.'
         },
-        order: 4
+        order: 5
       },
+      {
+        id: 'block-5',
+        type: 'heading',
+        content: { level: 3, text: '⚙️ Token Processing, Reinvented' },
+        order: 7
+      },
+      {
+        id: 'block-6',
+        type: 'text',
+        content: { text: 'We\'re excited to share a significant behind-the-scenes upgrade to Blur: the complete overhaul of our token processing logic. Every token you interact with will now be handled faster, more efficiently, and with a much higher degree of stability. This upgrade is not just about speed — it\'s about laying a solid foundation for the next generation of Blur, making the platform more reliable, robust, and ready to scale.' },
+        order: 8
+      },
+      {
+        id: 'block-7',
+        type: 'heading',
+        content: { level: 2, text: '👀 Introducing the New Blur Website' },
+        order: 11
+      },
+      {
+        id: 'block-8',
+        type: 'text',
+        content: { text: 'We\'re thrilled to announce the launch of our very own website — your central hub for everything Blur. Now, all essential information about our project is in one place: detailed tokenomics, platform features, roadmap, and more. Additionally, our whitepaper is officially available, providing an in-depth look at our vision, technical foundations, and future plans. This is the place to explore, learn, and stay updated on everything Blur as we continue building a robust and transparent ecosystem.' },
+        order: 13
+      },
+      {
+        id: 'block-9',
+        type: 'image',
+        content: {
+          url: 'https://sun9-67.userapi.com/s/v1/if2/hORQoDZVwVjkJxuUEIl5i-RUTy6Y7aQZoZSrKbL-d7t7zkMkku2xAPRclgLKD4LWKqGUvUrWe11JrnN8fkJIqV-L.jpg?quality=95&as=32x15,48x23,72x34,108x52,160x77,240x115,360x173,480x230,540x259,640x307,720x345,1080x518,1280x613,1440x690,1903x912&from=bu&cs=1903x0',
+          alt: 'Blur Website Screenshot',
+          caption: 'Our new website is live! Explore the latest features and more at blur.ceo.'
+        },
+        order: 12
+      },
+      {
+        id: 'block-7',
+        type: 'heading',
+        content: { level: 3, text: '🎁 3 Days Free Trial in Blur Bot' },
+        order: 9
+      },
+      {
+        id: 'block-8',
+        type: 'text',
+        content: { text: 'A special 3-day free trial is now available for all users. Simply click the dedicated button in our Telegram bot to activate your trial and enjoy full access to all Blur features without any restrictions. This is the perfect way to explore everything Blur has to offer and experience our platform at its best.' },
+        order: 10
+      },
+      {
+        id: 'block-7',
+        type: 'heading',
+        content: { level: 3, text: '🙏 Thank you for being part of the Blur journey. We\'re continuously improving, and your support drives us forward. Stay tuned for more updates and features coming your way.' },
+        order: 14
+      }
     ]
   },
   'test': {

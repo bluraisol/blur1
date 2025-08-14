@@ -66,6 +66,16 @@ export default function Footer() {
                 <span className="text-neutral-300 group-hover:text-white transition-colors duration-200">Whitepaper</span>
                 <ExternalLink className="w-3 h-3 text-neutral-500 opacity-0 group-hover:opacity-100 transition-all duration-200" />
               </a>
+
+              <a 
+                href="https://privatezone.blur.ceo/blog/1" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 py-2 hover:bg-neutral-900/30 rounded-lg transition-all duration-200 group"
+              >
+                <ExternalLink className="w-5 h-5 text-neutral-400 group-hover:text-blue-400 transition-colors duration-200" />
+                <span className="text-neutral-300 group-hover:text-white transition-colors duration-200">Latest Blog</span>
+              </a>
             </div>
           </div>
           
