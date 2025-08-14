@@ -61,7 +61,6 @@ function AppContent() {
         <Route path="/tokenomics" element={<TokenomicsPage />} />
         <Route path="/connect" element={<ConnectPage />} />
         <Route path="/whitepaper" element={<WhitepaperPage />} />
-        <Route path="/blog" element={<BlogListPage />} />
         <Route path="/blog/:id" element={<BlogPostPage />} />
       </Routes>
       
