@@ -7,8 +7,6 @@ import PricingPage from './pages/PricingPage';
 import TokenomicsPage from './pages/TokenomicsPage';
 import ConnectPage from './pages/ConnectPage';
 import WhitepaperPage from './pages/WhitepaperPage';
-import BlogPostPage from './pages/BlogPostPage';
-import CreateBlogPage from './pages/CreateBlogPage';
 
 function AppContent() {
   const [activeSection, setActiveSection] = useState('home');
@@ -16,7 +14,7 @@ function AppContent() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const location = useLocation();
   
-  const isWhitepaperPage = location.pathname === '/testwp';
+  const isWhitepaperPage = location.pathname === '/whitepaper';
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -60,9 +58,7 @@ function AppContent() {
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/tokenomics" element={<TokenomicsPage />} />
         <Route path="/connect" element={<ConnectPage />} />
-        <Route path="/testwp" element={<WhitepaperPage />} />
-        <Route path="/blog/:id" element={<BlogPostPage />} />
-        <Route path="/blog/create-new" element={<CreateBlogPage />} />
+        <Route path="/whitepaper" element={<WhitepaperPage />} />
       </Routes>
       
       {!isWhitepaperPage && <Footer />}
