@@ -85,99 +85,138 @@ export default function PricingPage() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {plans.map((plan, index) => {
+        <div className="max-w-7xl mx-auto">
+          {/* FREE Trial Block - Horizontal */}
+          {plans.filter(plan => plan.trial).map((plan, index) => {
             return (
               <div
                 key={index}
-                className={`relative bg-gradient-to-br rounded-2xl p-8 backdrop-blur-sm transition-all duration-500 hover:scale-105 transform group ${
-                  plan.trial
-                    ? 'from-green-900/30 to-emerald-800/20 border-2 border-green-500/50 shadow-xl shadow-green-500/20'
-                    : plan.popular 
-                    ? 'from-neutral-900/40 to-neutral-800/20 border-2 border-blue-500/50 shadow-xl shadow-blue-500/20' 
-                    : 'from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 hover:border-blue-500/30'
-                }`}
+                className="relative bg-gradient-to-br from-green-900/30 to-emerald-800/20 border-2 border-green-500/50 shadow-xl shadow-green-500/20 rounded-2xl p-8 backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] transform group mb-12"
               >
-                {plan.trial && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-1 rounded-full text-sm font-medium uppercase tracking-wider">
-                      TRY BLUR
-                    </div>
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-1 rounded-full text-sm font-medium uppercase tracking-wider">
+                    TRY BLUR
                   </div>
-                )}
-                {plan.popular && !plan.trial && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium uppercase tracking-wider">
-                      Popular
-                    </div>
-                  </div>
-                )}
+                </div>
 
-                <div className="mb-8">
-                  <div className="flex items-center justify-between mb-4">
-                    {typeof plan.icon === 'string' ? (
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                  {/* Left - Icon and Price */}
+                  <div className="text-center lg:text-left">
+                    <div className="flex items-center justify-center lg:justify-start space-x-4 mb-4">
+                      <img 
+                        src={plan.icon} 
+                        alt={plan.name} 
+                        className="w-16 h-16 object-contain opacity-100"
+                      />
+                      <div>
+                        <div className="text-4xl font-light mb-1 text-green-400">{plan.price}</div>
+                        <div className="text-sm text-neutral-500 uppercase tracking-wider">{plan.name}</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Center - Description and Features */}
+                  <div className="lg:col-span-1">
+                    <p className="text-neutral-400 leading-relaxed text-sm mb-6">
+                      {plan.description}
+                    </p>
+                    
+                    <ul className="space-y-2">
+                      {plan.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center space-x-3">
+                          <Check className="w-4 h-4 flex-shrink-0 text-green-400" />
+                          <span className="text-neutral-300 text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Right - CTA Button */}
+                  <div className="text-center lg:text-right">
+                    <button
+                      onClick={() => handleSubscribe(plan.name)}
+                      className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-4 px-8 rounded-lg font-medium uppercase tracking-wider text-sm transition-all duration-300 transform hover:scale-105 shadow-lg shadow-green-500/25 hover:shadow-green-500/40"
+                    >
+                      Start Free Trial
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+
+          {/* Paid Plans - Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {plans.filter(plan => !plan.trial).map((plan, index) => {
+              return (
+                <div
+                  key={index}
+                  className={`relative bg-gradient-to-br rounded-2xl p-8 backdrop-blur-sm transition-all duration-500 hover:scale-105 transform group ${
+                    plan.popular 
+                      ? 'from-neutral-900/40 to-neutral-800/20 border-2 border-blue-500/50 shadow-xl shadow-blue-500/20' 
+                      : 'from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 hover:border-blue-500/30'
+                  }`}
+                >
+                  {plan.popular && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium uppercase tracking-wider">
+                        Popular
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="mb-8">
+                    <div className="flex items-center justify-between mb-4">
                       <img 
                         src={plan.icon} 
                         alt={plan.name} 
                         className={`w-12 h-12 object-contain transition-all duration-300 ${
-                          plan.trial 
-                            ? 'opacity-100' 
-                            : plan.popular 
+                          plan.popular 
                             ? 'opacity-100' 
                             : 'opacity-60 group-hover:opacity-100'
                         }`}
                       />
-                    ) : (
-                      <plan.icon className={`w-8 h-8 transition-colors duration-300 ${
-                        plan.trial 
-                          ? 'text-green-400' 
-                          : plan.popular 
-                          ? 'text-blue-400' 
-                          : 'text-neutral-400 group-hover:text-blue-400'
-                      }`} />
-                    )}
-                    <div className="text-right">
-                      <div className={`text-3xl font-light mb-1 ${
-                        plan.trial ? 'text-green-400' : 'text-neutral-100'
-                      }`}>{plan.price}</div>
-                      <div className="text-sm text-neutral-500 uppercase tracking-wider">{plan.name}</div>
+                      <div className="text-right">
+                        <div className="text-3xl font-light mb-1 text-neutral-100">{plan.price}</div>
+                        <div className="text-sm text-neutral-500 uppercase tracking-wider">{plan.name}</div>
+                      </div>
                     </div>
+                    
+                    <p className="text-neutral-400 leading-relaxed text-sm">
+                      {plan.description}
+                    </p>
                   </div>
-                  
-                  <p className="text-neutral-400 leading-relaxed text-sm">
-                    {plan.description}
-                  </p>
-                </div>
 
-                <div className="mb-8">
-                  <ul className="space-y-3">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-3">
-                        <Check className={`w-4 h-4 flex-shrink-0 transition-colors duration-300 ${
-                          plan.trial 
-                            ? 'text-green-400' 
-                            : plan.popular 
-                            ? 'text-blue-400' 
-                            : 'text-neutral-500 group-hover:text-blue-400'
-                        }`} />
-                        <span className="text-neutral-300 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  <div className="mb-8">
+                    <ul className="space-y-3">
+                      {plan.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center space-x-3">
+                          <Check className={`w-4 h-4 flex-shrink-0 transition-colors duration-300 ${
+                            plan.popular 
+                              ? 'text-blue-400' 
+                              : 'text-neutral-500 group-hover:text-blue-400'
+                          }`} />
+                          <span className="text-neutral-300 text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                <button
-                  onClick={() => handleSubscribe(plan.name)}
-                  className={`w-full py-3 px-6 rounded-lg font-medium uppercase tracking-wider text-sm transition-all duration-300 transform hover:scale-105 ${
-                    plan.trial
-                      ? 'bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-lg shadow-green-500/25 hover:shadow-green-500/40'
-                      : plan.popular
-                      ? 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40'
-                      : 'border border-neutral-700 hover:border-blue-500/50 text-neutral-300 hover:text-white hover:bg-blue-500/5'
-                  }`}
-                >
-                  {plan.trial ? 'Start' : 'Subscribe Now'}
-                </button>
+                  <button
+                    onClick={() => handleSubscribe(plan.name)}
+                    className={`w-full py-3 px-6 rounded-lg font-medium uppercase tracking-wider text-sm transition-all duration-300 transform hover:scale-105 ${
+                      plan.popular
+                        ? 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40'
+                        : 'border border-neutral-700 hover:border-blue-500/50 text-neutral-300 hover:text-white hover:bg-blue-500/5'
+                    }`}
+                  >
+                    Subscribe Now
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
               </div>
             );
           })}
