@@ -91,13 +91,13 @@ export default function PricingPage() {
             return (
               <div
                 key={index}
-                className="relative bg-gradient-to-br from-neutral-900/60 to-neutral-800/40 border border-green-500/30 shadow-2xl shadow-green-500/10 rounded-3xl overflow-hidden backdrop-blur-sm transition-all duration-500 hover:scale-[1.01] transform group mb-16 mt-8"
+               className="relative bg-gradient-to-br from-neutral-900/60 to-neutral-800/40 border border-green-500/30 shadow-2xl shadow-green-500/10 rounded-3xl overflow-hidden backdrop-blur-sm transition-all duration-500 hover:scale-[1.01] transform group mb-16"
               >
                 {/* Glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-transparent to-green-500/5 opacity-50"></div>
                 
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-green-400 to-emerald-500 text-black px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
+               <div className="absolute top-6 left-6">
+                 <div className="bg-gradient-to-r from-green-400 to-emerald-500 text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
                     Free Trial
                   </div>
                 </div>
