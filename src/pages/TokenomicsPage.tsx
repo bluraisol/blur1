@@ -11,7 +11,7 @@ export default function TokenomicsPage() {
     { category: 'Team', percentage: '6%', tokens: '60M', color: 'from-red-500 to-red-600' },
     { category: 'CEX Liquidity', percentage: '6%', tokens: '60M', color: 'from-pink-500 to-pink-600' },
     { category: 'KOLs', percentage: '5.5%', tokens: '55M', color: 'from-yellow-500 to-yellow-600' },
-    { category: 'Advisory', percentage: '5%', tokens: '50M', color: 'from-indigo-500 to-indigo-600' }
+    { category: 'DEV Tokens', percentage: '5%', tokens: '50M', color: 'from-indigo-500 to-indigo-600' }
   ];
 
   const vestingSchedule = [
@@ -23,7 +23,7 @@ export default function TokenomicsPage() {
     { who: 'Team', tokens: '60M (6%)', cliff: '6m', vesting: '36m', status: 'vesting' },
     { who: 'CEX Liquidity', tokens: '60M (6%)', cliff: '-', vesting: '-', status: 'immediate' },
     { who: 'KOLs', tokens: '55M (5.5%)', cliff: '2m', vesting: '6m', status: 'vesting' },
-    { who: 'Advisory', tokens: '50M (5%)', cliff: '2m', vesting: '12m', status: 'vesting' }
+    { who: 'DEV Tokens', tokens: '50M (5%)', cliff: 'Locked (1m)', vesting: 'Locked (1m)', status: 'locked' }
   ];
 
   return (

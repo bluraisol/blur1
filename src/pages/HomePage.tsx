@@ -150,6 +150,14 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
     { rank: 5, token: '$URMOM', calledAt: '43.5K', ath: '24.32M', returnX: '453x', link: 'https://pump.fun/coin/9j6twpYWrV1ueJok76D9YK8wJTVoG9Zy8spC7wnTpump'  }
   ], []);
 
+  const topTokensUpdData = useMemo(() => [
+    { rank: 1, token: '$GROK', calledAt: '34.1K', ath: '1.85M', returnX: '53.2x', link: 'https://pump.fun/coin/D7BsYeiPsqC6ty4uRyJhNtQ9XpPFGnRB3mcsDiBspump' },
+    { rank: 2, token: '$SANDWICH', calledAt: '36K', ath: '1.6M', returnX: '44x', link: 'https://pump.fun/coin/CS4zw6awUFKcYbYJbukqtWZF6iee7JZEsnWis2TZpump' },
+    { rank: 3, token: '$AOLMAN', calledAt: '16.7K', ath: '510K', returnX: '30x', link: 'https://pump.fun/coin/5YUMaw3fFCRMySvuYMgZJ6nB2te3wvo9QGdP3tNNpump' },
+    { rank: 4, token: '$CURIO', calledAt: '43.1K', ath: '1.08M', returnX: '24.7x', link: 'https://pump.fun/coin/A7CBQGYvZ3JhBCrHEhVkSBpyyooCygw91tZbcV2gpump' },
+    { rank: 5, token: '$LOUIE', calledAt: '25.6K', ath: '415K', returnX: '16.2x', link: 'https://pump.fun/coin/Arh2U7Bi17wfDFCH11Ez4St2mBYxciEGRsQGi85epump' }
+  ], []);
+
   const aiSystemsData = useMemo(() => [
     {
       percentage: "100%",
@@ -347,6 +355,94 @@ export default function HomePage({ activeSection, setActiveSection, isScrolling,
           </div>
           
           {/* Top 5 Tokens Table */}
+          <div className={`mt-16 transition-opacity duration-500 ${
+            activeSection === 'metrics' ? 'transform translate-y-0 opacity-100' : 'transform translate-y-8 opacity-60'
+          }`}>
+            <div className="flex items-center space-x-3 mb-8">
+              <Trophy className="w-6 h-6 text-blue-400" />
+              <h3 className="text-3xl font-light tracking-tight">Top 5 Tokens <span className="text-transparent bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text">Since The Last Update</span></h3>
+            </div>
+            
+            <div className="bg-gradient-to-br from-neutral-900/40 to-neutral-800/20 border border-neutral-800/50 rounded-xl overflow-hidden backdrop-blur-sm">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-neutral-800/50">
+                      <th className="text-left py-4 px-6 text-sm font-medium text-neutral-300 uppercase tracking-wider">Rank</th>
+                      <th className="text-left py-4 px-6 text-sm font-medium text-neutral-300 uppercase tracking-wider">Token</th>
+                      <th className="text-center py-4 px-6 text-sm font-medium text-neutral-300 uppercase tracking-wider">Called At</th>
+                      <th className="text-center py-4 px-6 text-sm font-medium text-neutral-300 uppercase tracking-wider">ATH</th>
+                      <th className="text-center py-4 px-6 text-sm font-medium text-neutral-300 uppercase tracking-wider">Return</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {topTokensUpdData.map((token, index) => (
+                      <tr key={index} className="border-b border-neutral-800/30 hover:bg-neutral-800/20 transition-colors duration-200 group">
+                        <td className="py-4 px-6">
+                          <div className="flex items-center space-x-3">
+                            <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
+                              token.rank === 1 ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-white' :
+                              token.rank === 2 ? 'bg-gradient-to-r from-gray-400 to-gray-500 text-white' :
+                              token.rank === 3 ? 'bg-gradient-to-r from-orange-600 to-orange-700 text-white' :
+                              'bg-gradient-to-r from-blue-500 to-blue-600 text-white'
+                            }`}>
+                              {token.rank}
+                            </div>
+                          </div>
+                        </td>
+                        <td className="py-4 px-6">
+                          <div className="flex items-center space-x-3">
+                            <img 
+                              src={`/media/static/updcoin${token.rank}.png`}
+                              alt={`${token.token} logo`}
+                              className="w-8 h-8 rounded-full object-cover shadow-lg"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                              }}
+                            />
+                            <a 
+                              href={token.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-bold text-lg text-blue-400 group-hover:text-blue-300 hover:text-blue-200 transition-colors duration-200 cursor-pointer hover:underline"
+                            >
+                              {token.token}
+                            </a>
+                          </div>
+                        </td>
+                        <td className="py-4 px-6 text-center">
+                          <span className="text-neutral-300 group-hover:text-neutral-100 transition-colors duration-200">
+                            {token.calledAt}
+                          </span>
+                        </td>
+                        <td className="py-4 px-6 text-center">
+                          <span className="text-green-400 font-medium group-hover:text-green-300 transition-colors duration-200">
+                            {token.ath}
+                          </span>
+                        </td>
+                        <td className="py-4 px-6 text-center">
+                          <div className="flex flex-col items-center space-y-1">
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-emerald-500/20 rounded-lg blur-sm"></div>
+                              <div className="relative bg-gradient-to-r from-green-500/10 to-emerald-600/10 border border-green-400/30 rounded-lg px-3 py-2 backdrop-blur-sm">
+                                <span className="text-xl font-bold text-transparent bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text">
+                                  {token.returnX}
+                                </span>
+                              </div>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <div></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
           <div className={`mt-16 transition-opacity duration-500 ${
             activeSection === 'metrics' ? 'transform translate-y-0 opacity-100' : 'transform translate-y-8 opacity-60'
           }`}>
