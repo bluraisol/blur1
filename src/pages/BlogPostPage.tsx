@@ -52,16 +52,6 @@ const mockBlogPosts: { [key: string]: BlogPost } = {
     tags: ['Major Update'],
     blocks: [
       {
-        id: 'block-0',
-        type: 'callout',
-        content: { 
-          type: 'warning',
-          title: 'Blur Bot Stability Notice',
-          text: 'Due to time-intensive deployment processes, the bot may experience occasional instability. This notice will disappear automatically once everything is running smoothly.'
-        },
-        order: 0
-      },
-      {
         id: 'block-1',
         type: 'text',
         content: { text: '👋 Hello! It\'s been a while since our last update — and yes, the bot has been quiet for too long. But the silence had its purpose. We\'ve used this downtime to fix, improve, and prepare several changes aimed at making Blur smoother, more stable, and easier to use.' },
@@ -153,6 +143,27 @@ const mockBlogPosts: { [key: string]: BlogPost } = {
         content: { level: 3, text: '🙏 Thank you for being part of the Blur journey. We\'re continuously improving, and your support drives us forward. Stay tuned for more updates and features coming your way.' },
         order: 14
       }
+    ]
+  },
+  '2': {
+    id: '2',
+    title: 'Nothing much, just a test post',
+    excerpt: '',
+    author: 'Blur Team',
+    publishedAt: '2025-08-23T00:00:00Z',
+    status: 'published',
+    tags: ['Update'],
+    blocks: [
+      {
+        id: 'block-1',
+        type: 'image',
+        content: {
+          url: '/media/static/Top5Tokens.png',
+          alt: '',
+          caption: 'Top 5 Tokens Since The Last Update'
+        },
+        order: 1
+      },
     ]
   },
   'test': {
